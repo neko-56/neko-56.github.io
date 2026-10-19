@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -7,193 +7,198 @@
 <title>NEKO56 Information</title>
 
 <style>
-html,
-body {
+  :root {
+    --screen: #1f6b2d;
+    --screen-deep: #195d27;
+    --text: #d4f0cd;
+    --glow: rgba(220, 255, 214, 0.16);
+    --frame: #0c0f0c;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
     margin: 0;
     min-height: 100%;
-    background: #001b08;
-}
+    background: var(--frame);
+  }
 
-body {
-    box-sizing: border-box;
-    padding: 7vh 7vw;
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0;
+  }
 
-    color: #8cff9a;
+  .terminal {
+    position: relative;
+
+    width: min(100vw, 1180px);
+    aspect-ratio: 4 / 3;
+
+    overflow: hidden;
+
     background:
-        repeating-linear-gradient(
-            to bottom,
-            rgba(255,255,255,0.025) 0px,
-            rgba(255,255,255,0.025) 1px,
-            transparent 2px,
-            transparent 4px
-        ),
-        radial-gradient(
-            ellipse at center,
-            #003f14 0%,
-            #002b0d 65%,
-            #001807 100%
-        );
+      radial-gradient(
+        ellipse at 50% 42%,
+        var(--screen) 0%,
+        var(--screen) 68%,
+        var(--screen-deep) 100%
+      );
+
+    color: var(--text);
 
     font-family:
-        "Courier New",
-        Courier,
-        monospace;
+      Monaco,
+      "Lucida Console",
+      "Courier New",
+      monospace;
 
-    font-size: clamp(16px, 1.75vw, 27px);
-    line-height: 1.45;
+    font-size: clamp(10px, 1.46vw, 19px);
+    font-weight: 400;
+    line-height: 1.18;
 
     text-shadow:
-        0 0 4px rgba(120,255,140,0.55),
-        0 0 9px rgba(80,255,110,0.18);
-}
+      0 0 2px var(--glow);
+  }
 
-.screen {
-    max-width: 1250px;
-    margin: 0 auto;
-}
+  .terminal::after {
+    content: "";
 
-h1 {
-    margin: 0 0 1.6em;
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+      repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.012) 0,
+        rgba(255,255,255,0.012) 1px,
+        rgba(0,0,0,0.012) 1px,
+        rgba(0,0,0,0.012) 3px
+      );
+  }
+
+  .content {
+    position: absolute;
+    inset: 0;
+
+    padding:
+      5.8%
+      5.7%
+      4.2%;
+  }
+
+  h1 {
+    margin: 0 0 3em;
+
     text-align: center;
 
-    font-size: 1.35em;
-    font-weight: normal;
-    letter-spacing: 0.04em;
-}
+    font: inherit;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
 
-.intro {
-    margin-bottom: 1.7em;
-}
+  pre {
+    margin: 0;
 
-.menu {
-    display: grid;
-    grid-template-columns: 10em 1fr;
-    column-gap: 2.5em;
-    row-gap: 0.8em;
-}
+    white-space: pre;
 
-.menu-name,
-.menu-text {
-    min-width: 0;
-}
+    font: inherit;
+    color: inherit;
+  }
 
-a,
-a:visited {
-    color: #9affaa;
+  a,
+  a:visited {
+    color: inherit;
     text-decoration: none;
-}
+  }
 
-a:hover {
+  a:hover,
+  a:focus-visible {
     text-decoration: underline;
-}
+    outline: none;
+  }
 
-.prompt {
-    margin-top: 3.2em;
-}
-
-.cursor {
+  .cursor {
     display: inline-block;
-    width: 0.65em;
-    height: 1em;
-    margin-left: 0.35em;
 
-    vertical-align: -0.12em;
-    background: #9affaa;
+    width: 0.58em;
+    height: 0.94em;
 
-    box-shadow: 0 0 7px rgba(120,255,140,0.75);
+    margin-left: 0.28em;
 
-    animation: blink 1s steps(1) infinite;
-}
+    vertical-align: -0.09em;
 
-@keyframes blink {
-    50% {
-        opacity: 0;
+    background: var(--text);
+
+    box-shadow:
+      0 0 2px var(--glow);
+
+    animation:
+      blink 1.05s steps(1, end) infinite;
+  }
+
+  @keyframes blink {
+    0%,
+    46% {
+      opacity: 1;
     }
-}
 
-@media (max-width: 700px) {
-    body {
-        padding: 5vh 5vw;
+    47%,
+    100% {
+      opacity: 0;
     }
+  }
 
-    .menu {
-        grid-template-columns: 7em 1fr;
-        column-gap: 1em;
+  @media (max-width: 700px) {
+    .terminal {
+      font-size: clamp(7px, 1.45vw, 11px);
     }
-}
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cursor {
+      animation: none;
+    }
+  }
 </style>
 </head>
 
 <body>
 
-<div class="screen">
+<main class="terminal" aria-label="NEKO56 Information terminal">
 
-<h1>NEKO56 INFORMATION</h1>
+  <div class="content">
 
-<div class="intro">
-Welcome to the NEKO56 WWW server. This server is still in the process of being
-set up. If you have question on this NEKO56 Information page, send e-mail to
-the operator.
-</div>
+    <h1>NEKO56 INFORMATION</h1>
 
-<div class="menu">
+<pre>Welcome to the NEKO56 WWW server.  This server is still in the process of being
+set up.  If you have question on this NEKO56 Information page, send e-mail to the
+operator.
 
-<div class="menu-name">
-<a href="help.html">Help[1]</a>
-</div>
+<a href="#">Help[1]</a>                 On this program, or the <a href="https://info.cern.ch/">World-Wide Web[2]</a>
 
-<div class="menu-text">
-On this program, or the
-<a href="https://info.cern.ch/">World-Wide Web[2]</a>
-</div>
+<a href="#">HEP[3]</a>                  Hobby Engineering Projects provided by NEKO56.
 
+<a href="#">KIWI[4]</a>                 Kitten Integrated Workstation environment Initiative.
 
-<div class="menu-name">
-<a href="hep.html">HEP[3]</a>
-</div>
+<a href="#">Root[5]</a>                 WS Manager Support (Root) [EUC]
 
-<div class="menu-text">
-Hobby Engineering Projects provided by NEKO56.
-</div>
+See also                 <a href="#">Types of software[6]</a>, and <a href="#">OTHER SUBJECTS[7]</a>
+   [End]
 
 
-<div class="menu-name">
-<a href="kiwi.html">KIWI[4]</a>
-</div>
 
-<div class="menu-text">
-Kitten Integrated Workstation environment Initiative.
-</div>
+1-7, Quit, or Help:<span class="cursor" aria-hidden="true"></span></pre>
 
+  </div>
 
-<div class="menu-name">
-<a href="root.html">Root[5]</a>
-</div>
-
-<div class="menu-text">
-WS Manager Support (Root).
-</div>
-
-
-<div class="menu-name">
-See also
-</div>
-
-<div class="menu-text">
-<a href="servers.html">Types of software[6]</a>,
-and
-<a href="subjects.html">OTHER SUBJECTS[7]</a>
-</div>
-
-</div>
-
-
-<div class="prompt">
-1-7, Quit, or Help:
-<span class="cursor"></span>
-</div>
-
-</div>
+</main>
 
 </body>
 </html>
