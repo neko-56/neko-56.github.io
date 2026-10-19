@@ -6,25 +6,17 @@
 
 <title>NEKO56 Information</title>
 
-<!--
-  NEKO = Neko Engineering Kenkyu Office
-  1992 KEK WWW page homage
--->
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-  href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
-  rel="stylesheet"
->
-
 <style>
 :root {
-  --screen: #28763b;
-  --screen-edge: #216532;
-  --text: #d8e9c6;
-  --glow: rgba(225, 255, 210, 0.16);
-  --outside: #0a0d0b;
+  /*
+   * KEK reconstruction-inspired phosphor colours.
+   * Deliberately restrained: this is not a "retro gaming"
+   * terminal effect.
+   */
+  --screen: #2b743b;
+  --screen-edge: #286d38;
+  --text: #d7e6c4;
+  --glow: rgba(226, 245, 211, 0.14);
 }
 
 * {
@@ -35,61 +27,51 @@ html,
 body {
   margin: 0;
   width: 100%;
-  height: 100%;
-  background: var(--outside);
+  min-height: 100%;
+  background: var(--screen);
 }
 
 body {
   min-height: 100vh;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
+
 /*
-   1992-era 4:3 terminal screen
-*/
+ * Full phosphor screen.
+ *
+ * The historical green image published by KEK is a
+ * reconstruction, so no attempt is made to invent a
+ * specific CRT model or bezel here.
+ */
 .screen {
   position: relative;
 
-  width: min(100vw, calc(100vh * 4 / 3));
-  height: min(100vh, calc(100vw * 3 / 4));
+  width: 100%;
+  min-height: 100vh;
 
   overflow: hidden;
 
+  color: var(--text);
+
   background:
     radial-gradient(
-      ellipse at 50% 46%,
+      ellipse at 50% 44%,
       var(--screen) 0%,
-      var(--screen) 72%,
+      var(--screen) 76%,
       var(--screen-edge) 100%
     );
 
-  color: var(--text);
-
-  font-family:
-    "VT323",
-    Monaco,
-    "Lucida Console",
-    monospace;
-
-  font-size: clamp(12px, 1.45vw, 19px);
-  font-weight: 400;
-  line-height: 1.05;
-
-  -webkit-font-smoothing: antialiased;
-
   text-shadow:
-    0 0 2px var(--glow);
+    0 0 1px var(--glow);
 }
 
+
 /*
-   Very weak raster structure.
-   This is deliberately subtle.
-*/
+ * Extremely weak raster texture.
+ * The KEK reconstruction is much cleaner than the
+ * exaggerated scanline effect used by many retro sites.
+ */
 .screen::after {
   content: "";
 
@@ -101,87 +83,115 @@ body {
   background:
     repeating-linear-gradient(
       to bottom,
-      rgba(255, 255, 255, 0.012) 0,
-      rgba(255, 255, 255, 0.012) 1px,
-      rgba(0, 0, 0, 0.010) 1px,
-      rgba(0, 0, 0, 0.010) 3px
+      rgba(255,255,255,0.010) 0,
+      rgba(255,255,255,0.010) 1px,
+      rgba(0,0,0,0.008) 1px,
+      rgba(0,0,0,0.008) 3px
     );
+
+  opacity: 0.6;
 }
 
-.terminal {
-  position: absolute;
-
-  left: 6%;
-  right: 6%;
-  top: 5%;
-  bottom: 4%;
-}
 
 /*
-   KEK INFORMATION title
-*/
-.title {
-  position: absolute;
+ * Logical terminal area.
+ *
+ * Monaco is not claimed to be the actual 1992 font.
+ * It is used as a local approximation, then compressed
+ * horizontally toward an X11 fixed 6x13-style cell.
+ */
+.terminal {
+  position: relative;
 
-  top: 1.5%;
-  left: 0;
-  right: 0;
+  width: min(89vw, 1040px);
+  min-height: 100vh;
+
+  margin: 0 auto;
+
+  font-family:
+    Monaco,
+    "Lucida Console",
+    monospace;
+
+  font-size: clamp(16px, 2.05vw, 21px);
+  font-weight: 400;
+  line-height: 1.03;
+
+  -webkit-font-smoothing: antialiased;
+  font-synthesis: none;
+}
+
+
+/*
+ * Monaco is wider than the old X11 bitmap fixed faces.
+ * Horizontal compression gives a cell proportion much
+ * closer to a 6x13-class terminal glyph.
+ */
+.raster {
+  position: relative;
+
+  width: 128.2%;
+
+  transform: scaleX(0.78);
+  transform-origin: top left;
+}
+
+
+/* ---------- TITLE ---------- */
+
+.title {
+  padding-top: 6vh;
 
   text-align: center;
 
-  font-size: 1em;
+  font: inherit;
   font-weight: 400;
-  letter-spacing: 0.02em;
+
+  letter-spacing: 0;
 }
 
-/*
-   Introductory text
-*/
-.intro {
-  position: absolute;
 
-  top: 13%;
-  left: 0;
+/* ---------- INTRO ---------- */
+
+.intro {
+  margin-top: 7vh;
 
   white-space: nowrap;
 }
 
-/*
-   Main menu
-*/
+
+/* ---------- MENU ---------- */
+
 .menu {
-  position: absolute;
-
-  top: 31%;
-  left: 0;
-  right: 0;
-
   display: grid;
 
   grid-template-columns:
-    17ch
+    16ch
     1fr;
 
   column-gap: 2ch;
-  row-gap: 1.18em;
+  row-gap: 1.02em;
+
+  margin-top: 3.1vh;
 }
 
-.menu-left {
+.left {
   white-space: pre;
 }
 
-.menu-right {
+.right {
   white-space: nowrap;
 }
 
-.continuation {
+.next-line {
   display: block;
 }
 
+
 /*
-   Links are intentionally not blue or underlined.
-   A line-mode terminal would not display modern Web styling.
-*/
+ * Line-mode browser links did not look like modern
+ * blue underlined HTML links.
+ */
 a,
 a:visited {
   color: inherit;
@@ -190,32 +200,38 @@ a:visited {
 
 a:hover,
 a:focus-visible {
+  color: #eff9dc;
   text-decoration: underline;
   outline: none;
 }
 
-/*
-   Command prompt near bottom of terminal,
-   as in the KEK reconstruction.
-*/
+
+/* ---------- PROMPT ---------- */
+
 .prompt {
   position: absolute;
 
   left: 0;
-  bottom: 3%;
+  bottom: 9vh;
+
+  width: 128.2%;
+
+  transform: scaleX(0.78);
+  transform-origin: left center;
 
   white-space: nowrap;
 }
 
+
 .cursor {
   display: inline-block;
 
-  width: 0.55em;
+  width: 0.50em;
   height: 0.88em;
 
-  margin-left: 0.30em;
+  margin-left: 0.27em;
 
-  vertical-align: -0.08em;
+  vertical-align: -0.07em;
 
   background: var(--text);
 
@@ -238,10 +254,24 @@ a:focus-visible {
   }
 }
 
+
+@media (max-width: 700px) {
+
+  .terminal {
+    width: 92vw;
+
+    font-size: clamp(11px, 3vw, 16px);
+  }
+
+}
+
+
 @media (prefers-reduced-motion: reduce) {
+
   .cursor {
     animation: none;
   }
+
 }
 </style>
 </head>
@@ -254,14 +284,17 @@ a:focus-visible {
 <div class="terminal">
 
 
+<div class="raster">
+
+
 <div class="title">
 NEKO56 INFORMATION
 </div>
 
 
 <div class="intro">
-Welcome to the NEKO56 WWW server.  This server is still in the process of being<br>
-set up.  If you have question on this NEKO56 Information page, send e-mail to<br>
+Welcome to the NEKO56 WWW server. This server is still in the process of being<br>
+set up. If you have question on this NEKO56 Information page, send e-mail to<br>
 the operator.
 </div>
 
@@ -269,50 +302,48 @@ the operator.
 <div class="menu">
 
 
-<div class="menu-left">
+<div class="left">
 <a href="#">Help[1]</a>
 </div>
 
-<div class="menu-right">
+<div class="right">
 On this program, or the
 <a href="https://info.cern.ch/hypertext/WWW/TheProject.html">World-Wide Web[2]</a>
 </div>
 
 
-<div class="menu-left">
+<div class="left">
 <a href="https://info.cern.ch/hypertext/DataSources/bySubject/Physics/HEP.html">HEP[3]</a>
 </div>
 
-<div class="menu-right">
+<div class="right">
 World Wide Web service provided by other High-Energy
-<span class="continuation">
-Physics institutes.
-</span>
+<span class="next-line">Physics institutes.</span>
 </div>
 
 
-<div class="menu-left">
+<div class="left">
 <a href="#">KIWI[4]</a>
 </div>
 
-<div class="menu-right">
+<div class="right">
 Kitten Integrated Workstation environment Initiative.
 </div>
 
 
-<div class="menu-left">
+<div class="left">
 <a href="#">Root[5]</a>
 </div>
 
-<div class="menu-right">
+<div class="right">
 WS Manager Support (Root) [EUC]
 </div>
 
 
-<div class="menu-left">See also
+<div class="left">See also
    [End]</div>
 
-<div class="menu-right">
+<div class="right">
 <a href="https://info.cern.ch/hypertext/DataSources/ByAccess.html">Types of server[6]</a>,
 and
 <a href="https://info.cern.ch/hypertext/DataSources/bySubject/Overview.html">OTHER SUBJECTS[7]</a>
@@ -321,9 +352,11 @@ and
 
 </div>
 
+</div>
+
 
 <div class="prompt">
-1-7, Quit, or Help:<span class="cursor"></span>
+1-7, Quit, or Help:<span class="cursor" aria-hidden="true"></span>
 </div>
 
 
