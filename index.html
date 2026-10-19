@@ -6,199 +6,328 @@
 
 <title>NEKO56 Information</title>
 
+<!--
+  NEKO = Neko Engineering Kenkyu Office
+  1992 KEK WWW page homage
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+  rel="stylesheet"
+>
+
 <style>
-  :root {
-    --screen: #1f6b2d;
-    --screen-deep: #195d27;
-    --text: #d4f0cd;
-    --glow: rgba(220, 255, 214, 0.16);
-    --frame: #0c0f0c;
+:root {
+  --screen: #28763b;
+  --screen-edge: #216532;
+  --text: #d8e9c6;
+  --glow: rgba(225, 255, 210, 0.16);
+  --outside: #0a0d0b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--outside);
+}
+
+body {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+/*
+   1992-era 4:3 terminal screen
+*/
+.screen {
+  position: relative;
+
+  width: min(100vw, calc(100vh * 4 / 3));
+  height: min(100vh, calc(100vw * 3 / 4));
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 46%,
+      var(--screen) 0%,
+      var(--screen) 72%,
+      var(--screen-edge) 100%
+    );
+
+  color: var(--text);
+
+  font-family:
+    "VT323",
+    Monaco,
+    "Lucida Console",
+    monospace;
+
+  font-size: clamp(12px, 1.45vw, 19px);
+  font-weight: 400;
+  line-height: 1.05;
+
+  -webkit-font-smoothing: antialiased;
+
+  text-shadow:
+    0 0 2px var(--glow);
+}
+
+/*
+   Very weak raster structure.
+   This is deliberately subtle.
+*/
+.screen::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.012) 0,
+      rgba(255, 255, 255, 0.012) 1px,
+      rgba(0, 0, 0, 0.010) 1px,
+      rgba(0, 0, 0, 0.010) 3px
+    );
+}
+
+.terminal {
+  position: absolute;
+
+  left: 6%;
+  right: 6%;
+  top: 5%;
+  bottom: 4%;
+}
+
+/*
+   KEK INFORMATION title
+*/
+.title {
+  position: absolute;
+
+  top: 1.5%;
+  left: 0;
+  right: 0;
+
+  text-align: center;
+
+  font-size: 1em;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/*
+   Introductory text
+*/
+.intro {
+  position: absolute;
+
+  top: 13%;
+  left: 0;
+
+  white-space: nowrap;
+}
+
+/*
+   Main menu
+*/
+.menu {
+  position: absolute;
+
+  top: 31%;
+  left: 0;
+  right: 0;
+
+  display: grid;
+
+  grid-template-columns:
+    17ch
+    1fr;
+
+  column-gap: 2ch;
+  row-gap: 1.18em;
+}
+
+.menu-left {
+  white-space: pre;
+}
+
+.menu-right {
+  white-space: nowrap;
+}
+
+.continuation {
+  display: block;
+}
+
+/*
+   Links are intentionally not blue or underlined.
+   A line-mode terminal would not display modern Web styling.
+*/
+a,
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+
+/*
+   Command prompt near bottom of terminal,
+   as in the KEK reconstruction.
+*/
+.prompt {
+  position: absolute;
+
+  left: 0;
+  bottom: 3%;
+
+  white-space: nowrap;
+}
+
+.cursor {
+  display: inline-block;
+
+  width: 0.55em;
+  height: 0.88em;
+
+  margin-left: 0.30em;
+
+  vertical-align: -0.08em;
+
+  background: var(--text);
+
+  box-shadow:
+    0 0 2px var(--glow);
+
+  animation:
+    blink 1.05s steps(1, end) infinite;
+}
+
+@keyframes blink {
+  0%,
+  46% {
+    opacity: 1;
   }
 
-  * {
-    box-sizing: border-box;
+  47%,
+  100% {
+    opacity: 0;
   }
+}
 
-  html,
-  body {
-    margin: 0;
-    min-height: 100%;
-    background: var(--frame);
-  }
-
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0;
-  }
-
-  .terminal {
-    position: relative;
-
-    width: min(100vw, 1180px);
-    aspect-ratio: 4 / 3;
-
-    overflow: hidden;
-
-    background:
-      radial-gradient(
-        ellipse at 50% 42%,
-        var(--screen) 0%,
-        var(--screen) 68%,
-        var(--screen-deep) 100%
-      );
-
-    color: var(--text);
-
-    font-family:
-      Monaco,
-      "Lucida Console",
-      "Courier New",
-      monospace;
-
-    font-size: clamp(10px, 1.46vw, 19px);
-    font-weight: 400;
-    line-height: 1.18;
-
-    text-shadow:
-      0 0 2px var(--glow);
-  }
-
-  .terminal::after {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    pointer-events: none;
-
-    background:
-      repeating-linear-gradient(
-        to bottom,
-        rgba(255,255,255,0.012) 0,
-        rgba(255,255,255,0.012) 1px,
-        rgba(0,0,0,0.012) 1px,
-        rgba(0,0,0,0.012) 3px
-      );
-  }
-
-  .content {
-    position: absolute;
-    inset: 0;
-
-    padding:
-      5.8%
-      5.7%
-      4.2%;
-  }
-
-  h1 {
-    margin: 0 0 3em;
-
-    text-align: center;
-
-    font: inherit;
-    font-weight: 400;
-    letter-spacing: 0;
-  }
-
-  pre {
-    margin: 0;
-
-    white-space: pre;
-
-    font: inherit;
-    color: inherit;
-  }
-
-  a,
-  a:visited {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  a:hover,
-  a:focus-visible {
-    text-decoration: underline;
-    outline: none;
-  }
-
+@media (prefers-reduced-motion: reduce) {
   .cursor {
-    display: inline-block;
-
-    width: 0.58em;
-    height: 0.94em;
-
-    margin-left: 0.28em;
-
-    vertical-align: -0.09em;
-
-    background: var(--text);
-
-    box-shadow:
-      0 0 2px var(--glow);
-
-    animation:
-      blink 1.05s steps(1, end) infinite;
+    animation: none;
   }
-
-  @keyframes blink {
-    0%,
-    46% {
-      opacity: 1;
-    }
-
-    47%,
-    100% {
-      opacity: 0;
-    }
-  }
-
-  @media (max-width: 700px) {
-    .terminal {
-      font-size: clamp(7px, 1.45vw, 11px);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .cursor {
-      animation: none;
-    }
-  }
+}
 </style>
 </head>
 
+
 <body>
 
-<main class="terminal" aria-label="NEKO56 Information terminal">
+<main class="screen">
 
-  <div class="content">
-
-    <h1>NEKO56 INFORMATION</h1>
-
-<pre>Welcome to the NEKO56 WWW server.  This server is still in the process of being
-set up.  If you have question on this NEKO56 Information page, send e-mail to the
-operator.
-
-<a href="#">Help[1]</a>                 On this program, or the <a href="https://info.cern.ch/hypertext/WWW/TheProject.html">World-Wide Web[2]</a>
-
-<a href="https://info.cern.ch/hypertext/DataSources/bySubject/Physics/HEP.html">HEP[3]</a>                  World Wide Web service provided by other High-Energy
-                         Physics institutes.
-
-<a href="#">KIWI[4]</a>                 Kitten Integrated Workstation environment Initiative.
-
-<a href="#">Root[5]</a>                 WS Manager Support (Root) [EUC]
-
-See also
-   [End]                 <a href="https://info.cern.ch/hypertext/DataSources/ByAccess.html">Types of server[6]</a>, and
-                         <a href="https://info.cern.ch/hypertext/DataSources/bySubject/Overview.html">OTHER SUBJECTS[7]</a>
+<div class="terminal">
 
 
+<div class="title">
+NEKO56 INFORMATION
+</div>
 
-1-7, Quit, or Help:<span class="cursor" aria-hidden="true"></span></pre>
 
-  </div>
+<div class="intro">
+Welcome to the NEKO56 WWW server.  This server is still in the process of being<br>
+set up.  If you have question on this NEKO56 Information page, send e-mail to<br>
+the operator.
+</div>
+
+
+<div class="menu">
+
+
+<div class="menu-left">
+<a href="#">Help[1]</a>
+</div>
+
+<div class="menu-right">
+On this program, or the
+<a href="https://info.cern.ch/hypertext/WWW/TheProject.html">World-Wide Web[2]</a>
+</div>
+
+
+<div class="menu-left">
+<a href="https://info.cern.ch/hypertext/DataSources/bySubject/Physics/HEP.html">HEP[3]</a>
+</div>
+
+<div class="menu-right">
+World Wide Web service provided by other High-Energy
+<span class="continuation">
+Physics institutes.
+</span>
+</div>
+
+
+<div class="menu-left">
+<a href="#">KIWI[4]</a>
+</div>
+
+<div class="menu-right">
+Kitten Integrated Workstation environment Initiative.
+</div>
+
+
+<div class="menu-left">
+<a href="#">Root[5]</a>
+</div>
+
+<div class="menu-right">
+WS Manager Support (Root) [EUC]
+</div>
+
+
+<div class="menu-left">See also
+   [End]</div>
+
+<div class="menu-right">
+<a href="https://info.cern.ch/hypertext/DataSources/ByAccess.html">Types of server[6]</a>,
+and
+<a href="https://info.cern.ch/hypertext/DataSources/bySubject/Overview.html">OTHER SUBJECTS[7]</a>
+</div>
+
+
+</div>
+
+
+<div class="prompt">
+1-7, Quit, or Help:<span class="cursor"></span>
+</div>
+
+
+</div>
 
 </main>
 
