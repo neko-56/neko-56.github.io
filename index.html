@@ -1,31 +1,199 @@
-<H1>NEKO56 Information</H1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-Welcome to the NEKO56 WWW server. This server is still in the process of being set up.
-If you have question on this NEKO56 Information page, please contact the operator.
+<title>NEKO56 Information</title>
 
-<DL>
+<style>
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+    background: #001b08;
+}
 
-<DT><A HREF="help.html">Help</A>
-<DD>On this program, or the
-<A HREF="https://info.cern.ch/">World-Wide Web</A>.
+body {
+    box-sizing: border-box;
+    padding: 7vh 7vw;
 
-<DT><A HREF="hep.html">H E P</A>
-<DD>Hobby Engineering Projects provided by NEKO56.
+    color: #8cff9a;
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,0.025) 0px,
+            rgba(255,255,255,0.025) 1px,
+            transparent 2px,
+            transparent 4px
+        ),
+        radial-gradient(
+            ellipse at center,
+            #003f14 0%,
+            #002b0d 65%,
+            #001807 100%
+        );
 
-<DT><A HREF="kiwi.html">KIWI</A>
-<DD>Kitten Integrated Workstation environment Initiative.
+    font-family:
+        "Courier New",
+        Courier,
+        monospace;
 
-<DT><A HREF="root.html">Root</A>
-<DD>WS Manager Support (Root).
+    font-size: clamp(16px, 1.75vw, 27px);
+    line-height: 1.45;
 
-<DT>See also:
-<DD>
-<A HREF="servers.html">Types of software</A>,
+    text-shadow:
+        0 0 4px rgba(120,255,140,0.55),
+        0 0 9px rgba(80,255,110,0.18);
+}
+
+.screen {
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin: 0 0 1.6em;
+    text-align: center;
+
+    font-size: 1.35em;
+    font-weight: normal;
+    letter-spacing: 0.04em;
+}
+
+.intro {
+    margin-bottom: 1.7em;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: 10em 1fr;
+    column-gap: 2.5em;
+    row-gap: 0.8em;
+}
+
+.menu-name,
+.menu-text {
+    min-width: 0;
+}
+
+a,
+a:visited {
+    color: #9affaa;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.prompt {
+    margin-top: 3.2em;
+}
+
+.cursor {
+    display: inline-block;
+    width: 0.65em;
+    height: 1em;
+    margin-left: 0.35em;
+
+    vertical-align: -0.12em;
+    background: #9affaa;
+
+    box-shadow: 0 0 7px rgba(120,255,140,0.75);
+
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 700px) {
+    body {
+        padding: 5vh 5vw;
+    }
+
+    .menu {
+        grid-template-columns: 7em 1fr;
+        column-gap: 1em;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="screen">
+
+<h1>NEKO56 INFORMATION</h1>
+
+<div class="intro">
+Welcome to the NEKO56 WWW server. This server is still in the process of being
+set up. If you have question on this NEKO56 Information page, send e-mail to
+the operator.
+</div>
+
+<div class="menu">
+
+<div class="menu-name">
+<a href="help.html">Help[1]</a>
+</div>
+
+<div class="menu-text">
+On this program, or the
+<a href="https://info.cern.ch/">World-Wide Web[2]</a>
+</div>
+
+
+<div class="menu-name">
+<a href="hep.html">HEP[3]</a>
+</div>
+
+<div class="menu-text">
+Hobby Engineering Projects provided by NEKO56.
+</div>
+
+
+<div class="menu-name">
+<a href="kiwi.html">KIWI[4]</a>
+</div>
+
+<div class="menu-text">
+Kitten Integrated Workstation environment Initiative.
+</div>
+
+
+<div class="menu-name">
+<a href="root.html">Root[5]</a>
+</div>
+
+<div class="menu-text">
+WS Manager Support (Root).
+</div>
+
+
+<div class="menu-name">
+See also
+</div>
+
+<div class="menu-text">
+<a href="servers.html">Types of software[6]</a>,
 and
-<A HREF="subjects.html">OTHER SUBJECTS</A>
+<a href="subjects.html">OTHER SUBJECTS[7]</a>
+</div>
 
-</DL>
+</div>
 
-<P>
-Neko Engineering Kenkyu Office
-</P>
+
+<div class="prompt">
+1-7, Quit, or Help:
+<span class="cursor"></span>
+</div>
+
+</div>
+
+</body>
+</html>
