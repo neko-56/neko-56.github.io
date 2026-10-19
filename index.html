@@ -1,20 +1,68 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="green">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>NEKO56 Information</title>
-
-<!-- Keep Safari chrome dark -->
 <meta name="theme-color" content="#090909">
+
+<script>
+(function () {
+  const allowed = ["green", "white", "decwindows", "amber", "kek"];
+  const saved = localStorage.getItem("neko56-display-theme");
+  if (allowed.includes(saved)) {
+    document.documentElement.dataset.theme = saved;
+  }
+})();
+</script>
 
 <style>
 :root {
-  --background: #090909;
-  --foreground: #d8d8ce;
-  --foreground-soft: #cfcfc5;
-  --cursor: #deded4;
+  --bg: #020704;
+  --fg: #78d878;
+  --fg-strong: #9be89b;
+  --glow: rgba(110, 235, 120, 0.20);
+  --scan-opacity: 0.16;
+}
+
+html[data-theme="green"] {
+  --bg: #020704;
+  --fg: #78d878;
+  --fg-strong: #9be89b;
+  --glow: rgba(110, 235, 120, 0.20);
+  --scan-opacity: 0.16;
+}
+
+html[data-theme="white"] {
+  --bg: #050505;
+  --fg: #d7d7cd;
+  --fg-strong: #f0f0e5;
+  --glow: rgba(255, 255, 238, 0.12);
+  --scan-opacity: 0.12;
+}
+
+html[data-theme="decwindows"] {
+  --bg: #d8d8d2;
+  --fg: #111111;
+  --fg-strong: #000000;
+  --glow: rgba(0, 0, 0, 0);
+  --scan-opacity: 0.025;
+}
+
+html[data-theme="amber"] {
+  --bg: #100800;
+  --fg: #e8a33a;
+  --fg-strong: #ffc05a;
+  --glow: rgba(255, 171, 64, 0.18);
+  --scan-opacity: 0.14;
+}
+
+html[data-theme="kek"] {
+  --bg: #2b743b;
+  --fg: #d7e6c4;
+  --fg-strong: #eef4df;
+  --glow: rgba(226, 245, 211, 0.10);
+  --scan-opacity: 0.07;
 }
 
 * {
@@ -24,98 +72,52 @@
 html,
 body {
   margin: 0;
-  width: 100%;
   min-height: 100%;
-
-  background: var(--background);
+  background: var(--bg);
 }
 
 body {
   min-height: 100vh;
-
-  color: var(--foreground);
-
-  overflow-x: hidden;
+  color: var(--fg);
+  overflow-x: auto;
 }
 
-
-/*
- * ULTRIX / DECwindows dxterm interpretation
- *
- * Historical defaults:
- *
- *   VT320 emulation
- *   80 columns
- *   24 rows
- *   Terminal 14-point font
- *   light-on-dark
- *   blinking block cursor
- *   no status line
- *
- * The actual DEC bitmap "Terminal" font is not assumed
- * to exist on a modern browser. Monaco is used only as
- * a local approximation.
- */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.018) 0,
+      rgba(255,255,255,0.018) 1px,
+      rgba(0,0,0,0.018) 1px,
+      rgba(0,0,0,0.018) 3px
+    );
+  opacity: var(--scan-opacity);
+}
 
 .terminal {
-  position: relative;
-
-  width: min(90vw, 80ch);
+  width: min(92vw, 80ch);
   min-height: 100vh;
-
   margin: 0 auto;
-
-  font-family:
-    Monaco,
-    "Lucida Console",
-    monospace;
-
-  font-size: clamp(14px, 1.45vw, 18px);
+  padding: 6vh 0 7vh;
+  font-family: Monaco, "Lucida Console", "Courier New", monospace;
+  font-size: clamp(14px, 1.38vw, 18px);
   font-weight: 400;
-  line-height: 1.14;
-
-  color: var(--foreground);
-
+  line-height: 1.16;
+  text-shadow: 0 0 2px var(--glow);
   -webkit-font-smoothing: none;
   font-synthesis: none;
 }
 
-
-/*
- * Slightly narrow the modern outline font.
- * Old DEC bitmap terminal cells were less "round"
- * and visually tighter than modern Monaco rendering.
- */
-
-.raster {
-  position: absolute;
-
-  top: 6vh;
-  left: 0;
-
-  width: 108%;
-
-  transform: scaleX(0.925);
-  transform-origin: top left;
-}
-
-
 pre {
   margin: 0;
-
   font: inherit;
-  line-height: inherit;
-
   color: inherit;
-
   white-space: pre;
 }
-
-
-/*
- * The Line Mode Browser did not show modern blue
- * underlined Web links.
- */
 
 a,
 a:visited {
@@ -125,99 +127,44 @@ a:visited {
 
 a:hover,
 a:focus-visible {
+  color: var(--fg-strong);
   text-decoration: underline;
   outline: none;
 }
 
-
-/*
- * DECterm default:
- * block cursor + cursor blink enabled.
- */
-
 .cursor {
   display: inline-block;
-
   width: 0.62em;
   height: 1em;
-
   margin-left: 0.14em;
-
   vertical-align: -0.12em;
-
-  background: var(--cursor);
-
+  background: var(--fg);
+  box-shadow: 0 0 3px var(--glow);
   animation: blink 1.05s steps(1, end) infinite;
 }
 
 @keyframes blink {
-  0%,
-  47% {
-    opacity: 1;
-  }
-
-  48%,
-  100% {
-    opacity: 0;
-  }
+  0%, 47% { opacity: 1; }
+  48%, 100% { opacity: 0; }
 }
-
-
-/*
- * Very weak CRT raster.
- * VRT19 was a high-resolution colour CRT, so do not
- * exaggerate scanlines or phosphor glow.
- */
-
-body::after {
-  content: "";
-
-  position: fixed;
-  inset: 0;
-
-  pointer-events: none;
-
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      rgba(255,255,255,0.008) 0,
-      rgba(255,255,255,0.008) 1px,
-      rgba(0,0,0,0.008) 1px,
-      rgba(0,0,0,0.008) 3px
-    );
-
-  opacity: 0.35;
-}
-
 
 @media (max-width: 700px) {
-
   .terminal {
     width: 94vw;
-
     font-size: 11px;
   }
-
 }
 
-
 @media (prefers-reduced-motion: reduce) {
-
   .cursor {
     animation: none;
   }
-
 }
 </style>
 </head>
 
-
 <body>
-
 <main class="terminal">
-
-<div class="raster">
-
 <pre>                              NEKO56 INFORMATION
 
 
@@ -225,17 +172,17 @@ Welcome to the NEKO56 WWW server. This server is still in the process of being
 set up. If you have question on this NEKO56 Information page, send e-mail to
 the operator.
 
-<a href="#">Help[1]</a>                 On this program, or the <a href="https://info.cern.ch/hypertext/WWW/TheProject.html">World-Wide Web[2]</a>
+<a id="link1" href="help.html">Help[1]</a>                 On this program, or the <a id="link2" href="https://info.cern.ch/hypertext/WWW/TheProject.html">World-Wide Web[2]</a>
 
-<a href="https://info.cern.ch/hypertext/DataSources/bySubject/Physics/HEP.html">HEP[3]</a>                  World Wide Web service provided by other High-Energy
+<a id="link3" href="https://info.cern.ch/hypertext/DataSources/bySubject/Physics/HEP.html">HEP[3]</a>                  World Wide Web service provided by other High-Energy
                         Physics institutes.
 
-<a href="#">KIWI[4]</a>                 Kitten Integrated Workstation environment Initiative.
+<a id="link4" href="#">KIWI[4]</a>                 Kitten Integrated Workstation environment Initiative.
 
-<a href="#">Root[5]</a>                 WS Manager Support (Root) [EUC]
+<a id="link5" href="#">Root[5]</a>                 WS Manager Support (Root) [EUC]
 
 See also
-   [End]                <a href="https://info.cern.ch/hypertext/DataSources/ByAccess.html">Types of server[6]</a>, and <a href="https://info.cern.ch/hypertext/DataSources/bySubject/Overview.html">OTHER SUBJECTS[7]</a>
+   [End]                <a id="link6" href="https://info.cern.ch/hypertext/DataSources/ByAccess.html">Types of server[6]</a>, and <a id="link7" href="https://info.cern.ch/hypertext/DataSources/bySubject/Overview.html">OTHER SUBJECTS[7]</a>
 
 
 
@@ -243,10 +190,26 @@ See also
 
 1-7, Quit, or Help:<span class="cursor" aria-hidden="true"></span>
 </pre>
-
-</div>
-
 </main>
 
+<script>
+document.addEventListener("keydown", function (event) {
+  if (event.metaKey || event.ctrlKey || event.altKey) return;
+
+  const key = event.key.toLowerCase();
+
+  if (/^[1-7]$/.test(key)) {
+    const link = document.getElementById("link" + key);
+    if (link && link.getAttribute("href") !== "#") {
+      link.click();
+    }
+    return;
+  }
+
+  if (key === "h") {
+    window.location.href = "help.html";
+  }
+});
+</script>
 </body>
 </html>

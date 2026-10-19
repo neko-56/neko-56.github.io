@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en" data-theme="green">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NEKO56 Help</title>
+<meta name="theme-color" content="#090909">
+
+<script>
+(function () {
+  const allowed = ["green", "white", "decwindows", "amber", "kek"];
+  const saved = localStorage.getItem("neko56-display-theme");
+  if (allowed.includes(saved)) {
+    document.documentElement.dataset.theme = saved;
+  }
+})();
+</script>
+
+<style>
+:root {
+  --bg: #020704;
+  --fg: #78d878;
+  --fg-strong: #9be89b;
+  --glow: rgba(110, 235, 120, 0.20);
+  --scan-opacity: 0.16;
+}
+
+html[data-theme="green"] {
+  --bg: #020704;
+  --fg: #78d878;
+  --fg-strong: #9be89b;
+  --glow: rgba(110, 235, 120, 0.20);
+  --scan-opacity: 0.16;
+}
+
+html[data-theme="white"] {
+  --bg: #050505;
+  --fg: #d7d7cd;
+  --fg-strong: #f0f0e5;
+  --glow: rgba(255, 255, 238, 0.12);
+  --scan-opacity: 0.12;
+}
+
+html[data-theme="decwindows"] {
+  --bg: #d8d8d2;
+  --fg: #111111;
+  --fg-strong: #000000;
+  --glow: rgba(0, 0, 0, 0);
+  --scan-opacity: 0.025;
+}
+
+html[data-theme="amber"] {
+  --bg: #100800;
+  --fg: #e8a33a;
+  --fg-strong: #ffc05a;
+  --glow: rgba(255, 171, 64, 0.18);
+  --scan-opacity: 0.14;
+}
+
+html[data-theme="kek"] {
+  --bg: #2b743b;
+  --fg: #d7e6c4;
+  --fg-strong: #eef4df;
+  --glow: rgba(226, 245, 211, 0.10);
+  --scan-opacity: 0.07;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+}
+
+body {
+  min-height: 100vh;
+  color: var(--fg);
+  overflow-x: auto;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.018) 0,
+      rgba(255,255,255,0.018) 1px,
+      rgba(0,0,0,0.018) 1px,
+      rgba(0,0,0,0.018) 3px
+    );
+  opacity: var(--scan-opacity);
+}
+
+.terminal {
+  width: min(92vw, 80ch);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 6vh 0 7vh;
+  font-family: Monaco, "Lucida Console", "Courier New", monospace;
+  font-size: clamp(14px, 1.38vw, 18px);
+  font-weight: 400;
+  line-height: 1.16;
+  text-shadow: 0 0 2px var(--glow);
+  -webkit-font-smoothing: none;
+  font-synthesis: none;
+}
+
+pre {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  white-space: pre;
+}
+
+a,
+a:visited,
+button {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible,
+button:hover,
+button:focus-visible {
+  color: var(--fg-strong);
+  text-decoration: underline;
+  outline: none;
+}
+
+button {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.current {
+  color: var(--fg-strong);
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.62em;
+  height: 1em;
+  margin-left: 0.14em;
+  vertical-align: -0.12em;
+  background: var(--fg);
+  box-shadow: 0 0 3px var(--glow);
+  animation: blink 1.05s steps(1, end) infinite;
+}
+
+@keyframes blink {
+  0%, 47% { opacity: 1; }
+  48%, 100% { opacity: 0; }
+}
+
+@media (max-width: 700px) {
+  .terminal {
+    width: 94vw;
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    animation: none;
+  }
+}
+</style>
+</head>
+
+<body>
+<main class="terminal">
+<pre>                                NEKO56 HELP
+
+
+Display Setup
+
+ <button data-theme-choice="green">[1] Green phosphor</button>
+     Black background / green text
+
+ <button data-theme-choice="white">[2] White phosphor</button>
+     Black background / white text
+
+ <button data-theme-choice="decwindows">[3] DECwindows</button>
+     Light background / dark text
+
+ <button data-theme-choice="amber">[4] Amber plasma</button>
+     Dark background / orange text
+
+ <button data-theme-choice="kek">[5] KEK reconstruction</button>
+     Green background / pale text
+
+
+Current display: <span id="current-theme" class="current"></span>
+
+
+<a id="back-link" href="index.html">Back[B]</a>                 Return to NEKO56 Information.
+
+
+
+
+
+1-5, Back, or Help:<span class="cursor" aria-hidden="true"></span>
+</pre>
+</main>
+
+<script>
+const labels = {
+  green: "Green phosphor",
+  white: "White phosphor",
+  decwindows: "DECwindows",
+  amber: "Amber plasma",
+  kek: "KEK reconstruction"
+};
+
+function applyTheme(theme) {
+  if (!(theme in labels)) return;
+
+  document.documentElement.dataset.theme = theme;
+  localStorage.setItem("neko56-display-theme", theme);
+  document.getElementById("current-theme").textContent = labels[theme];
+}
+
+document.querySelectorAll("[data-theme-choice]").forEach(function (button) {
+  button.addEventListener("click", function () {
+    applyTheme(button.dataset.themeChoice);
+  });
+});
+
+const initialTheme = document.documentElement.dataset.theme || "green";
+document.getElementById("current-theme").textContent =
+  labels[initialTheme] || labels.green;
+
+document.addEventListener("keydown", function (event) {
+  if (event.metaKey || event.ctrlKey || event.altKey) return;
+
+  const key = event.key.toLowerCase();
+
+  const keyMap = {
+    "1": "green",
+    "2": "white",
+    "3": "decwindows",
+    "4": "amber",
+    "5": "kek"
+  };
+
+  if (keyMap[key]) {
+    applyTheme(keyMap[key]);
+    return;
+  }
+
+  if (key === "b" || key === "escape") {
+    window.location.href = "index.html";
+  }
+});
+</script>
+</body>
+</html>
