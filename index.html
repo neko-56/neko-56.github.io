@@ -6,43 +6,40 @@
 
 <title>NEKO56 Information</title>
 
+<!-- Safari / browser chrome should stay dark, not green -->
+<meta name="theme-color" content="#0a0d0b">
+
 <style>
 :root {
-  /*
-   * KEK reconstruction-inspired phosphor colours.
-   * Deliberately restrained: this is not a "retro gaming"
-   * terminal effect.
-   */
   --screen: #2b743b;
   --screen-edge: #286d38;
   --text: #d7e6c4;
   --glow: rgba(226, 245, 211, 0.14);
+  --browser-bg: #0a0d0b;
 }
 
 * {
   box-sizing: border-box;
 }
 
-html,
-body {
+html {
   margin: 0;
   width: 100%;
   min-height: 100%;
-  background: var(--screen);
+  background: var(--browser-bg);
 }
 
 body {
+  margin: 0;
+  width: 100%;
   min-height: 100vh;
+  background: var(--browser-bg);
   overflow-x: hidden;
 }
 
 
 /*
- * Full phosphor screen.
- *
- * The historical green image published by KEK is a
- * reconstruction, so no attempt is made to invent a
- * specific CRT model or bezel here.
+ * Green phosphor display area
  */
 .screen {
   position: relative;
@@ -68,9 +65,7 @@ body {
 
 
 /*
- * Extremely weak raster texture.
- * The KEK reconstruction is much cleaner than the
- * exaggerated scanline effect used by many retro sites.
+ * Very subtle raster effect
  */
 .screen::after {
   content: "";
@@ -94,11 +89,7 @@ body {
 
 
 /*
- * Logical terminal area.
- *
- * Monaco is not claimed to be the actual 1992 font.
- * It is used as a local approximation, then compressed
- * horizontally toward an X11 fixed 6x13-style cell.
+ * Logical terminal area
  */
 .terminal {
   position: relative;
@@ -123,9 +114,7 @@ body {
 
 
 /*
- * Monaco is wider than the old X11 bitmap fixed faces.
- * Horizontal compression gives a cell proportion much
- * closer to a 6x13-class terminal glyph.
+ * Approximate narrow X11 fixed-cell proportions
  */
 .raster {
   position: relative;
@@ -137,7 +126,7 @@ body {
 }
 
 
-/* ---------- TITLE ---------- */
+/* TITLE */
 
 .title {
   padding-top: 6vh;
@@ -151,7 +140,7 @@ body {
 }
 
 
-/* ---------- INTRO ---------- */
+/* INTRO */
 
 .intro {
   margin-top: 7vh;
@@ -160,7 +149,7 @@ body {
 }
 
 
-/* ---------- MENU ---------- */
+/* MENU */
 
 .menu {
   display: grid;
@@ -189,8 +178,7 @@ body {
 
 
 /*
- * Line-mode browser links did not look like modern
- * blue underlined HTML links.
+ * Line-mode browser style links
  */
 a,
 a:visited {
@@ -206,7 +194,7 @@ a:focus-visible {
 }
 
 
-/* ---------- PROMPT ---------- */
+/* PROMPT */
 
 .prompt {
   position: absolute;
