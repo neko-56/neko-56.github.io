@@ -6,95 +6,61 @@
 
 <title>NEKO56 Information</title>
 
-<!-- Safari / browser chrome should stay dark, not green -->
-<meta name="theme-color" content="#0a0d0b">
+<!-- Keep Safari chrome dark -->
+<meta name="theme-color" content="#090909">
 
 <style>
 :root {
-  --screen: #2b743b;
-  --screen-edge: #286d38;
-  --text: #d7e6c4;
-  --glow: rgba(226, 245, 211, 0.14);
-  --browser-bg: #0a0d0b;
+  --background: #090909;
+  --foreground: #d8d8ce;
+  --foreground-soft: #cfcfc5;
+  --cursor: #deded4;
 }
 
 * {
   box-sizing: border-box;
 }
 
-html {
-  margin: 0;
-  width: 100%;
-  min-height: 100%;
-  background: var(--browser-bg);
-}
-
+html,
 body {
   margin: 0;
   width: 100%;
+  min-height: 100%;
+
+  background: var(--background);
+}
+
+body {
   min-height: 100vh;
-  background: var(--browser-bg);
+
+  color: var(--foreground);
+
   overflow-x: hidden;
 }
 
 
 /*
- * Green phosphor display area
+ * ULTRIX / DECwindows dxterm interpretation
+ *
+ * Historical defaults:
+ *
+ *   VT320 emulation
+ *   80 columns
+ *   24 rows
+ *   Terminal 14-point font
+ *   light-on-dark
+ *   blinking block cursor
+ *   no status line
+ *
+ * The actual DEC bitmap "Terminal" font is not assumed
+ * to exist on a modern browser. Monaco is used only as
+ * a local approximation.
  */
-.screen {
-  position: relative;
 
-  width: 100%;
-  min-height: 100vh;
-
-  overflow: hidden;
-
-  color: var(--text);
-
-  background:
-    radial-gradient(
-      ellipse at 50% 44%,
-      var(--screen) 0%,
-      var(--screen) 76%,
-      var(--screen-edge) 100%
-    );
-
-  text-shadow:
-    0 0 1px var(--glow);
-}
-
-
-/*
- * Very subtle raster effect
- */
-.screen::after {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  pointer-events: none;
-
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      rgba(255,255,255,0.010) 0,
-      rgba(255,255,255,0.010) 1px,
-      rgba(0,0,0,0.008) 1px,
-      rgba(0,0,0,0.008) 3px
-    );
-
-  opacity: 0.6;
-}
-
-
-/*
- * Logical terminal area
- */
 .terminal {
   position: relative;
 
-  width: min(89vw, 1040px);
+  width: min(90vw, 80ch);
   min-height: 100vh;
 
   margin: 0 auto;
@@ -104,82 +70,53 @@ body {
     "Lucida Console",
     monospace;
 
-  font-size: clamp(16px, 2.05vw, 21px);
+  font-size: clamp(14px, 1.45vw, 18px);
   font-weight: 400;
-  line-height: 1.03;
+  line-height: 1.14;
 
-  -webkit-font-smoothing: antialiased;
+  color: var(--foreground);
+
+  -webkit-font-smoothing: none;
   font-synthesis: none;
 }
 
 
 /*
- * Approximate narrow X11 fixed-cell proportions
+ * Slightly narrow the modern outline font.
+ * Old DEC bitmap terminal cells were less "round"
+ * and visually tighter than modern Monaco rendering.
  */
+
 .raster {
-  position: relative;
+  position: absolute;
 
-  width: 128.2%;
+  top: 6vh;
+  left: 0;
 
-  transform: scaleX(0.78);
+  width: 108%;
+
+  transform: scaleX(0.925);
   transform-origin: top left;
 }
 
 
-/* TITLE */
-
-.title {
-  padding-top: 6vh;
-
-  text-align: center;
+pre {
+  margin: 0;
 
   font: inherit;
-  font-weight: 400;
+  line-height: inherit;
 
-  letter-spacing: 0;
-}
+  color: inherit;
 
-
-/* INTRO */
-
-.intro {
-  margin-top: 7vh;
-
-  white-space: nowrap;
-}
-
-
-/* MENU */
-
-.menu {
-  display: grid;
-
-  grid-template-columns:
-    16ch
-    1fr;
-
-  column-gap: 2ch;
-  row-gap: 1.02em;
-
-  margin-top: 3.1vh;
-}
-
-.left {
   white-space: pre;
-}
-
-.right {
-  white-space: nowrap;
-}
-
-.next-line {
-  display: block;
 }
 
 
 /*
- * Line-mode browser style links
+ * The Line Mode Browser did not show modern blue
+ * underlined Web links.
  */
+
 a,
 a:visited {
   color: inherit;
@@ -188,67 +125,77 @@ a:visited {
 
 a:hover,
 a:focus-visible {
-  color: #eff9dc;
   text-decoration: underline;
   outline: none;
 }
 
 
-/* PROMPT */
-
-.prompt {
-  position: absolute;
-
-  left: 0;
-  bottom: 9vh;
-
-  width: 128.2%;
-
-  transform: scaleX(0.78);
-  transform-origin: left center;
-
-  white-space: nowrap;
-}
-
+/*
+ * DECterm default:
+ * block cursor + cursor blink enabled.
+ */
 
 .cursor {
   display: inline-block;
 
-  width: 0.50em;
-  height: 0.88em;
+  width: 0.62em;
+  height: 1em;
 
-  margin-left: 0.27em;
+  margin-left: 0.14em;
 
-  vertical-align: -0.07em;
+  vertical-align: -0.12em;
 
-  background: var(--text);
+  background: var(--cursor);
 
-  box-shadow:
-    0 0 2px var(--glow);
-
-  animation:
-    blink 1.05s steps(1, end) infinite;
+  animation: blink 1.05s steps(1, end) infinite;
 }
 
 @keyframes blink {
   0%,
-  46% {
+  47% {
     opacity: 1;
   }
 
-  47%,
+  48%,
   100% {
     opacity: 0;
   }
 }
 
 
+/*
+ * Very weak CRT raster.
+ * VRT19 was a high-resolution colour CRT, so do not
+ * exaggerate scanlines or phosphor glow.
+ */
+
+body::after {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.008) 0,
+      rgba(255,255,255,0.008) 1px,
+      rgba(0,0,0,0.008) 1px,
+      rgba(0,0,0,0.008) 3px
+    );
+
+  opacity: 0.35;
+}
+
+
 @media (max-width: 700px) {
 
   .terminal {
-    width: 92vw;
+    width: 94vw;
 
-    font-size: clamp(11px, 3vw, 16px);
+    font-size: 11px;
   }
 
 }
@@ -267,86 +214,35 @@ a:focus-visible {
 
 <body>
 
-<main class="screen">
-
-<div class="terminal">
-
+<main class="terminal">
 
 <div class="raster">
 
-
-<div class="title">
-NEKO56 INFORMATION
-</div>
+<pre>                              NEKO56 INFORMATION
 
 
-<div class="intro">
-Welcome to the NEKO56 WWW server. This server is still in the process of being<br>
-set up. If you have question on this NEKO56 Information page, send e-mail to<br>
+Welcome to the NEKO56 WWW server. This server is still in the process of being
+set up. If you have question on this NEKO56 Information page, send e-mail to
 the operator.
-</div>
+
+<a href="#">Help[1]</a>                 On this program, or the <a href="https://info.cern.ch/hypertext/WWW/TheProject.html">World-Wide Web[2]</a>
+
+<a href="https://info.cern.ch/hypertext/DataSources/bySubject/Physics/HEP.html">HEP[3]</a>                  World Wide Web service provided by other High-Energy
+                        Physics institutes.
+
+<a href="#">KIWI[4]</a>                 Kitten Integrated Workstation environment Initiative.
+
+<a href="#">Root[5]</a>                 WS Manager Support (Root) [EUC]
+
+See also
+   [End]                <a href="https://info.cern.ch/hypertext/DataSources/ByAccess.html">Types of server[6]</a>, and <a href="https://info.cern.ch/hypertext/DataSources/bySubject/Overview.html">OTHER SUBJECTS[7]</a>
 
 
-<div class="menu">
 
 
-<div class="left">
-<a href="#">Help[1]</a>
-</div>
 
-<div class="right">
-On this program, or the
-<a href="https://info.cern.ch/hypertext/WWW/TheProject.html">World-Wide Web[2]</a>
-</div>
-
-
-<div class="left">
-<a href="https://info.cern.ch/hypertext/DataSources/bySubject/Physics/HEP.html">HEP[3]</a>
-</div>
-
-<div class="right">
-World Wide Web service provided by other High-Energy
-<span class="next-line">Physics institutes.</span>
-</div>
-
-
-<div class="left">
-<a href="#">KIWI[4]</a>
-</div>
-
-<div class="right">
-Kitten Integrated Workstation environment Initiative.
-</div>
-
-
-<div class="left">
-<a href="#">Root[5]</a>
-</div>
-
-<div class="right">
-WS Manager Support (Root) [EUC]
-</div>
-
-
-<div class="left">See also
-   [End]</div>
-
-<div class="right">
-<a href="https://info.cern.ch/hypertext/DataSources/ByAccess.html">Types of server[6]</a>,
-and
-<a href="https://info.cern.ch/hypertext/DataSources/bySubject/Overview.html">OTHER SUBJECTS[7]</a>
-</div>
-
-
-</div>
-
-</div>
-
-
-<div class="prompt">
 1-7, Quit, or Help:<span class="cursor" aria-hidden="true"></span>
-</div>
-
+</pre>
 
 </div>
 
