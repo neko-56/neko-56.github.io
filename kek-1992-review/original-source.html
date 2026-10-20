@@ -2,7 +2,7 @@
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow,noarchive"><title>KEK 1992 HTML source reconstruction</title>
 <link rel="stylesheet" href="style.css"></head><body><main class="wrap">
-<p><a href="index.html">← 表示環境確認用トップ</a>　·　<a href="references.html">根拠資料を見る</a></p>
+<p><a href="index.html">← 表示環境確認用トップ</a>　·　<a href="references.html">根拠資料を見る</a>　·　<a href="link-status.html">リンク検証</a></p>
 <h1>1992 KEK page — HTML source reconstruction</h1>
 <p class="note">現存する「KEK Entry Point」復元ページと、後年の記事に引用されたHTMLソースを照合して作った確認用表示です。元ファイルそのもののバイト列が保存されていると断定するものではありません。</p>
 <div class="sourcebox">&lt;H1&gt;KEK Information&lt;/H1&gt;
@@ -24,14 +24,16 @@ E P&lt;/A&gt;
 server&lt;/A&gt; , and &lt;A HREF=http://info.cern.ch/hypertext/DataSources/bySubject/Overview.html&gt;OTHER SUBJECTS&lt;/A&gt;
 &lt;/DL&gt;</div>
 <h2>確認できるリンク構造</h2>
+<p class="note">「元のリンク」と「現在アクセスできるか」を分けています。最終確認: 2026-10-20</p>
 <table>
-<tr><th>#</th><th>表示</th><th>リンク先</th></tr>
-<tr><td>1</td><td>Help</td><td><code>LineMode/QuickGuide.html</code>（相対リンク）</td></tr>
-<tr><td>2</td><td>World-Wide Web</td><td><code>http://info.cern.ch/hypertext/WWW/TheProject.html</code></td></tr>
-<tr><td>3</td><td>H E P</td><td><code>http://info.cern.ch./hypertext/DataSources/bySubject/Physics/HEP.html</code></td></tr>
-<tr><td>4</td><td>KIWI</td><td><code>kiwi.html</code></td></tr>
-<tr><td>5</td><td>Root</td><td><code>Root.html</code></td></tr>
-<tr><td>6</td><td>Types of server</td><td><code>http://info.cern.ch/hypertext/DataSources/ByAccess.html</code></td></tr>
-<tr><td>7</td><td>OTHER SUBJECTS</td><td><code>http://info.cern.ch/hypertext/DataSources/bySubject/Overview.html</code></td></tr>
+<tr><th>#</th><th>表示</th><th>元のリンク</th><th>現在</th></tr>
+<tr><td>1</td><td>Help</td><td><code>LineMode/QuickGuide.html</code></td><td><span class="status-dead">相対先 404</span></td></tr>
+<tr><td>2</td><td>World-Wide Web</td><td><code>http://info.cern.ch/hypertext/WWW/TheProject.html</code></td><td><span class="status-ok">現存確認</span></td></tr>
+<tr><td>3</td><td>H E P</td><td><code>http://info.cern.ch./hypertext/DataSources/bySubject/Physics/HEP.html</code></td><td><span class="status-ok">現存確認</span></td></tr>
+<tr><td>4</td><td>KIWI</td><td><code>kiwi.html</code></td><td><span class="status-dead">相対先 404</span></td></tr>
+<tr><td>5</td><td>Root</td><td><code>Root.html</code></td><td><span class="status-dead">相対先 404</span></td></tr>
+<tr><td>6</td><td>Types of server</td><td><code>http://info.cern.ch/hypertext/DataSources/ByAccess.html</code></td><td><span class="status-ok">現存確認</span></td></tr>
+<tr><td>7</td><td>OTHER SUBJECTS</td><td><code>http://info.cern.ch/hypertext/DataSources/bySubject/Overview.html</code></td><td><span class="status-ok">現存確認</span></td></tr>
 </table>
+<p class="note">1番のHelpについては、現在W3CにLine Mode Browser Quick Guideが別URLで現存します。ただし、歴史的な相対リンク先と同一の保存物かをこのページでは断定せず、自動置換していません。</p>
 </main></body></html>
