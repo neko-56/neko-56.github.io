@@ -11,6 +11,7 @@ Files:
 - kek-2002-view.html      rendering based on later KEK reconstruction imagery
 - kek-local.html          intentionally unresolved until confirmation
 - original-source.html    reconstructed historical HTML source
+- references.html         source materials and official/public links
 - style.css
 - terminal.js
 
@@ -23,3 +24,7 @@ Historical source reconstruction:
 The HTML shown in original-source.html is based on the preserved KEK Entry Point
 reconstruction and later quoted source. It should be described as a reconstruction,
 not as a guaranteed byte-for-byte copy of the 1992 file.
+
+Update v0.2:
+- added explicit number + RETURN operation note
+- added references.html with source links and evidence notes

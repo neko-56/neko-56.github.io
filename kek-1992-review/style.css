@@ -88,3 +88,6 @@ code,pre,.mono{font-family:Menlo,Monaco,"Courier New",monospace}
  .prompt{left:4%}
  .viewer-tools,.statusline{width:98vw}
 }
+
+.operation-card{margin:18px 0 20px;border-color:#45607f}
+.operation-card h2{margin-top:4px}
