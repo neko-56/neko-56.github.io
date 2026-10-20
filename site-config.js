@@ -1,6 +1,5 @@
-
 window.NEKO56_CONFIG={
   githubOwner:"neko-56",
-  goatcounterCode:"",
+  goatcounterCode:"neko56",
   releaseRepositories:[]
 };
