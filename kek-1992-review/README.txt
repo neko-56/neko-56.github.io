@@ -60,3 +60,10 @@ Update v0.7:
 - uses GitHub cern-hackdays/lmb mirror as the primary link for CERN's 2013 Line Mode Browser reconstruction
 - retains line-mode.cern.ch only as the unavailable/unstable historical official URL
 - adds direct links to screenshot.png, public/, and font/ in the mirror
+
+Update v0.9:
+- emulator Phase 2
+- CERN default changed to hardware-unknown Morita terminal; IBM RS/6000 is a separate 2013 reference profile
+- IBM 3270 moved to alternate hypothesis
+- KEK DECterm default candidate corrected to dark text on light background
+- historical-style dynamic prompts, title line, Next/Previous/Recall/Source and character-by-character reveal

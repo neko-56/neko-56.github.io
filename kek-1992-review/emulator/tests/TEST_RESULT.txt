@@ -1,0 +1,5 @@
+PASS: Line Mode Browser Phase 2 core tests
+Prompt: 1-3, Quit, or Help:
+Title row: "                                                                 KEK Entry Point"
+
+exit_code=0
