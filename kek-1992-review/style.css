@@ -1,0 +1,90 @@
+
+:root{
+  --page:#0b0b0b;
+  --panel:#111;
+  --panel-line:#2d2d2d;
+  --ui:#e5e5e5;
+  --muted:#9a9a9a;
+  --accent:#8fb8ff;
+  --screen:#030603;
+  --fg:#72e77a;
+  --glow:rgba(114,231,122,.28);
+  --bezel:#151515;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--page);color:var(--ui)}
+body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:1180px;margin:0 auto;padding:20px}
+header{margin-bottom:18px}
+h1{font-size:24px;margin:0 0 8px}
+h2{font-size:18px;margin:28px 0 10px}
+p,li{line-height:1.7}
+.note{color:var(--muted);font-size:14px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:20px 0}
+.card{border:1px solid var(--panel-line);background:var(--panel);padding:16px;border-radius:8px}
+.card h2{margin:0 0 8px;font-size:17px}
+.badge{display:inline-block;border:1px solid #555;border-radius:999px;padding:2px 8px;margin-bottom:8px;color:#bbb;font-size:12px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{border-bottom:1px solid #333;padding:10px 8px;text-align:left;vertical-align:top}
+th{color:#fff}
+code,pre,.mono{font-family:Menlo,Monaco,"Courier New",monospace}
+
+/* CRT / terminal pages */
+.viewer-body{background:#050505;overflow:auto}
+.viewer-tools{
+  max-width:min(97vw,1280px); margin:8px auto; padding:0 4px;
+  display:flex; justify-content:space-between; gap:10px; align-items:center;
+  color:#aaa; font-size:12px;
+}
+.viewer-tools a{color:#c5d7ff;text-decoration:none}
+.monitor{
+  width:min(97vw,calc(94vh * 1.25));
+  aspect-ratio:5/4;
+  margin:0 auto 12px;
+  padding:12px;
+  border-radius:15px;
+  background:linear-gradient(#1b1b1b,#090909);
+  border:1px solid #333;
+  box-shadow:0 18px 55px rgba(0,0,0,.65), inset 0 0 0 1px #242424;
+}
+.screen{
+  position:relative; width:100%; height:100%; overflow:hidden;
+  color:var(--fg); background:
+  radial-gradient(ellipse at center, transparent 0 58%, rgba(0,0,0,.14) 100%),
+  repeating-linear-gradient(to bottom, rgba(255,255,255,.018) 0 1px, transparent 1px 3px),
+  var(--screen);
+  border:1px solid #354536;
+  text-shadow:0 0 6px var(--glow);
+  font-family:Menlo,Monaco,"Courier New",monospace;
+  cursor:default; user-select:text;
+}
+.terminal{
+  position:absolute; inset:0;
+  padding:5.7% 6.0% 5.0%;
+  font-size:clamp(11px,1.30vw,18px);
+  line-height:1.28;
+  letter-spacing:0;
+}
+.term-title{text-align:center;margin-bottom:2.45em}
+.term-pre{white-space:pre; margin:0; font:inherit; line-height:inherit}
+.prompt{position:absolute;left:6.0%;bottom:7.2%;white-space:pre;font:inherit}
+.cursor{display:inline-block;width:.62em;height:1.02em;background:var(--fg);vertical-align:-.12em;margin-left:.12em;animation:blink 1.05s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.statusline{
+  max-width:min(97vw,1280px); margin:0 auto 18px; color:#777; font-size:11px;
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;
+}
+.kek2002{--screen:#51ad49;--fg:#f1fff0;--glow:rgba(255,255,255,.15)}
+.kek2002 .screen{border-color:#6ec467}
+.kek2002 .terminal{padding:5.1% 4.6% 4.8%;font-size:clamp(11px,1.34vw,18px)}
+.kek2002 .prompt{left:4.6%;bottom:7.0%}
+.sourcebox{white-space:pre-wrap;background:#0e0e0e;border:1px solid #333;padding:16px;overflow:auto;font:13px/1.55 Menlo,Monaco,"Courier New",monospace;color:#ddd}
+
+@media(max-width:720px){
+ .wrap{padding:12px}
+ .monitor{width:98vw;padding:6px}
+ .terminal{padding:5% 4%;font-size:clamp(8px,1.92vw,12px)}
+ .prompt{left:4%}
+ .viewer-tools,.statusline{width:98vw}
+}

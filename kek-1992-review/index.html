@@ -1,1 +1,63 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="googlebot" content="noindex,nofollow,noarchive">
+<title>KEK 1992 WWW 表示環境確認用</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="wrap">
+<header>
+  <h1>KEK 1992 WWW — 表示環境確認用</h1>
+  <p class="note">1992年9月30日前後のKEK最初期WWWについて、公開資料から確認できるHTMLと、当時の表示環境を分けて確認するための仮復元です。確定した「当時の実画面」ではありません。</p>
+</header>
 
+<div class="cards">
+  <section class="card">
+    <div class="badge">仮説表示</div>
+    <h2><a href="cern-view.html">CERN VIEW</a></h2>
+    <p>森田様がCERN側からKEKのHTMLを確認した際の表示候補。Line Mode Browser系の文字端末表示を想定しています。</p>
+  </section>
+  <section class="card">
+    <div class="badge">公開資料に基づく再現</div>
+    <h2><a href="kek-2002-view.html">KEK 2002 RECONSTRUCTION VIEW</a></h2>
+    <p>KEKの2002年記事・森田様の講演資料に掲載された緑色の「KEK INFORMATION」画面に寄せた比較表示です。</p>
+  </section>
+  <section class="card">
+    <div class="badge">本文復元</div>
+    <h2><a href="original-source.html">ORIGINAL HTML / SOURCE</a></h2>
+    <p>現存する復元ページと引用資料から確認できる、1992年ページのHTML構造とリンク先を表示します。</p>
+  </section>
+  <section class="card">
+    <div class="badge">未確定</div>
+    <h2><a href="kek-local.html">KEK LOCAL VIEW</a></h2>
+    <p>KEK実機側の見え方。ハードウェアは現存していますが、当時使用したブラウザと表示条件は確認待ちのため、現時点では「未復元」としています。</p>
+  </section>
+</div>
+
+<h2>現在の整理</h2>
+<table>
+<tr><th>項目</th><th>現時点</th></tr>
+<tr><td>1992年9月30日の公開場所</td><td><code>ftp://kekux.kek.jp/kek/html/kek.html</code> と記録されている</td></tr>
+<tr><td>ページ本文</td><td>復元HTMLが現存し、本文・リンク構造を確認可能</td></tr>
+<tr><td>リンク操作</td><td>Line Mode Browserは番号入力によるリンク選択を採用。RETURNを伴う操作資料も存在</td></tr>
+<tr><td>CERN側の実端末</td><td>機種・表示色・行列数・全画面/ウインドウ等は本人確認が必要</td></tr>
+<tr><td>KEK側の実機表示</td><td>当時どのブラウザでどのように表示確認したか本人確認が必要</td></tr>
+</table>
+
+<h2>主な根拠</h2>
+<ul>
+<li>KEK「10年前のホームページ ～KEKが発した日本初～」</li>
+<li>森田洋平氏講演資料 <em>ビッグサイエンスと国際研究機関のPR戦略</em></li>
+<li>CERN / Berners-Lee &amp; Cailliau, <em>WorldWideWeb: Proposal for a HyperText Project</em> (1990)</li>
+<li>Berners-Lee &amp; Cailliau, <em>World-Wide Web</em>（初期W3クライアント・FTPアクセス・dumb terminal browserの記述）</li>
+<li>「The first WWW server in Japan」(1999) および現存する KEK Entry Point 復元HTML</li>
+</ul>
+
+<p class="note">このディレクトリは <code>noindex / nofollow / noarchive</code> を指定し、公開トップページからリンクしない確認用ページを想定しています。ただしURLを知る人は閲覧できます。</p>
+</main>
+</body>
+</html>
