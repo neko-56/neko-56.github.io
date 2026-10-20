@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" data-theme="green">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NEKO56 Status</title><meta name="theme-color" content="#080a08">
+<script src="site-config.js"></script><script src="site.js"></script><link rel="stylesheet" href="style.css">
+</head><body>
+<main class="screen"><div class="terminal"><div class="title">NEKO56 WWW SERVER STATUS</div>
+<pre>Statistics
+
+ Total visits:          <span id="visitor-total" class="value">checking...</span>
+ Total downloads:       <span id="download-total" class="value">checking...</span>
+
+ Release downloads:
+<span id="release-lines">   checking GitHub Releases...</span>
+
+
+Notes:
+ Total visits are recorded after visitor statistics are configured.
+ Download counts are the sum of GitHub Release assets.
+ GitHub auto-generated source archives are not included.
+
+<a href="index.html">Back[B]</a>                 Return to NEKO56 Information.
+</pre>
+<div class="prompt">Back or Help:<span class="cursor"></span></div>
+</div></main>
+<script>
+const setText=(id,t)=>document.getElementById(id).textContent=t;
+const fmt=n=>new Intl.NumberFormat("en-US").format(n);
+
+async function visitors(){
+ const code=((NEKO56_CONFIG||{}).goatcounterCode||"").trim();
+ if(!code){setText("visitor-total","not configured");return}
+ try{
+  const r=await fetch("https://"+code+".goatcounter.com/counter/TOTAL.json",{cache:"no-store"});
+  if(!r.ok)throw 0; const d=await r.json(); setText("visitor-total",d.count||"0");
+ }catch(e){setText("visitor-total","unavailable")}
+}
+async function gj(url){
+ const r=await fetch(url,{headers:{"Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28"}});
+ if(!r.ok)throw new Error(String(r.status)); return r.json();
+}
+async function downloads(){
+ const c=NEKO56_CONFIG||{},owner=(c.githubOwner||"neko-56").trim();
+ try{
+  let repos=Array.isArray(c.releaseRepositories)?c.releaseRepositories.filter(Boolean):[];
+  if(!repos.length){
+   const rs=await gj("https://api.github.com/users/"+encodeURIComponent(owner)+"/repos?per_page=100&type=owner&sort=full_name");
+   repos=rs.filter(x=>!x.archived&&!x.disabled).map(x=>x.name);
+  }
+  const results=[];
+  for(const repo of repos){
+   const rels=await gj("https://api.github.com/repos/"+encodeURIComponent(owner)+"/"+encodeURIComponent(repo)+"/releases?per_page=100");
+   let total=0,assets=0;
+   for(const rel of rels){if(rel.draft)continue;for(const a of(rel.assets||[])){total+=Number(a.download_count||0);assets++}}
+   if(assets)results.push({repo,total});
+  }
+  results.sort((a,b)=>b.total-a.total||a.repo.localeCompare(b.repo));
+  setText("download-total",fmt(results.reduce((s,x)=>s+x.total,0)));
+  setText("release-lines",results.length?results.map(x=>"   "+x.repo.padEnd(28," ")+fmt(x.total)).join("\n"):"   No downloadable GitHub Release assets yet.");
+ }catch(e){
+  setText("download-total","unavailable");
+  setText("release-lines","   GitHub statistics unavailable (API limit or network error).");
+ }
+}
+visitors();downloads();
+document.addEventListener("keydown",e=>{if(e.metaKey||e.ctrlKey||e.altKey)return;const k=e.key.toLowerCase();if(k==="b"||k==="escape")location.href="index.html";else if(k==="h")location.href="help.html"});
+</script></body></html>

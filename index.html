@@ -1,221 +1,11 @@
 <!doctype html>
 <html lang="en" data-theme="green">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NEKO56 Information</title>
-<meta name="theme-color" content="#080a08">
-<script>
-(function () {
-  const allowed = ["green", "white", "decwindows", "amber", "kek"];
-  const saved = localStorage.getItem("neko56-display-theme");
-  if (allowed.includes(saved)) {
-    document.documentElement.dataset.theme = saved;
-  }
-})();
-</script>
-<style>
-:root {
-  --page-bg: #080a08;
-  --screen-bg: #020704;
-  --screen-fg: #78d878;
-  --screen-fg-strong: #9be89b;
-  --screen-glow: rgba(110, 235, 120, 0.20);
-  --scan-opacity: 0.14;
-  --screen-border: rgba(220, 235, 220, 0.45);
-}
-
-html[data-theme="green"] {
-  --screen-bg: #020704;
-  --screen-fg: #78d878;
-  --screen-fg-strong: #9be89b;
-  --screen-glow: rgba(110, 235, 120, 0.20);
-  --scan-opacity: 0.14;
-}
-
-html[data-theme="white"] {
-  --screen-bg: #050505;
-  --screen-fg: #d7d7cd;
-  --screen-fg-strong: #f0f0e5;
-  --screen-glow: rgba(255, 255, 238, 0.12);
-  --scan-opacity: 0.10;
-}
-
-html[data-theme="decwindows"] {
-  --screen-bg: #d8d8d2;
-  --screen-fg: #111111;
-  --screen-fg-strong: #000000;
-  --screen-glow: rgba(0, 0, 0, 0);
-  --scan-opacity: 0.02;
-}
-
-html[data-theme="amber"] {
-  --screen-bg: #100800;
-  --screen-fg: #e8a33a;
-  --screen-fg-strong: #ffc05a;
-  --screen-glow: rgba(255, 171, 64, 0.18);
-  --scan-opacity: 0.12;
-}
-
-html[data-theme="kek"] {
-  --screen-bg: #2b743b;
-  --screen-fg: #d7e6c4;
-  --screen-fg-strong: #eef4df;
-  --screen-glow: rgba(226, 245, 211, 0.10);
-  --scan-opacity: 0.05;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  margin: 0;
-  width: 100%;
-  min-height: 100%;
-  background: var(--page-bg);
-}
-
-body {
-  min-height: 100svh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-/*
-  5:4 display area.
-  This is based on the current working hypothesis that the KEK workstation
-  display was a 1280 x 1024-class DEC colour CRT such as the VRT19.
-*/
-.screen {
-  position: relative;
-  width: min(100vw, calc(100svh * 5 / 4));
-  height: min(100svh, calc(100vw * 4 / 5));
-  max-width: 1280px;
-  max-height: 1024px;
-  overflow: hidden;
-
-  background: var(--screen-bg);
-  color: var(--screen-fg);
-  border: 1px solid var(--screen-border);
-
-  container-type: inline-size;
-
-  text-shadow: 0 0 2px var(--screen-glow);
-}
-
-.screen::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 10;
-  pointer-events: none;
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      rgba(255,255,255,0.015) 0,
-      rgba(255,255,255,0.015) 1px,
-      rgba(0,0,0,0.015) 1px,
-      rgba(0,0,0,0.015) 3px
-    );
-  opacity: var(--scan-opacity);
-}
-
-.terminal {
-  position: absolute;
-  inset: 0;
-  padding: 5.4% 6.3% 5.0%;
-
-  font-family: Monaco, "Lucida Console", "Courier New", monospace;
-  font-size: clamp(10px, 1.62cqw, 18px);
-  font-weight: 400;
-  line-height: 1.12;
-  -webkit-font-smoothing: none;
-  font-synthesis: none;
-}
-
-pre {
-  margin: 0;
-  font: inherit;
-  line-height: inherit;
-  white-space: pre;
-  color: inherit;
-}
-
-a,
-a:visited,
-button {
-  color: inherit;
-  text-decoration: none;
-}
-
-a:hover,
-a:focus-visible,
-button:hover,
-button:focus-visible {
-  color: var(--screen-fg-strong);
-  text-decoration: underline;
-  outline: none;
-}
-
-button {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  background: transparent;
-  font: inherit;
-  cursor: pointer;
-  text-align: left;
-}
-
-.cursor {
-  display: inline-block;
-  width: 0.62em;
-  height: 1em;
-  margin-left: 0.14em;
-  vertical-align: -0.12em;
-  background: var(--screen-fg);
-  box-shadow: 0 0 3px var(--screen-glow);
-  animation: blink 1.05s steps(1, end) infinite;
-}
-
-@keyframes blink {
-  0%, 47% { opacity: 1; }
-  48%, 100% { opacity: 0; }
-}
-
-.title {
-  text-align: center;
-  margin-bottom: 3.1em;
-}
-
-.prompt {
-  position: absolute;
-  left: 6.3%;
-  bottom: 7.5%;
-}
-
-.current {
-  color: var(--screen-fg-strong);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .cursor {
-    animation: none;
-  }
-}
-</style>
-</head>
-<body>
-
-<main class="screen" aria-label="NEKO56 Information">
-  <div class="terminal">
-
-    <div class="title">NEKO56 INFORMATION</div>
-
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NEKO56 Information</title><meta name="theme-color" content="#080a08">
+<script src="site-config.js"></script><script src="site.js"></script><link rel="stylesheet" href="style.css">
+</head><body>
+<main class="screen"><div class="terminal"><div class="title">NEKO56 INFORMATION</div>
 <pre>Welcome to the NEKO56 WWW server. This server is still in the process of being
 set up. If you have question on this NEKO56 Information page, send e-mail to
 the operator.
@@ -231,34 +21,15 @@ the operator.
 
 See also
    [End]                <a id="link6" href="https://info.cern.ch/hypertext/DataSources/ByAccess.html">Types of server[6]</a>, and <a id="link7" href="https://info.cern.ch/hypertext/DataSources/bySubject/Overview.html">OTHER SUBJECTS[7]</a>
+                        <a id="link8" href="status.html">NEKO56 STATUS[8]</a>
 </pre>
-
-    <div class="prompt">
-      1-7, Quit, or Help:<span class="cursor" aria-hidden="true"></span>
-    </div>
-
-  </div>
-</main>
-
+<div class="prompt">1-8, Quit, or Help:<span class="cursor"></span></div>
+</div></main>
 <script>
-document.addEventListener("keydown", function (event) {
-  if (event.metaKey || event.ctrlKey || event.altKey) return;
-
-  const key = event.key.toLowerCase();
-
-  if (/^[1-7]$/.test(key)) {
-    const link = document.getElementById("link" + key);
-    if (link && link.getAttribute("href") !== "#") {
-      link.click();
-    }
-    return;
-  }
-
-  if (key === "h") {
-    window.location.href = "help.html";
-  }
+document.addEventListener("keydown",e=>{
+ if(e.metaKey||e.ctrlKey||e.altKey)return;
+ const k=e.key.toLowerCase();
+ if(/^[1-8]$/.test(k)){const a=document.getElementById("link"+k);if(a&&a.getAttribute("href")!=="#")a.click()}
+ else if(k==="h")location.href="help.html";
 });
-</script>
-
-</body>
-</html>
+</script></body></html>

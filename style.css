@@ -1,0 +1,23 @@
+
+:root{--page:#080a08;--bg:#020704;--fg:#78d878;--strong:#9be89b;--glow:rgba(110,235,120,.20);--scan:.14;--border:rgba(220,235,220,.38)}
+html[data-theme="green"]{--bg:#020704;--fg:#78d878;--strong:#9be89b;--glow:rgba(110,235,120,.20);--scan:.14}
+html[data-theme="white"]{--bg:#050505;--fg:#d7d7cd;--strong:#f0f0e5;--glow:rgba(255,255,238,.12);--scan:.10}
+html[data-theme="decwindows"]{--bg:#d8d8d2;--fg:#111;--strong:#000;--glow:transparent;--scan:.02}
+html[data-theme="amber"]{--bg:#100800;--fg:#e8a33a;--strong:#ffc05a;--glow:rgba(255,171,64,.18);--scan:.12}
+html[data-theme="kek"]{--bg:#2b743b;--fg:#d7e6c4;--strong:#eef4df;--glow:rgba(226,245,211,.10);--scan:.05}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;min-height:100%;background:var(--page)}
+body{min-height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.screen{position:relative;width:min(100vw,calc(100svh*5/4));height:min(100svh,calc(100vw*4/5));max-width:1280px;max-height:1024px;overflow:hidden;background:var(--bg);color:var(--fg);border:1px solid var(--border);container-type:inline-size;text-shadow:0 0 2px var(--glow)}
+.screen:after{content:"";position:absolute;inset:0;z-index:10;pointer-events:none;background:repeating-linear-gradient(to bottom,rgba(255,255,255,.015) 0,rgba(255,255,255,.015) 1px,rgba(0,0,0,.015) 1px,rgba(0,0,0,.015) 3px);opacity:var(--scan)}
+.terminal{position:absolute;inset:0;padding:5.4% 6.3% 5%;font-family:Monaco,"Lucida Console","Courier New",monospace;font-size:clamp(10px,1.62cqw,18px);font-weight:400;line-height:1.12;-webkit-font-smoothing:none;font-synthesis:none}
+pre{margin:0;font:inherit;line-height:inherit;white-space:pre;color:inherit}
+a,a:visited,button{color:inherit;text-decoration:none}
+a:hover,a:focus-visible,button:hover,button:focus-visible{color:var(--strong);text-decoration:underline;outline:none}
+button{border:0;padding:0;margin:0;background:transparent;font:inherit;cursor:pointer;text-align:left}
+.title{text-align:center;margin-bottom:3.1em}
+.prompt{position:absolute;left:6.3%;bottom:7.5%}
+.cursor{display:inline-block;width:.62em;height:1em;margin-left:.14em;vertical-align:-.12em;background:var(--fg);box-shadow:0 0 3px var(--glow);animation:blink 1.05s steps(1,end) infinite}
+.current,.value{color:var(--strong)}
+@keyframes blink{0%,47%{opacity:1}48%,100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.cursor{animation:none}}
