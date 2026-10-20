@@ -28,3 +28,12 @@ not as a guaranteed byte-for-byte copy of the 1992 file.
 Update v0.2:
 - added explicit number + RETURN operation note
 - added references.html with source links and evidence notes
+
+Update v0.3:
+- added Yohei Morita lecture video (YouTube) to source materials
+- distinguishes personal retrospective testimony from contemporaneous documents
+
+Update v0.4:
+- treats KEK 2002 official article as confirmation that Morita worked from the CERN terminal room
+- separates that confirmed fact from still-unknown terminal/browser/display details
+- updates source notes and question wording accordingly
