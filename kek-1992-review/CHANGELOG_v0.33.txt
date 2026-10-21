@@ -1,9 +1,0 @@
-v0.33 — CERN-method reconstruction
-
-- Replaced CERN and KEK CSS terminal mockups with embedded instances of the shared Canvas/JS emulator.
-- Added query-selectable emulator profiles for direct CERN/KEK entry.
-- Kept reference-number + Return interaction; confirmed HTTP(S) destinations open from the emulator without fabricating missing historical bytes.
-- Removed latent CRT glow/scanline/vignette flags from CERN profiles.
-- Added reconstruction-policy.html describing CERN-style digital-archeology methodology.
-- Explicitly separates documentation CSS from the historical framebuffer.
-- Added reviewer anchors for the two principal questions.
