@@ -1,9 +1,0 @@
-v0.38 — CERN workflow / HTML-authoring provenance
-
-- Preserve the two-question structure for Morita review.
-- Add a CERN-side auxiliary confirmation about how the first HTML was learned/written: direct explanation from Berners-Lee, first-server HTML documentation/examples, existing pages, or another route.
-- Add evidence that Berners-Lee built the first WorldWideWeb browser/editor on NeXT and that the first server published HTML/HTTP/URI specifications.
-- Add 1992 W3C MarkUp snapshot as a source for Tags/Finding Examples availability.
-- Keep NeXT + LMB as a candidate, not a conclusion.
-- Add confirmed-vs-unconfirmed CERN workflow to cern-view.html.
-- No changes to historical framebuffer behavior, 1 + Return interaction, or CRT-effect policy.
