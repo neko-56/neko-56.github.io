@@ -4,88 +4,48 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow,noarchive">
-<title>KEK 1992 — KEK 2002 reconstruction view</title>
+<title>KEK 1992 — 講演資料の緑色再現画面</title>
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="model-layout.css">
 </head>
-<body class="viewer-body kek2002 model-page">
+<body class="review-mode">
 <nav class="site-nav" aria-label="共通ナビゲーション">
   <a class="site-nav-home" href="index.html">← ご確認用トップ</a>
   <div class="site-nav-group site-nav-models">
-    <span class="site-nav-label">表示候補</span>
+    <span class="site-nav-label">表示復元</span>
     <a href="cern-view.html">CERN側</a>
     <a href="kek-local.html">KEK側</a>
-    <a href="kek-2002-view.html" aria-current="page">緑色画面</a>
-    <a href="emulator/index.html">エミュレータ</a>
+    <a href="emulator/index.html">研究用エミュレータ</a>
   </div>
   <div class="site-nav-group site-nav-docs">
     <span class="site-nav-label">資料</span>
-    <a href="review.html">確認したい2点</a>
     <a href="environment-reference.html">表示環境の参考資料</a>
     <a href="references.html">根拠資料</a>
   </div>
 </nav>
-
-<main class="model-page-shell">
-  <header class="model-header">
-    <div class="model-header-main">
-      <div class="model-eyebrow">DISPLAY MODEL · KEK 2002</div>
-      <h1 class="model-title">KEK 2002 RECONSTRUCTION VIEW</h1>
-      <p class="model-summary">KEKの2002年記事・森田様の講演資料に掲載された緑色の「KEK INFORMATION」再現画面を比較対象として表示します。1992年9月30日の原画面そのものではありません。</p>
+<main class="wrap environment-reference-page">
+<header class="reference-header">
+  <div class="badge evidence-question">帰属未確認の比較資料</div>
+  <h1>講演資料に掲載された「薄緑背景・白文字」の再現画面</h1>
+  <p class="lead">このページでは画面をCSSで模写しません。森田様の講演資料に掲載された再現画像そのものを比較資料として示し、実際の操作候補はエミュレータで確認します。</p>
+</header>
+<section class="reference-section">
+  <div class="green-reference-grid large-reference-grid">
+    <figure class="reference-figure large-reference-figure">
+      <img src="assets/morita-green-reference.png" alt="森田様の講演資料に掲載された薄緑背景・白文字のKEK INFORMATION再現画面">
+      <figcaption>森田様の講演資料に掲載された再現画像（画面部分を抜粋）。元資料へのリンクは根拠資料ページに記載しています。</figcaption>
+    </figure>
+    <div>
+      <h2>現在確認したいこと</h2>
+      <p>この画像が、CERN側でHTMLを確認した際の表示、KEK側で自分自身のWWWページを表示した際の画面、または後年に当時のページ内容を示すために作成した再現表示の、どれを意図したものかは現在未確認です。</p>
+      <p>横長の比率は物理モニタ全面よりも、NeXTやDECwindowsなどのGUIデスクトップ上に開いたターミナル・ウィンドウと考えた方が自然な可能性があります。</p>
+      <div class="inline-actions"><a class="action primary" href="cern-view.html">CERN側候補で比較する</a><a class="action" href="kek-local.html">KEK側候補で比較する</a></div>
     </div>
-    <div class="model-meta">
-      <span class="model-badge confidence-source">公開資料に基づく比較表示</span>
-    </div>
-  </header>
-
-  <section class="model-stage" aria-label="KEK 2002 reconstruction display">
-    <div class="monitor">
-      <section class="screen">
-        <div class="terminal">
-          <div class="term-title">KEK INFORMATION</div>
-          <pre class="term-pre">Welcome to the KEK WWW server. This server is still in the process of being
-set up. If you have question on this KEK Information page, send e-mail to
-morita@kek.jp.
-
-Help[1]                 On this program, or the World-Wide Web[2]
-
-HEP[3]                  World Wide Web service provided by other High-Energy
-                        Physics institutes.
-
-KIWI[4]                 KEK Integrated Workstation environment Initiative.
-
-Root[5]                 WS Manager Support (Root) [EUC]
-
-See also                Types of server[6], and OTHER SUBJECTS[7]
-   [End]</pre>
-          <div class="prompt"><span id="base">1-7, Quit, or Help:</span><span id="typed"></span><span class="cursor"></span></div>
-        </div>
-      </section>
-    </div>
-  </section>
-
-  <div class="model-operation-bar">
-    <div class="model-operation-main"><strong>操作:</strong> 画面内の番号（1〜7）を入力し RETURN。</div>
-    <div>2002年以降の再現資料との比較用</div>
   </div>
-
-  <details class="model-disclosure">
-    <summary>詳細情報・位置づけを見る</summary>
-    <div class="model-disclosure-body">
-      <div class="model-details-grid">
-        <article class="model-detail-card">
-          <h2>このモデルの位置づけ</h2>
-          <p>後年のKEK資料に掲載された緑色画面を比較対象として再現しています。1992年当日のスクリーンショットとしては扱いません。</p>
-        </article>
-        <article class="model-detail-card">
-          <h2>利用目的</h2>
-          <p>本文配置、色、余白、prompt位置などを、CERN候補・KEK LOCAL候補・実機エミュレータと横並びで比較するためのモデルです。</p>
-        </article>
-      </div>
-    </div>
-  </details>
+</section>
+<section class="reference-section">
+  <div class="section-heading simple-heading"><div class="badge evidence-question">重要</div><h2>配色の意味はまだ確定していません</h2></div>
+  <p>薄緑＋白文字という配色は、森田様ご本人が講演の再現画像として提示されているため、復元候補として保持します。ただし、1992年当時のCERN端末またはKEK実機の保存設定だったことを示す直接証拠はまだありません。</p>
+</section>
 </main>
-
-<script src="terminal.js"></script>
 </body>
 </html>

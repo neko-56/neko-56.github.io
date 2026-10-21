@@ -10,10 +10,11 @@ const html=fs.readFileSync(path.join(base,"index.html"),"utf8");
 assert.ok(html.includes('id="displayScroll"'),"display scroll container must exist");
 assert.ok(html.includes('id="fullscreen"'),"fullscreen control must exist");
 assert.ok(!html.includes("CRT effects"),"normal UI must not present CRT blur/effects as historical display");
-assert.ok(html.includes("100%未満に縮小しない"),"no-shrink display rule must be visible");
+assert.ok(html.includes("埋め込み時は幅に合わせて縮小"),"embedded fit-to-width rule must be visible");
 
 const app=fs.readFileSync(path.join(base,"src","app.js"),"utf8");
-assert.ok(app.includes("Math.max(1"),"auto scale must never shrink below 100%");
+assert.ok(app.includes("return Math.max(0.1,Math.min(1,fit))"),"embedded auto scale must fit narrow review containers");
+assert.ok(app.includes("return Math.max(1,Math.min(1.75,stepped))"),"standalone research auto scale must preserve >=100% inspection mode");
 assert.ok(app.includes("requestFullscreen"),"fullscreen path must be implemented");
 
 const renderer=fs.readFileSync(path.join(base,"src","display-renderer.js"),"utf8");

@@ -15,7 +15,7 @@
     <a href="review.html" aria-current="page">ご確認いただきたい2点</a>
     <a href="environment-reference.html">表示環境の参考資料</a>
     <a href="research.html">調査・復元根拠</a>
-    <a href="reconstruction-policy.html">復元方針</a>
+    <a href="reconstruction-policy.html">復元の考え方</a>
   </div>
 </nav>
 <main class="wrap review-sheet reviewer-form concise-review">
@@ -33,7 +33,8 @@
   <div class="step-title"><span class="step-number">1</span><div><div class="badge">CERN側</div><h2>CERNでHTMLを作成したあとの表示について</h2></div></div>
   <article class="review-question">
     <label for="q1">CERNの端末室からKEKへログインしてHTMLを作成されたあと、そのHTMLを<strong>WWWブラウザで表示して確認</strong>されていたでしょうか。もし確認されていた場合、使用した端末やブラウザ、画面の見た目、操作など、覚えていらっしゃることがあれば教えていただけないでしょうか。</label>
-    <textarea id="q1" data-label="1. CERNでのHTML表示確認" rows="8" placeholder="覚えていらっしゃる範囲でご記入ください"></textarea>
+    <div class="question-hint"><strong>もし覚えていらっしゃれば、あわせて:</strong> 最初のHTMLは、Berners-Lee氏から書き方を直接教わったのでしょうか。それともCERNのWWWサイトに掲載されていたHTMLの説明、Example、既存ページなどを参考にされたのでしょうか。CERNでの作業環境を考えるうえでの補助的な確認として伺えればと思います。</div>
+    <textarea id="q1" data-label="1. CERNでのHTML作成・表示確認" rows="9" placeholder="覚えていらっしゃる範囲でご記入ください"></textarea>
   </article>
   <p class="candidate-link"><a href="cern-view.html">→ CERN側の現在の表示候補を見る</a></p>
 </section>
@@ -46,6 +47,22 @@
     <textarea id="q2" data-label="2. KEKのWWWサーバー自身でのブラウザ表示" rows="8" placeholder="覚えていらっしゃる範囲でご記入ください"></textarea>
   </article>
   <p class="candidate-link"><a href="kek-local.html">→ KEK側の現在の表示候補を見る</a></p>
+</section>
+
+<section class="review-step shared-green-question" id="green-reference-question">
+  <div class="step-title"><span class="step-number">補足</span><div><div class="badge evidence-question">二つの質問に共通する確認</div><h2>講演資料の「薄緑背景・白文字」の再現画面について</h2></div></div>
+  <div class="green-question-grid">
+    <figure class="reference-figure">
+      <img src="assets/morita-green-reference.png" alt="森田様の講演資料に掲載された薄緑背景・白文字のKEK INFORMATION再現画面">
+      <figcaption>講演資料に掲載された再現画像（画面部分を抜粋）。</figcaption>
+    </figure>
+    <article class="review-question">
+      <label for="qgreen">この再現画面は、<strong>CERNで作業されていた際の表示</strong>、<strong>KEK側で表示されていた画面</strong>、または<strong>後年に当時のページ内容を再現するために作成したもの</strong>の、どれに近いものでしょうか。また、横長の表示がモニタ全面ではなく端末ウィンドウだったかどうかなど、ご記憶があれば教えていただけないでしょうか。</label>
+      <textarea id="qgreen" data-label="補足. 講演資料の薄緑背景・白文字の再現画面について" rows="6" placeholder="例：CERNで見た画面に近い／KEK側の表示だった／後年の再現用だった／覚えていない、など"></textarea>
+      <p class="question-hint">この画面を先にCERN側・KEK側のどちらかへ帰属させず、両方の候補で比較しています。</p>
+    </article>
+  </div>
+  <div class="inline-actions"><a class="action" href="cern-view.html">CERN側候補で比較</a><a class="action" href="kek-local.html">KEK側候補で比較</a></div>
 </section>
 
 <section class="review-step optional-memory">
@@ -70,7 +87,7 @@
 
 <section class="source-context">
   <h2>調査資料について</h2>
-  <p>これまでの調査内容は削除せず、別ページに整理しています。今回の質問は、その中でも公開資料だけでは確定できない二点に絞っています。</p>
+  <p>これまでに調べた内容は別ページにまとめています。今回、森田様に伺いたいことは、その中でも資料だけでは分からない二点を中心にしています。</p>
   <p><a href="environment-reference.html">表示環境の参考資料</a> ／ <a href="references.html">根拠資料</a> ／ <a href="research.html">技術調査ノート</a></p>
 </section>
 </main>

@@ -1,41 +1,36 @@
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-MODELS = [
-    ROOT / "cern-view.html",
-    ROOT / "kek-2002-view.html",
-    ROOT / "kek-local.html",
-    ROOT / "emulator" / "index.html",
-]
 
-for page in MODELS:
-    text = page.read_text()
+# Reviewer candidate pages must expose simple switching, not dense research controls.
+for rel in ["cern-view.html", "kek-local.html"]:
+    text = (ROOT / rel).read_text()
     for token in [
-        'class="model-page-shell"',
-        'class="model-header"',
-        'class="model-stage',
-        'class="model-operation-bar"',
-        'class="model-disclosure"',
+        'candidate-comparison',
+        'candidate-tabs',
+        'data-candidate-frame',
+        'candidate-summary',
     ]:
-        assert token in text, (page.name, token)
-    assert text.index('class="model-header"') < text.index('class="model-stage'), page
-    assert text.index('class="model-stage') < text.index('class="model-operation-bar"'), page
-    assert text.index('class="model-operation-bar"') < text.index('class="model-disclosure"'), page
+        assert token in text, (rel, token)
+    assert '詳細調整は研究用エミュレータへ' in text, rel
 
-emulator = (ROOT / "emulator" / "index.html").read_text()
-assert 'class="model-stage model-stage-emulator"' in emulator
+# CERN page carries evidence-labelled NeXT/LMB candidates and workflow uncertainty.
+cern = (ROOT / "cern-view.html").read_text()
+assert 'NeXTSTEP Terminal.app + Line Mode Browser' in cern
+assert 'NeXT + 緑色候補' in cern
+assert 'CERNでの作業の流れ' in cern
+assert '未確認' in cern
+
+# KEK page keeps the confirmed host model fixed and varies display hypotheses.
+kek = (ROOT / "kek-local.html").read_text()
+assert 'DECstation 5000/125' in kek
+assert '講演資料配色' in kek
+
+# Historical display remains Canvas/emulator based; no fictional CRT effects are introduced.
+emulator = (ROOT / "emulator/index.html").read_text()
+assert 'id="display"' in emulator
 assert '表示設定・研究用設定' in emulator
-assert '詳細情報・根拠を見る' in emulator
-# Research controls must be after the framebuffer and operation bar.
-assert emulator.index('id="display"') < emulator.index('id="profile"')
-assert emulator.index('id="display"') < emulator.index('id="fontFile"')
-# The shared page must not wrap the emulator framebuffer in one of the static hardware shells.
-for forbidden in ['ibm-terminal-shell', 'dec-monitor-shell', 'class="monitor"']:
-    assert forbidden not in emulator, forbidden
+css = (ROOT / "emulator/style.css").read_text()
+assert 'image-rendering' in css
 
-css = (ROOT / "model-layout.css").read_text()
-assert '.model-page-shell' in css
-assert '.model-stage-emulator' in css
-assert 'fictional CRT' in css
-
-print("v0.27 unified model layout: PASS")
+print("v0.38 reviewer candidate UI: PASS")

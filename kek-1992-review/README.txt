@@ -1,3 +1,5 @@
+KEK 1992 WWW — review reconstruction v0.38
+
 KEK 1992 reconstruction — v0.27 unified model-page layout
 
 KEK 1992 WWW — review reconstruction
@@ -174,3 +176,13 @@ v0.27 unified model-page layout (2026-10-21)
 - the emulator framebuffer remains a bare verified pixel surface; no fictional CRT cabinet, blur, scanline or vignette is added
 - hardware shells remain only inside models where the shell itself is part of the historical reconstruction hypothesis
 - model-layout.css centralises the shared model-page UI without changing historical rendering logic
+
+
+v0.38 CERN workflow / HTML-authoring provenance (2026-10-22)
+--------------------------------------------------------------
+- keeps the two primary reviewer questions: CERN-side display and KEK-side display
+- adds one CERN-side auxiliary confirmation: how Morita learned/referenced HTML when creating the first KEK file
+- records that Berners-Lee built the first WorldWideWeb browser/editor and server on NeXT
+- records that HTML/HTTP/URI specifications were published on the first WWW server and that the 1992 snapshot contains HTML tags/examples material
+- does NOT infer from those facts that Morita used a NeXT; NeXT + LMB remains an evidence-labelled candidate
+- adds a short confirmed-vs-unconfirmed CERN workflow to the reviewer-facing CERN page

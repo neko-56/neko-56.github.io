@@ -8,7 +8,7 @@
 <title>KEK 1992 WWW — 根拠資料と位置づけ</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="review-mode reference-mode">
 <nav class="site-nav" aria-label="共通ナビゲーション">
   <a class="site-nav-home" href="index.html">← ご確認用トップ</a>
   <div class="site-nav-group site-nav-docs">
@@ -19,7 +19,7 @@
     <a href="original-source.html">復元HTML</a>
     <a href="link-status.html">リンク検証</a>
   </div>
-  <a class="site-nav-method" href="reconstruction-policy.html">復元方針</a>
+  <a class="site-nav-method" href="reconstruction-policy.html">復元の考え方</a>
 </nav>
 <main class="wrap">
 <h1>SOURCE MATERIALS / 根拠資料</h1>
@@ -27,13 +27,13 @@
   <p><strong>資料の扱い方:</strong> 「当時の一次資料」「森田様ご本人の後年資料」「KEK公式の回顧記事」「後年の技術再現」を区別しています。復元画面の見た目は、複数の資料から組み立てた仮説です。</p>
 </div>
 
-<p class="note">このページでは、表示復元に使っている公開資料を「何の根拠として使っているか」とともに整理しています。PDF等は再配布せず、原則として公開元の資料へリンクしています。外部リンクの既存audit日は <strong>2026-10-20</strong>。Phase 6.3のDEC技術資料とPhase 6.4の1992 W3資料は2026-10-21に確認しています。詳細は <a href="link-status.html">LINK STATUS / リンク検証</a> を参照してください。</p>
+<p class="note">ここでは、表示候補を考えるために参照している資料を「何の根拠として使っているか」とともに整理しています。PDF等は再配布せず、原則として資料の公開元へリンクしています。外部リンクの既存audit日は <strong>2026-10-20</strong>。Phase 6.3のDEC技術資料とPhase 6.4の1992 W3資料は2026-10-21に確認しています。詳細は <a href="link-status.html">LINK STATUS / リンク検証</a> を参照してください。</p>
 
 <div class="cards">
 <section class="card" id="morita-slides">
   <div class="badge">森田様の講演資料</div>
   <h2>ビッグサイエンスと国際研究機関のPR戦略</h2>
-  <p>森田洋平氏の講演資料。2ページ目に、1992年のTim Berners-Lee、KEK INFORMATIONの緑色画面、<code>ftp://kekux.kek.jp/</code>、September 92のWWWサーバーマップが並んで掲載されています。</p>
+  <p>森田洋平氏の講演資料。2ページ目に、1992年のTim Berners-Lee、KEK INFORMATIONの薄緑背景・白文字の再現画面、<code>ftp://kekux.kek.jp/</code>、September 92のWWWサーバーマップが並んで掲載されています。今回の聞き取りでは、この再現画面がCERN側・KEK側・後年再現のどれを意図したものかを確認したい重要資料として扱います。</p>
   <p><a href="https://www.ccs.tsukuba.ac.jp/wp-content/uploads/sites/14/2017/02/3_morita.pdf" target="_blank" rel="noopener noreferrer">PDFを公開元で見る ↗</a><br><span class="status-ok">公開URL確認</span> <span class="small">2026-10-20</span></p>
 </section>
 
@@ -76,8 +76,27 @@
   <div class="badge">KEK公式記事</div>
   <h2>日本初のホームページはKEKから（2016）</h2>
   <p>KEKが2016年9月30日に公開した公式記事です。1992年9月30日に森田洋平氏がCERNの端末室でHTMLファイルを作り、KEKのサーバー上に置いたことを「日本で初めてのウェブページ」と説明しています。</p>
-  <p>このサイトでは、KEK自身の公式な呼称として「日本初のウェブページ」を使います。一方、1992年9月の公開場所がFTP上だったこと、HTTPサーバー開始が1993年2月と記録されていることは別項目として区別します。</p>
+  <p>ここでは、KEK自身の公式な呼称として「日本初のウェブページ」を使います。一方、1992年9月の公開場所がFTP上だったこと、HTTPサーバー開始が1993年2月と記録されていることは別項目として区別します。</p>
   <p><a href="https://www2.kek.jp/ja/newsroom/2016/09/30/1512/" target="_blank" rel="noopener noreferrer">KEK公式記事を見る ↗</a></p>
+</section>
+
+
+<section class="card" id="first-server-html-docs">
+  <div class="badge">W3C / 最初のWWWサーバー</div>
+  <h2>HTML仕様・ExampleはWWW上で参照できた</h2>
+  <p>Tim Berners-Leeは、HTML・HTTP・URIの仕様を最初のWWWサーバー上で公開し、普及と議論を促したと回想しています。1992年11月3日のW3C保存スナップショットには、HTMLの<code>Tags</code>、<code>FindingExamples</code>など、HTMLを書くための説明資料が残っています。</p>
+  <p>これは「1992年当時CERNでHTMLの書き方をWWW上から参照できた」ことの根拠です。一方、森田様が9月30日の作業時に実際にこの説明を参照したか、Berners-Lee氏から直接教わったか、既存HTMLを参考にしたかは未確認です。</p>
+  <p><a href="https://www.w3.org/People/Berners-Lee/ShortHistory.html" target="_blank" rel="noopener noreferrer">W3C: A very short personal history ↗</a><br>
+  <a href="https://www.w3.org/History/19921103-hypertext/hypertext/WWW/MarkUp/" target="_blank" rel="noopener noreferrer">W3C: 1992 HTML / MarkUp snapshot ↗</a></p>
+</section>
+
+<section class="card" id="next-worldwideweb">
+  <div class="badge">W3C / CERN / NeXT</div>
+  <h2>Berners-Lee氏の最初のWWW環境はNeXT</h2>
+  <p>Berners-Lee氏自身のW3Cページでは、最初のWorldWideWebブラウザ／エディタをNeXTコンピュータで作ったと説明されています。CERNも、最初のWebサーバーとブラウザがNeXT上で稼働していたことを記録しています。</p>
+  <p>これは1992年のCERNにNeXT系WWW環境が存在したことの強い根拠ですが、森田様が端末室で使った機械がNeXTだったことの直接証拠ではありません。そのためCERN側の「NeXT + Line Mode Browser」は検証候補として扱います。</p>
+  <p><a href="https://www.w3.org/People/Berners-Lee/WorldWideWeb.html" target="_blank" rel="noopener noreferrer">W3C: The WorldWideWeb browser ↗</a><br>
+  <a href="https://home.cern/science/computing/the-birth-of-the-web/short-history-web/" target="_blank" rel="noopener noreferrer">CERN: A short history of the Web ↗</a></p>
 </section>
 
 <section class="card" id="history-1999">
@@ -170,21 +189,24 @@
 </section>
 <section class="card">
   <div class="badge">DECモニタ仕様</div>
-  <h2>VRT19-class 19-inch display</h2>
-  <p>DEC VRT19-DA/HA系は1280×1024で、Sony GDM-1960/1961として知られる同世代19インチ表示系です。KEK展示機のモニタ型番自体は未確認のため、有力候補として扱います。</p>
+  <h2>VRT19-class / Sony GDM-1960・1961</h2>
+  <p>DECのVRT19系列はSony Trinitron系のワークステーション向け大型カラー表示器です。DECマニュアルの仕様を引用した記録では、VRT19-DAがSony GDM-1960、VRT19-HAがSony GDM-1961に対応し、1280×1024動作が示されています。KEK展示機の外観はこの系統と整合しますが、<strong>正確なサブモデルは背面ラベル未確認</strong>のため有力候補として扱います。</p>
+  <p><a href="https://www.bitsavers.org/pdf/dec/fieldService/DEC_Datadoc_FS_Notes_Issue_42_199505/15_DESKTOP_SYSTEMA_AND_MONITORS.pdf" target="_blank" rel="noopener noreferrer">DEC Field Service monitor table ↗</a><br>
+  <a href="https://groups.google.com/g/comp.sys.dec/c/BZNThOE420Q" target="_blank" rel="noopener noreferrer">VRT19 / GDM-1960・1961 specifications (DEC manual citations) ↗</a></p>
+  <p class="small">現物がKEKに保存されているため、背面上部などの型番ラベル確認を依頼できれば推定を実物確認へ進められます。</p>
 </section>
 </div>
 
 <h2>資料の扱い</h2>
 <table>
-<tr><th>区分</th><th>このサイトでの扱い</th></tr>
+<tr><th>区分</th><th>今回の確認での扱い</th></tr>
 <tr><td>当時資料</td><td>1990〜1992年のCERN資料など。ブラウザ設計・操作・ソフトウェア状況の一次資料として扱います。</td></tr>
 <tr><td>本人資料・本人講演</td><td>森田洋平氏の講演資料・講演動画など。本人による後年の説明・一次証言として扱い、当時資料そのものとは区別します。</td></tr>
 <tr><td>組織の回顧資料</td><td>KEK 2002年公式記事など。CERN端末室での作業経緯のように記事本文で明記された事実は確認済みとして扱います。一方、掲載画面が当時保存されたものか後年再現かなど、記事から確定できない点は分けて確認します。</td></tr>
 <tr><td>後年の再現</td><td>CERNのLine Mode Browser再現等。初期環境を考える重要資料ですが、森田様が1992年に実際に使用した端末の直接証拠とはしません。</td></tr>
 </table>
 
-<p class="note">今回の目的は、公開資料から確定できる部分と、森田様・KEKへの確認が必要な部分を混同しないことです。</p>
+<p class="note">今回、森田様に確認していただくにあたり、資料から分かることと、ご本人に伺わなければ分からないことを混同しないよう整理しています。</p>
 </main>
 </body>
 </html>

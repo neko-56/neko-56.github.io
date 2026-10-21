@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow,noarchive">
-<title>KEK Web Display Emulator — v0.27</title>
+<title>KEK Web Display Emulator — v0.36</title>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="../model-layout.css">
 </head>
@@ -23,7 +23,7 @@
     <a href="../review.html">確認したい2点</a>
     <a href="../environment-reference.html">表示環境の参考資料</a>
     <a href="../references.html">根拠資料</a>
-    <a href="../reconstruction-policy.html">復元方針</a>
+    <a href="../reconstruction-policy.html">復元の考え方</a>
   </div>
 </nav>
 
@@ -36,7 +36,7 @@
     </div>
     <div class="model-meta">
       <span class="model-badge confidence-tool">研究用エミュレータ</span>
-      <span class="model-badge">UI v0.27</span>
+      <span class="model-badge">UI v0.36</span>
     </div>
   </header>
 
@@ -66,8 +66,13 @@
           <select id="profile">
             <option value="cern_morita_unknown">CERN 1992 — Morita terminal (hardware unknown)</option>
             <option value="cern_rs6000_reference">CERN reference — IBM RISC System/6000 / AIX</option>
-            <option value="cern_3270_alternate">CERN alternate — IBM 3270-class hypothesis</option>
+            <option value="cern_sun4_reference">CERN documented platform — Sun-4</option>
+            <option value="cern_priam_vax_reference">CERN documented platform — PRIAM VAX</option>
+            <option value="cern_nextstep_terminal_lmb">CERN candidate — NeXTSTEP Terminal.app + LMB</option>
+            <option value="cern_next_x11_lmb_green">CERN candidate — color NeXT + X11/xterm + LMB (green)</option>
+            <option value="cern_3270_alternate">CERN research alternate — IBM 3270-class hypothesis</option>
             <option value="kek_decterm_vrt19_candidate" selected>KEK — DECstation 5000/125 / DECterm / VRT19 candidate</option>
+            <option value="kek_decterm_vrt19_lecture_green">KEK candidate — DECstation 5000/125 / lecture green palette</option>
           </select>
         </label>
         <label class="model-setting">Browser evidence
@@ -85,7 +90,7 @@
         </label>
         <label class="model-setting">画面サイズ
           <select id="size">
-            <option value="auto">自動（100%未満に縮小しない）</option>
+            <option value="auto">自動（埋め込み時は幅に合わせて縮小）</option>
             <option value="1">100%</option>
             <option value="1.25">125%</option>
             <option value="1.5">150%</option>
@@ -129,7 +134,7 @@
     <div class="model-disclosure-body">
       <div class="model-details-grid documentation">
         <article class="model-detail-card inspector">
-          <span class="badge">SPECIFICATION-DRIVEN / PHASE 6.5 · UI v0.27</span>
+          <span class="badge">SPECIFICATION-DRIVEN / PHASE 6.5 · UI v0.36</span>
           <h2>Current profile</h2>
           <table id="spec"></table>
         </article>
@@ -148,7 +153,7 @@
 
         <article class="model-detail-card inspector">
           <h2>画面サイズの扱い</h2>
-          <p>「自動」は100%未満へ縮小せず、100/125/150/175%の25%刻みだけを使います。framebuffer自体は常にネイティブ解像度で保持し、表示拡大はnearest-neighborです。幅が足りなければ画面を縮めず横スクロールします。</p>
+          <p>研究用エミュレータを単独で開いた場合、「自動」は100%未満へ縮小せず、pixel-for-pixel確認を優先します。一方、森田様向けの埋め込み表示では横スクロールを避けるため、ネイティブframebufferを保持したまま表示サイズだけを幅に合わせます。</p>
           <p>CRTをぼかす処理は入れていません。写真撮影時のボケや走査同期の再現が必要になった場合は、別の「撮影モード」として扱います。</p>
         </article>
 
