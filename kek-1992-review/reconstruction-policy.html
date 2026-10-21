@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>KEK 1992 WWW — 復元方針</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="review-mode">
+<nav class="site-nav" aria-label="共通ナビゲーション">
+  <a class="site-nav-home" href="index.html">← ご確認用トップ</a>
+  <div class="site-nav-group site-nav-docs">
+    <a href="review.html">ご確認いただきたい2点</a>
+    <a href="environment-reference.html">表示環境の参考資料</a>
+    <a href="reconstruction-policy.html" aria-current="page">復元方針</a>
+    <a href="references.html">根拠資料</a>
+  </div>
+</nav>
+<main class="wrap environment-reference-page methodology-page">
+<header class="reference-header">
+  <div class="badge evidence-confirmed">METHODOLOGY</div>
+  <h1>復元方針 — CERNのデジタル考古学を基準にする</h1>
+  <p class="lead">目標は「昔風に見えるページ」を作ることではなく、残存資料、当時のソフトウェア挙動、実機・OS資料、当事者証言を照合し、1992年の利用体験を追試できる形で復元することです。</p>
+</header>
+
+<section class="reference-section">
+  <div class="section-heading simple-heading"><div class="badge">CERNを基準にする理由</div><h2>画面写真の模写ではなく、ブラウザ体験を再構築する</h2></div>
+  <p>CERNの2019年WorldWideWeb Rebuildは、NeXT上の利用体験を伝えること、ブラウザ兼エディタとしての機能を示すことを原則として掲げ、古いNeXT実機、残存コード、当時の開発者への聞き取りを使って再構築しています。今回のKEK復元も、この方法論を基準とします。</p>
+  <p><a href="https://worldwideweb.cern.ch/production/" target="_blank" rel="noopener noreferrer">CERN 2019 — Production Details ↗</a> ／ <a href="https://worldwideweb.cern.ch/" target="_blank" rel="noopener noreferrer">WorldWideWeb Rebuild ↗</a></p>
+</section>
+
+<section class="reference-section">
+  <div class="section-heading simple-heading"><div class="badge evidence-confirmed">原則</div><h2>この復元で守る6つの原則</h2></div>
+  <div class="archive-principles methodology-principles">
+    <article><strong>1. 元データ優先</strong><span>保存HTML、同時代資料、実フォント、ソースコードを優先し、現代的な見た目で補わない。</span></article>
+    <article><strong>2. 挙動を再現</strong><span>番号入力＋Return、ページ送り、promptなど、ブラウザの操作を実際に動かす。</span></article>
+    <article><strong>3. 画面はエミュレータで描画</strong><span>歴史画面をCSSの静止模型として作らず、文字セル／bitmap glyph／framebufferをエミュレーションする。</span></article>
+    <article><strong>4. 不明点を作らない</strong><span>機種、色、フォント、prompt等が未確認なら「未確認」のまま保持し、推測を確定値にしない。</span></article>
+    <article><strong>5. 証言と資料を分離</strong><span>森田様の証言、一次資料、後年資料、技術的推定を別の証拠層として記録する。</span></article>
+    <article><strong>6. 再検証可能にする</strong><span>根拠、テスト、ハッシュ、プロファイル、未解決事項を残し、後から別の人が追試できる構成にする。</span></article>
+  </div>
+</section>
+
+<section class="reference-section">
+  <div class="section-heading simple-heading"><div class="badge">実装境界</div><h2>説明サイトと歴史画面を分離する</h2></div>
+  <table class="method-table">
+    <tr><th>説明・ナビゲーション</th><td>通常のHTML/CSS。調査目的、根拠、確度、参考資料を表示。</td></tr>
+    <tr><th>歴史画面</th><td>JavaScriptのLine Mode Browser挙動エンジン＋Canvas framebuffer。CSSで文字画面を組まない。</td></tr>
+    <tr><th>KEK文字</th><td>検証済みDEC Terminal bitmap glyphを論理ピクセルへ直接描画。ブラウザのアンチエイリアスで代用しない。</td></tr>
+    <tr><th>CERN文字</th><td>森田様の実端末が未同定のため、機種固有フォントを断定しない。端末同定後に該当glyphへ置換。</td></tr>
+    <tr><th>CRT効果</th><td>通常表示では使用しない。ぼかし、走査線、発光、湾曲は歴史画面そのものの証拠ではないため加えない。</td></tr>
+  </table>
+</section>
+
+<section class="reference-section">
+  <div class="section-heading simple-heading"><div class="badge evidence-question">現在の到達点</div><h2>「復元済み」と「まだ再現できない」を区別する</h2></div>
+  <div class="reference-item-grid">
+    <article class="reference-item"><h3>動作モデル</h3><p>保存HTMLを読み、固定幅端末用に整形し、参照番号を生成して、キーボード入力で操作するLine Mode Browserモデルを実装。</p></article>
+    <article class="reference-item"><h3>KEK表示スタック</h3><p>DECstation / ULTRIX / DECwindows / DECterm資料とULTRIX媒体のbitmap fontを照合。実行時の75dpi/100dpi分岐は未確定。</p></article>
+    <article class="reference-item"><h3>CERN実端末</h3><p>森田様が使用した端末は未同定。現状は機種非依存の安全側プロファイルを基準とし、証言を得て更新する。</p></article>
+  </div>
+</section>
+
+<section class="reference-section">
+  <div class="section-heading simple-heading"><div class="badge">次の決定的資料</div><h2>森田様の証言を「補助」ではなく証拠層として残す</h2></div>
+  <p>30年以上前の作業について、完全な型番や名称が出なくても、「この操作だった」「この表示ではない」「KEK側では表示していない」といった情報は、候補を棄却・確定するための重要な証拠になります。回答は、後から技術資料と混ざらないよう「当事者証言」として出典・確認日を分けて記録する方針です。</p>
+  <p><a class="action primary" href="review.html">森田様にご確認いただきたい2点を見る</a></p>
+</section>
+</main>
+</body>
+</html>

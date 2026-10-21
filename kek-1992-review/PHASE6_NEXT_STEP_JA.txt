@@ -1,0 +1,22 @@
+Phase 6.5 / v0.25 September prompt evidence discipline まで完了。
+
+今回の訂正:
+- 1992-09-30 conservative modeのpromptは、1992-02-18一次資料で直接確認できる最小集合だけを表示する。
+- 表示するのは、参照番号、必要時の `Return for more`、末尾の `Help or Quit:`。
+- `Back` / `Up` / `Find <keywords>` は、後のLine Mode Browser系譜では確認できるが、9月30日のexact executableでのprompt語順・条件を直接確認できないため表示しない。
+- これはコマンドが存在しなかったという意味ではない。コマンド能力とprompt advertisementを分離した。
+- November 1992 reference modeは後の保存資料を検証する別モードとして維持する。
+
+まだ重要な未確定点（優先順）:
+1. Line Mode Browser 1.x exact source/binary archiveをW3以外の旧FTP mirror、研究機関archive、個人保存物まで探索する。
+2. exact source/binaryが得られたらHTBrowse.cのprompt生成、GridText.cのpage/scroll、DefaultStyles.cをtarget revisionで検証する。
+3. `-p24` page lengthと24-row DECtermで、実際に何行本文を出してpromptを置いたかをperiod executableで再現する。
+4. conservative mode内のHELP/LIST/RECALL等の内部生成画面について、exact period outputを回収できない部分を同じdisplay-disciplineで再点検する。
+5. KEK現存DECstationのgraphics optionと `/etc/ttys` X server commandを確認し、75dpi/100dpi runtime branchを閉じる。
+6. `Extract_ULTRIX_DEC_Terminal_75_100.command`で実媒体75dpi terminal14も抽出し、三者比較を閉じる。
+
+詳細:
+- emulator/docs/PHASE6_5_PROMPT_EVIDENCE_DISCIPLINE.md
+- emulator/docs/PHASE6_4_LMB_1992_BEHAVIOR.md
+- emulator/docs/SOURCE_VERSION_POLICY.md
+- emulator/evidence/LMB_1992_BEHAVIOR_BOUNDS.json

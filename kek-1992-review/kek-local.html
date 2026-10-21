@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>KEK 1992 — KEK側 表示復元</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="review-mode reconstruction-view-page">
+<nav class="site-nav" aria-label="共通ナビゲーション">
+  <a class="site-nav-home" href="index.html">← ご確認用トップ</a>
+  <div class="site-nav-group site-nav-models">
+    <span class="site-nav-label">表示復元</span>
+    <a href="cern-view.html">CERN側</a>
+    <a href="kek-local.html" aria-current="page">KEK側</a>
+    <a href="emulator/index.html">研究用エミュレータ</a>
+  </div>
+  <div class="site-nav-group site-nav-docs">
+    <span class="site-nav-label">資料</span>
+    <a href="review.html">確認したい2点</a>
+    <a href="environment-reference.html">表示環境の参考資料</a>
+    <a href="reconstruction-policy.html">復元方針</a>
+  </div>
+</nav>
+<main class="wrap reconstruction-view-shell">
+<header class="reference-header compact-reconstruction-header">
+  <div class="badge evidence-question">KEK側 / 調査中</div>
+  <h1>KEK自身のWWWページをKEK側で表示したときの画面を復元する</h1>
+  <p class="lead">当時のKEK WWWサーバー上、またはその表示環境でWWWブラウザを起動し、自身が発信するページを確認していた場合の画面を復元するための実験です。</p>
+  <div class="reference-caution"><strong>重要:</strong> KEK側で実際にこの方法でページを表示確認していたか自体が未確認です。下はDECstation 5000/125、ULTRIX/DECwindows、Line Mode Browserに関する現時点の証拠から組んだ候補であり、森田様の確認により修正または棄却する前提です。</div>
+</header>
+
+<section class="emulator-host" aria-labelledby="kek-emulator-title">
+  <div class="emulator-host-head">
+    <div><div class="badge">INTERACTIVE RECONSTRUCTION</div><h2 id="kek-emulator-title">KEK側・DECstation候補プロファイル</h2></div>
+    <a class="action" href="emulator/index.html?profile=kek_decterm_vrt19_candidate&behavior=sep1992_conservative">研究用画面で開く</a>
+  </div>
+  <p class="emulator-instruction"><kbd>1</kbd> などの参照番号を入力して <kbd>Return</kbd>。文字は検証済みbitmap glyphをCanvas framebufferへ描画し、CSSで端末画面を作っていません。CRT風ぼかし・走査線・発光も加えていません。</p>
+  <iframe class="emulator-frame emulator-frame-kek" title="KEK側 Line Mode Browser 表示復元" src="emulator/index.html?profile=kek_decterm_vrt19_candidate&behavior=sep1992_conservative&embed=1&animate=0" loading="eager"></iframe>
+</section>
+
+<section class="reviewer-section reconstruction-status">
+  <div class="section-heading simple-heading"><div class="badge evidence-question">未確認</div><h2>森田様に伺いたいこと</h2></div>
+  <p>KEK側でWWWブラウザから自分自身が発信するページを表示確認していたか。していた場合、どの端末・ウインドウ・色・操作だったか。</p>
+  <p><a href="review.html#kek-question">質問ページへ</a> ／ <a href="environment-reference.html#kek-side-materials">DECstation / ULTRIX等の参考資料へ</a></p>
+</section>
+</main>
+</body>
+</html>

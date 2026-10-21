@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="googlebot" content="noindex,nofollow,noarchive">
+<title>KEK 1992 WWW — 当時の表示環境に関する参考資料</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="site-nav" aria-label="共通ナビゲーション">
+  <a class="site-nav-home" href="index.html">← ご確認用トップ</a>
+  <div class="site-nav-group site-nav-docs">
+    <a href="review.html">ご確認いただきたい2点</a>
+    <a href="environment-reference.html" aria-current="page">表示環境の参考資料</a>
+    <a href="references.html">調査・復元根拠</a>
+    <a href="reconstruction-policy.html">復元方針</a>
+    <a href="research.html">技術調査</a>
+  </div>
+</nav>
+<main class="wrap environment-reference-page">
+<header class="reference-header">
+  <div class="badge">REFERENCE / 参考資料</div>
+  <h1>当時の表示環境に関する参考資料</h1>
+  <p class="lead">1992年前後のWWWが、どのような端末・ブラウザ・画面で使われていたのかを考えるための資料です。</p>
+  <div class="reference-caution"><strong>位置づけ:</strong> ここに掲載する機器や復元画面が、森田様が1992年9月に実際に使用したものだと断定するものではありません。比較・確認のための参考資料です。</div>
+</header>
+
+<section class="reference-section" id="cern-reconstruction">
+  <div class="section-heading simple-heading">
+    <div class="badge evidence-confirmed">CERN</div>
+    <h2>CERNによる初期WWW環境の復元</h2>
+  </div>
+  <p>CERNは、最初のWebサイトだけでなく、初期のブラウザを「当時どのように見え、どのように操作したか」という体験まで含めて復元する取り組みを行っています。今回のKEK表示環境の復元では、この「画面を似せるだけでなく、当時の利用体験を再構築する」という方法を基本方針にします。</p>
+  <div class="reference-item-grid">
+    <article class="reference-item">
+      <h3>最初のWebサイトの復元</h3>
+      <p>CERNは2013年、世界最初のWebサイト <code>info.cern.ch</code> の復元プロジェクトを開始しました。</p>
+      <p><a href="https://home.cern/science/computing/the-birth-of-the-web" target="_blank" rel="noopener noreferrer">CERN: The birth of the Web ↗</a></p>
+    </article>
+    <article class="reference-item">
+      <h3>Line Mode Browserの復元</h3>
+      <p>端末上でテキストとしてWebを閲覧するLine Mode Browserについて、CERNは2013年にシミュレーターを再現しました。GitHubにはCERN simulationのmirrorが残っています。</p>
+      <p><a href="https://home.cern/why-bring-back-line-mode-browser/" target="_blank" rel="noopener noreferrer">CERN: Why bring back the line-mode browser? ↗</a><br>
+      <a href="https://github.com/cern-hackdays/lmb" target="_blank" rel="noopener noreferrer">CERN Line Mode Browser simulation mirror ↗</a></p>
+    </article>
+    <article class="reference-item">
+      <h3>WorldWideWebブラウザの再現</h3>
+      <p>2019年には、NeXT上で動いた最初のWorldWideWebブラウザ／エディタを、現代のブラウザ上で再現するプロジェクトも行われています。</p>
+      <p><a href="https://worldwideweb.cern.ch/" target="_blank" rel="noopener noreferrer">CERN 2019 WorldWideWeb Rebuild ↗</a></p>
+    </article>
+  </div>
+  <div class="method-note">
+    <strong>今回の復元に参考になる点</strong>
+    <p>HTML本文を残すだけでなく、「どの端末・ブラウザで」「どのように描画され」「どのように操作されたか」を分けて調べる、という考え方です。</p>
+  </div>
+</section>
+
+<section class="reference-section" id="cern-side-materials">
+  <div class="section-heading simple-heading">
+    <div class="badge">CERN側の比較材料</div>
+    <h2>1992年前後の端末・Line Mode Browser</h2>
+  </div>
+  <div class="reference-item-grid">
+    <article class="reference-item">
+      <h3>1992年のW3資料</h3>
+      <p>同時代の論文・操作資料から、Line Mode Browserがリンクに番号を付け、番号とRETURNで選択する表示・操作をしていたことなどを確認できます。</p>
+      <p><a href="references.html#lmb-guide">関連する根拠資料を見る</a></p>
+    </article>
+    <article class="reference-item">
+      <h3>IBM 3270系という候補</h3>
+      <p>CERN職員の後年の回顧には、初期Line Mode Browserを固定サイズのIBM 3270 displayで使ったという記述があります。ただし、森田様が使用した端末を直接特定する資料ではありません。</p>
+      <p><a href="cern-view.html">CERN側の現在の表示候補を見る</a></p>
+    </article>
+    <article class="reference-item">
+      <h3>実際に使った端末は未確定</h3>
+      <p>端末の型番、文字色、接続方式、ブラウザの種類、CERNでHTML作成後に実際にブラウザ表示したかは、現時点の公開資料だけでは確定していません。</p>
+    </article>
+  </div>
+</section>
+
+<section class="reference-section" id="kek-side-materials">
+  <div class="section-heading simple-heading">
+    <div class="badge">KEK側の比較材料</div>
+    <h2>DECstation / ULTRIX / DECwindows</h2>
+  </div>
+  <p>KEK側については、DECstation 5000/125、ULTRIX、DECwindows / DECterm、Line Mode Browser、当時の端末フォントなどを調べています。</p>
+  <div class="reference-item-grid">
+    <article class="reference-item">
+      <h3>DECstation 5000/125</h3>
+      <p>KEK側実機候補の本体・グラフィックス・モニタ構成について、DECの同時代価格表や保守資料を照合しています。</p>
+    </article>
+    <article class="reference-item">
+      <h3>ULTRIX / DECwindows / DECterm</h3>
+      <p>80桁×24行、固定幅Terminal font、画面解像度、X serverの75dpi / 100dpi分岐などを技術資料から検証しています。</p>
+    </article>
+    <article class="reference-item">
+      <h3>フォントの実物確認</h3>
+      <p>ULTRIX 4.3媒体から100dpi / 10ptのDEC Terminal候補フォントが実在することを確認しています。ただし、それが1992年のKEK実機で選択されていたことまでは確定していません。</p>
+    </article>
+  </div>
+  <div class="reference-caution secondary-caution"><strong>最も重要な未確認点:</strong> KEKのWWWサーバー自身でWWWブラウザを起動し、自分自身が配信しているページを表示確認していたかどうかは、まだ確認できていません。現在のKEK側画面は「もしそのような使い方をしていた場合」の比較候補です。</div>
+  <p><a class="action" href="kek-local.html">KEK側の現在の表示候補を見る</a></p>
+</section>
+
+<section class="reference-section" id="later-images">
+  <div class="section-heading simple-heading">
+    <div class="badge">後年資料</div>
+    <h2>「KEK INFORMATION」の緑色画面</h2>
+  </div>
+  <p>KEKの回顧記事や森田様の講演資料には、緑色背景に白い文字で「KEK INFORMATION」が表示された画面が掲載されています。この画面が1992年当時に保存されたものなのか、後年に再現したものなのか、あるいは別の環境で表示したものなのかは、現時点では確定していません。</p>
+  <p><a class="action" href="kek-2002-view.html">緑色画面の比較用再現を見る</a></p>
+</section>
+
+<section class="reference-section research-links-block">
+  <div class="section-heading simple-heading">
+    <div class="badge evidence-confirmed">詳細</div>
+    <h2>調査・復元根拠を詳しく見る</h2>
+  </div>
+  <div class="research-actions expanded-research-actions">
+    <a href="references.html"><strong>根拠資料</strong><span>各資料を何の根拠に使ったか</span></a>
+    <a href="original-source.html"><strong>復元HTML本文</strong><span>KEKページ本文・リンク構造</span></a>
+    <a href="research.html"><strong>技術調査ノート</strong><span>仮説と未確定点</span></a>
+    <a href="link-status.html"><strong>リンク検証</strong><span>資料URLの取得状態</span></a>
+    <a href="emulator/index.html"><strong>表示エミュレータ</strong><span>挙動・フォント比較</span></a>
+  </div>
+</section>
+
+<footer class="reviewer-footer">
+  <p><a href="review.html">← ご確認いただきたい2点へ戻る</a></p>
+</footer>
+</main>
+</body>
+</html>

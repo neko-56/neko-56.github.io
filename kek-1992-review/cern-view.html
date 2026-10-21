@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>KEK 1992 — CERN側 表示復元</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="review-mode reconstruction-view-page">
+<nav class="site-nav" aria-label="共通ナビゲーション">
+  <a class="site-nav-home" href="index.html">← ご確認用トップ</a>
+  <div class="site-nav-group site-nav-models">
+    <span class="site-nav-label">表示復元</span>
+    <a href="cern-view.html" aria-current="page">CERN側</a>
+    <a href="kek-local.html">KEK側</a>
+    <a href="emulator/index.html">研究用エミュレータ</a>
+  </div>
+  <div class="site-nav-group site-nav-docs">
+    <span class="site-nav-label">資料</span>
+    <a href="review.html">確認したい2点</a>
+    <a href="environment-reference.html">表示環境の参考資料</a>
+    <a href="reconstruction-policy.html">復元方針</a>
+  </div>
+</nav>
+<main class="wrap reconstruction-view-shell">
+<header class="reference-header compact-reconstruction-header">
+  <div class="badge evidence-question">CERN側 / 調査中</div>
+  <h1>CERNでKEKのHTMLを確認したときの表示を復元する</h1>
+  <p class="lead">森田様がCERNの端末室からKEKへログインしてHTMLを作成したあと、WWWブラウザで表示確認していた場合の画面を復元するための実験です。</p>
+  <div class="reference-caution"><strong>重要:</strong> 1992年9月30日に森田様が使用したCERN端末の機種・実フォント・表示色は、現時点では未確認です。下の画面は機種を決め打ちせず、確認できているLine Mode Browserの文字端末動作を基準にしています。</div>
+</header>
+
+<section class="emulator-host" aria-labelledby="cern-emulator-title">
+  <div class="emulator-host-head">
+    <div><div class="badge">INTERACTIVE RECONSTRUCTION</div><h2 id="cern-emulator-title">CERN側・機種未確定プロファイル</h2></div>
+    <a class="action" href="emulator/index.html?profile=cern_morita_unknown&behavior=sep1992_conservative">研究用画面で開く</a>
+  </div>
+  <p class="emulator-instruction"><kbd>1</kbd> などの参照番号を入力して <kbd>Return</kbd>。確認可能な外部参照はその操作から開けます。画面内に研究用注記やCRT風のぼかしは加えていません。</p>
+  <iframe class="emulator-frame" title="CERN側 Line Mode Browser 表示復元" src="emulator/index.html?profile=cern_morita_unknown&behavior=sep1992_conservative&embed=1&animate=0" loading="eager"></iframe>
+</section>
+
+<section class="reviewer-section reconstruction-status">
+  <div class="section-heading simple-heading"><div class="badge evidence-question">未確認</div><h2>森田様に伺いたいこと</h2></div>
+  <p>HTML作成後にCERN側でWWWブラウザを使って確認していたか。使っていた場合、端末・ブラウザ・文字色・画面配置・操作について覚えていることがあるか。</p>
+  <p><a href="review.html#cern-question">質問ページへ</a> ／ <a href="environment-reference.html#cern-reconstruction">CERN復元プロジェクト等の参考資料へ</a></p>
+</section>
+</main>
+</body>
+</html>
