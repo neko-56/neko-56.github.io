@@ -1,0 +1,17 @@
+KEK Web Display Emulator — Phase 6.5 regression result
+Date: 2026-10-21
+
+JavaScript regression tests: 13 / 13 PASS
+Python regression tests: 5 / 5 PASS
+Total: 18 / 18 PASS
+
+Phase 6.5-specific checks:
+- September conservative prompt token policy is directly-attested minimum: PASS
+- reference range remains visible when references exist: PASS
+- Return for more remains visible when pagination applies: PASS
+- Help or Quit: closing form preserved: PASS
+- Back token omitted even when Back command is usable: PASS
+- Up token omitted even when prior page exists: PASS
+- Find prompt token omitted for index document without September direct evidence: PASS
+- November reference profile remains separate: PASS
+- evidence JSON encodes omission != historical absence: PASS

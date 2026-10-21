@@ -1,0 +1,13 @@
+KEK Phase 6 v0.18 direct-media regression
+Date: 2026-10-21
+
+PASS: classic ULTRIX UFS reader / path walk / file extraction
+PASS: direct ISO9660 reader (2048/raw2352 layouts)
+PASS: Phase 6 ULTRIX media extraction / PCF round-trip
+PASS: existing emulator/display/font regression suite
+
+Purpose:
+- avoid dependence on macOS hdiutil for historical ULTRIX media
+- detect/read classic UFS1/FFS directly
+- preserve ISO9660 direct reader as alternate media path
+- keep host mount/tar only as final fallback with detailed diagnostics

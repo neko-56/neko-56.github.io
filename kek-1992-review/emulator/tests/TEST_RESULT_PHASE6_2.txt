@@ -1,0 +1,30 @@
+
+PHASE 6.3 NOTE (2026-10-21):
+The server-specific Xws facts below remain valid, but any Phase 6.2 wording that
+promotes 75dpi/14pt to the KEK-machine runtime-first candidate is superseded.
+See TEST_RESULT_PHASE6_3.txt.
+
+KEK Web Display Emulator v0.22 — Phase 6.2 validation
+Date: 2026-10-21
+
+New evidence-model tests:
+- test-phase6-2-font-selection.js: PASS
+- test-phase6-2-density-pair.py: PASS
+
+Regression suite:
+- 10 JavaScript tests: PASS
+- 5 Python tests: PASS
+
+Real uploaded ULTRIX 4.3 evidence recheck:
+- terminal10.bdf XLFD: -DEC-Terminal-Medium-R-Normal--14-100-100-100-C-80-ISO8859-1
+- full raster comparison vs bundled public term14: 195/195 PASS
+- ASCII 32-126: 95/95 PASS
+- public term14 bytes: 22,065
+- public term14 SHA-256: b93ab33ead159d11a4e503ab71c72b7b51802a35de27d5a326ab4648f448f081
+
+Phase 6.2 conclusion:
+- Xws documented runtime default: 75dpi
+- DECterm default Little Font: 14pt at 75dpi / 10pt at 100dpi
+- Xws 100dpi path requires explicit selection such as -fd 100 -dpi 100
+- KEK-specific /etc/ttys and X resources: unresolved
+- public rendering bitmap remains valid because its metadata matches the 75dpi path and its raster matches the media-confirmed 100dpi target 195/195

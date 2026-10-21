@@ -1,0 +1,13 @@
+PASS public term14 byte identity: 22065 bytes; SHA-256 b93ab33ead159d11a4e503ab71c72b7b51802a35de27d5a326ab4648f448f081
+PASS glyphs: 195; ASCII: 95
+PASS 8x15 raster digest (195): 53bf93238adf6eac91e560c46815998aebc4ad40f6b5b16de4f6f22eb81ab236
+PASS 8x15 raster digest (ASCII): 518a5600502b02de61816b2de8f8e9695a645cbe7e0bdc7adb43bd77e79d84c7
+{
+  "all_total": 195,
+  "all_matched": 195,
+  "all_mismatches": [],
+  "ascii_total": 95,
+  "ascii_matched": 95,
+  "ascii_mismatches": []
+}
+PASS: historical ULTRIX target and bundled public-lineage asset are 195/195 raster-equivalent
