@@ -162,3 +162,36 @@ body.embed-mode .site-nav,body.embed-mode .model-header,body.embed-mode .model-d
 body.embed-mode .model-page-shell{max-width:none!important;margin:0!important;padding:0!important}
 body.embed-mode .model-stage{margin:0!important;border:0!important;border-radius:0!important}
 body.embed-mode .model-operation-bar{margin:0!important;border-left:0!important;border-right:0!important;border-radius:0!important}
+body.embed-mode .display-scroll{overflow:hidden!important;display:flex;justify-content:center;align-items:flex-start}
+body.embed-mode canvas{flex:0 0 auto;margin:0 auto}
+
+/* v0.40.1 — embedded review views must never create a horizontal scroll area. */
+html:has(body.embed-mode),
+body.embed-mode{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden!important;
+}
+body.embed-mode{
+  padding:0!important;
+}
+body.embed-mode .model-page-shell,
+body.embed-mode .model-stage,
+body.embed-mode .display-panel,
+body.embed-mode .display-scroll{
+  width:100%!important;
+  max-width:100%!important;
+  min-width:0!important;
+  box-sizing:border-box!important;
+}
+body.embed-mode .display-scroll{
+  overflow-x:hidden!important;
+  overflow-y:hidden!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+}
+body.embed-mode canvas{
+  flex:none!important;
+  margin:0 auto!important;
+}

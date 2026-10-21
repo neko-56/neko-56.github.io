@@ -27,9 +27,12 @@
   const params=new URLSearchParams(window.location.search);
   const requestedProfile=params.get("profile");
   const requestedBehavior=params.get("behavior");
+  const requestedScreen=params.get("screen");
   if(requestedProfile && TerminalProfiles[requestedProfile]) profileSelect.value=requestedProfile;
   if(requestedBehavior && Array.from(behaviorSelect.options).some(o=>o.value===requestedBehavior)) behaviorSelect.value=requestedBehavior;
-  if(params.get("embed")==="1") document.body.classList.add("embed-mode");
+  if(requestedScreen && Array.from(screenModeSelect.options).some(o=>o.value===requestedScreen)) screenModeSelect.value=requestedScreen;
+  const embedded=params.get("embed")==="1";
+  if(embedded) document.body.classList.add("embed-mode");
   if(params.get("animate")==="0") animateToggle.checked=false;
 
   let profile=TerminalProfiles[profileSelect.value];
@@ -225,14 +228,14 @@
       ["Framebuffer",profile.framebufferWidth+" × "+profile.framebufferHeight+
         " ("+profile.physicalResolutionStatus+")"],
       ["Browser behavior",behaviorText],
-      ["DECterm screen mode",profile.alternateTerminalPalette
+      ["Terminal screen mode",profile.alternateTerminalPalette
         ?effectiveScreenMode()+" · KEK saved resource unknown"
         :"not applicable"],
-      ["DECterm window chrome",profile.windowChrome
-        ?profile.windowChrome.candidate+" · KEK placement/title not independently captured"
+      ["Window chrome",profile.windowChrome
+        ?profile.windowChrome.candidate+" · exact historical placement/title unconfirmed"
         :"not reconstructed"],
       ["Vertical scrollbar",profile.windowChrome
-        ?(profile.verticalScrollbar?"on":"off")+" · KEK saved resource unknown"
+        ?(profile.verticalScrollbar?"on":"off")+" · saved resource/state may be unknown"
         :"not applicable"],
       ["Prompt provenance",promptProvenance],
       ["LMB width policy","80-column display candidate; 1992 command-line documentation says the browser default is 78/79/80 depending on system"],
@@ -246,7 +249,9 @@
         :"not applicable"],
       ["Graphics / X server",profile.graphicsOptionStatus||"not applicable"],
       ["Bitmap pixel mapping",fontBackend&&fontBackend.kind==="bdf"?"1 font pixel = 1 reconstructed framebuffer pixel":"fallback is hard-rasterized to 1-bit logical pixels"],
-      ["Presentation filter","nearest-neighbor / no devicePixelRatio re-rasterization / 25% auto steps"]
+      ["Presentation filter",embedded
+        ?"embedded review view: fit-to-width presentation / native backing framebuffer"
+        :"research view: nearest-neighbor / no devicePixelRatio re-rasterization / 25% auto steps"]
     ];
 
     spec.innerHTML=rows.map(
@@ -261,10 +266,17 @@
     const v=sizeSelect.value;
     if(v!=="auto")return Number(v);
 
-    // Never use arbitrary fractional fit scaling. It softens a reconstructed
-    // pixel framebuffer. Auto selects only 25% steps and never below 100%.
-    const available=Math.max(0,displayPanel.clientWidth-24);
+    const available=Math.max(1,displayScroll.clientWidth-8);
     const fit=available/profile.framebufferWidth;
+
+    // Reviewer-facing embedded pages must not require horizontal scrolling.
+    // The backing framebuffer remains native resolution; only its presentation
+    // size is fitted to the available viewport. The standalone research view
+    // keeps the >=100% rule so pixel-for-pixel inspection is still available.
+    if(embedded){
+      return Math.max(0.1,Math.min(1,fit));
+    }
+
     const stepped=Math.floor(fit*4)/4;
     return Math.max(1,Math.min(1.75,stepped));
   }
@@ -396,6 +408,22 @@
     if(sizeSelect.value==="auto")draw(false);
   });
 
+  // Embedded iframes can change width without a reliable window resize event
+  // (tab switches, responsive parent layout, browser zoom). Re-fit whenever the
+  // actual display container changes size so no horizontal scroll area is needed.
+  if(typeof ResizeObserver!=="undefined"){
+    let resizeQueued=false;
+    const fitObserver=new ResizeObserver(()=>{
+      if(sizeSelect.value!=="auto"||resizeQueued)return;
+      resizeQueued=true;
+      requestAnimationFrame(()=>{
+        resizeQueued=false;
+        draw(false);
+      });
+    });
+    fitObserver.observe(displayScroll);
+  }
+
   fontFile.addEventListener("change",async function(){
     const file=this.files&&this.files[0];
     if(!file)return;
@@ -482,7 +510,10 @@
   canvas.addEventListener("click",()=>canvas.focus());
 
   async function initialize(){
-    syncScreenModeControl(true);
+    syncScreenModeControl(false);
+    if(requestedScreen && !screenModeSelect.disabled && Array.from(screenModeSelect.options).some(o=>o.value===requestedScreen)){
+      screenModeSelect.value=requestedScreen;
+    }
     buildEngine();
     await activateProfileFont();
     update(true);

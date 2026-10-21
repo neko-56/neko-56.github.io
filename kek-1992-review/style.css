@@ -586,3 +586,92 @@ code,pre,.mono{font-family:Menlo,Monaco,"Courier New",monospace}
   .review-mode{background:#fff;color:#000}
   .review-mode p,.review-mode li,.review-mode td,.review-mode h1,.review-mode h2,.review-mode h3{color:#000!important}
 }
+
+/* v0.40 Morita survey */
+.survey-page{background:#202326;color:#e9edf0}
+.survey-page .wrap{max-width:1040px}
+.survey-page .site-nav{background:rgba(22,24,26,.96);border-color:#3d4348}
+.survey-shell{padding-top:26px;padding-bottom:70px}
+.survey-intro,.survey-question,.survey-page .source-context{
+  background:#2a2e31;border:1px solid #444b50;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.12)
+}
+.survey-intro{padding:30px 32px;margin-bottom:24px}
+.survey-intro h1{margin:.35em 0 .45em;font-size:clamp(28px,4vw,44px);line-height:1.22;color:#f5f7f8}
+.survey-page .lead{color:#eef1f3}
+.survey-intro p{line-height:1.85;color:#d8dde0}
+.survey-goal-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:22px 0 18px}
+.survey-goal-grid article{display:grid;grid-template-columns:38px 1fr;gap:12px;background:#222629;border:1px solid #454c51;border-radius:10px;padding:16px}
+.survey-goal-grid strong{color:#fff;font-size:16px}.survey-goal-grid p{margin:.35em 0 0;color:#cfd5d8;font-size:14px}
+.survey-goal-number{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#37556d;color:#fff;font-weight:800}
+.survey-memory-note{background:#24292d;border-left:4px solid #8197a8;padding:11px 14px;border-radius:5px}
+.survey-form{display:grid;gap:20px}
+.survey-question{padding:26px 28px}
+.survey-question-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+.survey-question-head h2{color:#f5f7f8;font-size:clamp(21px,2.6vw,29px);margin:.28em 0 0;line-height:1.4}
+.survey-question>p,.survey-question .green-survey-layout p{color:#d6dce0;line-height:1.8}
+.survey-page code{background:#1b1e20;border:1px solid #42484c;border-radius:4px;padding:.08em .35em;color:#f0f3f5}
+.choice-note{font-size:13px;color:#adb8bf!important}
+.machine-choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:16px 0}
+.machine-choice-card{position:relative;display:grid;grid-template-columns:150px 1fr;gap:14px;align-items:center;min-height:126px;background:#202427;border:1px solid #4b5358;border-radius:11px;padding:10px;cursor:pointer;transition:border-color .15s,background .15s,transform .15s}
+.machine-choice-card:hover{border-color:#748b9b;background:#252a2e}
+.machine-choice-card.is-selected,.machine-choice-card:has(input:checked){border-color:#86b7dc;background:#26333c;box-shadow:0 0 0 2px rgba(134,183,220,.12)}
+.machine-choice-card input{position:absolute;top:12px;right:12px;width:20px;height:20px;accent-color:#77a9ce}
+.machine-image-wrap{height:108px;border-radius:8px;overflow:hidden;background:#151719;display:grid;place-items:center;border:1px solid #3a4146}
+.machine-image-wrap img{width:100%;height:100%;object-fit:contain;background:#151719}
+.machine-card-text{display:block;padding-right:28px}.machine-card-text strong{display:block;color:#fff;font-size:17px;margin-bottom:6px}.machine-card-text small{display:block;color:#bdc7cd;line-height:1.55}
+.text-only-choice{grid-template-columns:1fr;min-height:86px}.text-only-choice .machine-card-text{padding:5px 32px 5px 8px}
+.simple-choice-list{display:grid;gap:9px;margin:15px 0}
+.simple-choice-list label{display:flex;gap:12px;align-items:flex-start;background:#202427;border:1px solid #4b5358;border-radius:9px;padding:12px 14px;cursor:pointer;color:#e6eaed;line-height:1.6}
+.simple-choice-list label:hover{border-color:#748b9b}.simple-choice-list label:has(input:checked),.simple-choice-list label.is-selected{border-color:#86b7dc;background:#26333c}
+.simple-choice-list input{margin-top:.24em;width:18px;height:18px;accent-color:#77a9ce;flex:0 0 auto}
+.free-answer{margin-top:16px}.free-answer label{display:block;color:#f0f2f4;font-weight:700;margin-bottom:8px}.free-answer textarea{box-sizing:border-box;width:100%;resize:vertical;border:1px solid #566169;border-radius:8px;background:#171a1c;color:#f4f6f7;padding:12px 13px;font:15px/1.7 -apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif}.free-answer textarea:focus{outline:2px solid #82afd0;outline-offset:1px;border-color:#82afd0}.free-answer textarea::placeholder{color:#88959d}
+.green-survey-layout{display:grid;grid-template-columns:minmax(280px,44%) 1fr;gap:20px;align-items:start}.green-survey-layout .reference-figure{margin:0}.green-survey-layout .reference-figure img{width:100%;height:auto;border:1px solid #535b60;border-radius:8px}.green-survey-layout figcaption{color:#abb5bb;font-size:12px;line-height:1.55;margin-top:6px}
+.known-context-mini{background:#21272b;border:1px solid #49535a;border-left:4px solid #7690a2;border-radius:8px;padding:12px 14px;margin:15px 0}.known-context-mini strong{color:#fff}.known-context-mini p{margin:.45em 0 0!important;font-size:14px!important;color:#c9d1d6!important}
+.image-credit-details{margin-top:10px;color:#aeb8be;font-size:12px}.image-credit-details summary{cursor:pointer;color:#bfc8cd}.image-credit-details p{line-height:1.65}
+.survey-actions{background:rgba(27,30,33,.96);border-color:#4b5358}.survey-actions button{background:#31495b;border-color:#7190a8}.survey-actions #copyStatus{color:#a9dfb2}
+.survey-page .source-context{padding:20px 22px;color:#cdd4d8}.survey-page .source-context h2{color:#f1f3f5}.survey-page .source-context a{color:#8fc6ef}
+.survey-page .action{background:#252c31;border-color:#5d6d78;color:#dcecff}.survey-page .action.primary{background:#31526b;border-color:#6389a6}
+.survey-page a{color:#8fc6ef}
+.survey-page .badge{color:#dbe1e5;border-color:#59646b;background:#252a2e}.survey-page .evidence-question{color:#f0dba1;border-color:#8b763f;background:#342e1c}
+@media(max-width:760px){.survey-intro,.survey-question{padding:20px 18px}.survey-goal-grid,.machine-choice-grid,.green-survey-layout{grid-template-columns:1fr}.machine-choice-card{grid-template-columns:120px 1fr}.machine-image-wrap{height:95px}}
+@media(max-width:480px){.machine-choice-card{grid-template-columns:1fr}.machine-image-wrap{height:150px}.machine-card-text{padding:0 28px 4px 4px}}
+@media print{.machine-choice-card,.simple-choice-list label,.survey-intro,.survey-question{background:#fff!important;color:#000!important;border-color:#999!important}.survey-question-head h2,.survey-intro h1,.machine-card-text strong,.free-answer label{color:#000!important}.machine-card-text small,.survey-question p,.survey-intro p{color:#333!important}.machine-image-wrap{background:#fff!important}.survey-page{background:#fff!important}}
+/* end v0.40 */
+
+/* v0.40.1 — reviewer-facing overflow guard.
+   Page-level horizontal scrolling is never needed on confirmation/reference pages.
+   Components that genuinely need code scrolling keep their own local overflow. */
+body.review-mode{
+  max-width:100%;
+  overflow-x:hidden;
+}
+body.review-mode .wrap,
+body.review-mode .reconstruction-view-shell,
+body.review-mode .emulator-host,
+body.review-mode .candidate-comparison,
+body.review-mode .shared-reference-strip,
+body.review-mode .survey-intro,
+body.review-mode .survey-question{
+  min-width:0;
+  max-width:100%;
+  box-sizing:border-box;
+}
+body.review-mode .emulator-frame{
+  display:block;
+  width:100%;
+  max-width:100%;
+  box-sizing:border-box;
+  overflow:hidden;
+}
+body.review-mode .candidate-tabs,
+body.review-mode .candidate-summary,
+body.review-mode .hardware-facts{
+  min-width:0;
+  max-width:100%;
+}
+body.review-mode .candidate-tab,
+body.review-mode .candidate-summary,
+body.review-mode .hardware-facts span,
+body.review-mode .emulator-instruction{
+  overflow-wrap:anywhere;
+}
