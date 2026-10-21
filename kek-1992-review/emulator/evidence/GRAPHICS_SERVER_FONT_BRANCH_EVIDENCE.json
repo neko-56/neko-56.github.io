@@ -1,0 +1,84 @@
+{
+  "phase": "6.3",
+  "status": "KEK RUNTIME BRANCH UNRESOLVED; SERVER-SPECIFIC DEFAULTS DOCUMENTED",
+  "observed_at": "2026-10-21",
+  "machine": {
+    "model": "DECstation 5000/125",
+    "status": "CONFIRMED",
+    "graphics_option": "UNKNOWN",
+    "monitor": "VRT19-class candidate; rear-label model not confirmed"
+  },
+  "contemporary_package_branches": [
+    {
+      "package": "PM322-KN",
+      "machine": "DECstation 5000/125",
+      "graphics": "PX 8-plane 2D accelerator",
+      "monitor": "VRT19 19-inch color Sony monitor"
+    },
+    {
+      "package": "PM323-KN",
+      "machine": "DECstation 5000/125",
+      "graphics": "PXG 8-plane 3D accelerator",
+      "monitor": "VRT19 19-inch color Sony monitor"
+    }
+  ],
+  "runtime_branches": [
+    {
+      "id": "xws_75dpi",
+      "condition": "KEK session used Xws",
+      "server": "Xws",
+      "default_font_density_dpi": 75,
+      "decterm_little_font_point_size": 14,
+      "font_target_id": "kek_75dpi_normal",
+      "xlfd": "-DEC-Terminal-Medium-R-Normal--14-140-75-75-C-80-ISO8859-1"
+    },
+    {
+      "id": "xwst3d_100dpi",
+      "condition": "KEK session used Xwst3d; PXG graphics makes a 3D-server branch relevant, but the exact KEK 5000/125 server binary is unresolved",
+      "server": "Xwst3d",
+      "default_font_density_dpi": 100,
+      "decterm_little_font_point_size": 10,
+      "font_target_id": "kek_vrt19_100dpi_little",
+      "xlfd": "-DEC-Terminal-Medium-R-Normal--14-100-100-100-C-80-ISO8859-1",
+      "caveat": "ULTRIX/UWS documents Xwst3d as 100dpi by default and ships an X11R4 PXG server subset; the exact mapping to the KEK 5000/125 runtime command remains unobserved."
+    }
+  ],
+  "installation_subsets": {
+    "UDWSER430": "B&W, Color, or PX Server",
+    "UDWWSTSER430": "X11R4 PXG Server",
+    "UDWFONT430": "X11/DECwindows 75dpi Fonts",
+    "UDWFONT15430": "X11/DECwindows 100dpi Fonts"
+  },
+  "glyph_bridge": {
+    "public_75dpi_asset": "term14.bdf",
+    "media_confirmed_100dpi_artifact": "UDWFONT15430/terminal10.pcf",
+    "normalized_cell": "8x15",
+    "all_glyphs": "195/195",
+    "ascii": "95/95",
+    "mismatches": 0,
+    "public_sha256": "b93ab33ead159d11a4e503ab71c72b7b51802a35de27d5a326ab4648f448f081"
+  },
+  "identification": {
+    "console_examples": {
+      "PMAG-CA": "PX -- D=8",
+      "PMAG-DA": "PXG -- D=8, z=24"
+    },
+    "preferred_next_evidence": [
+      "KEK TURBOchannel graphics option part number or cnfg output",
+      "KEK /etc/ttys X server command line",
+      "running X server process and xset font path if the machine boots",
+      "monitor rear label"
+    ]
+  },
+  "supersedes": {
+    "phase": "6.2",
+    "claim": "75dpi/14pt is the KEK runtime-first candidate",
+    "reason": "DECstation 5000/125 + VRT19 existed with both PX and PXG graphics; the KEK graphics/X-server branch is not identified."
+  },
+  "sources": [
+    "https://bitsavers.trailing-edge.com/pdf/dec/priceLists/US_Systems_Services_Price_List_Dec91.pdf",
+    "https://www.bitsavers.org/pdf/dec/vax/ultrix-32/4.3/AA-ME85H-TE_ULTRIX_and_UWS_V4.3_Release_Notes_Aug92.pdf",
+    "https://manuals.plus/m/a9064b2728e398a36d08dd6d2866d7d95b15dd19abd5479e356876678260d085",
+    "https://www.filibeto.org/dec/mds/mds-2000-01/cd2/DECSTA/370AAMG2.PDF"
+  ]
+}

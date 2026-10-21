@@ -1,0 +1,140 @@
+{
+  "phase": "6.5",
+  "updated": "2026-10-21",
+  "scope": "Bound the 1992-09-30 Line Mode Browser presentation conservatively; prompt tokens not directly attested before the target date are omitted from the September display rather than inferred from later documentation.",
+  "exact_sep_30_binary": "UNRESOLVED",
+  "release_bounds": {
+    "1992-01-15": "Line Mode Browser 1.1 public release",
+    "1992-02-12": "Line Mode Browser 1.2 announced",
+    "1992-04": "W3 News describes the current browser as 1.2f and says version 2 is expected soon",
+    "1992-08": "CVS introduced at CERN",
+    "1992-09-30": "KEK reconstruction target date",
+    "1992-11-03": "preserved W3 project snapshot used as a later reference boundary"
+  },
+  "period_prompt": {
+    "source_date": "1992-02-18",
+    "source_kind": "contemporaneous W3 paper source/figure, not a KEK terminal capture",
+    "literal": "1-9, Return for more, Help or Quit:",
+    "implemented_rule": "The September conservative mode renders only prompt token classes directly attested by the 1992-02-18 terminal figure: reference range, Return for more when pagination applies, and Help or Quit:.",
+    "back_up_prompt_wording": "UNRESOLVED for Morita's exact 1992-09-30 executable; omitted from the conservative framebuffer until direct September-or-earlier evidence is recovered",
+    "conservative_token_policy": "directly_attested_minimum",
+    "omitted_unattested_tokens": [
+      "Back",
+      "Up",
+      "Find <keywords>"
+    ],
+    "omission_does_not_mean_absence": true,
+    "find_prompt_wording": "Documented in the 1992-11-03 Quick Guide as prompt-dependent behavior, but exact 1992-09-30 prompt wording/availability is not directly attested here; omitted from conservative September prompt."
+  },
+  "formatting_evidence": {
+    "h1_example": {
+      "html": "<H1>Error Codes</H1>",
+      "terminal_form": " ERROR CODES",
+      "implemented": "uppercase, one-column left indent, not centered"
+    },
+    "unordered_list_example": {
+      "html": "<UL><LI>...",
+      "terminal_marker": " o ",
+      "implemented": true
+    },
+    "reference_example": {
+      "terminal_form": "PFD[1]",
+      "implemented": "numeric reference immediately after anchor text"
+    },
+    "evidence_boundary": "The paper figure is schematic evidence for contemporary client presentation, not a byte-accurate screenshot of the KEK session."
+  },
+  "historical_snapshot_1992_11_03": {
+    "quick_guide": {
+      "numeric_references_in_brackets": true,
+      "number_plus_return_follows_reference": true,
+      "find_only_when_offered_in_prompt": true
+    },
+    "command_line": {
+      "page_length_default": 24,
+      "width_default": "78, 79 or 80 depending on system",
+      "command_line_source_option": "-source"
+    },
+    "internals": {
+      "HTBrowse_c": "shell command analysis, prompts and command-line handling",
+      "GridText_c": "fixed-width grid hypertext object",
+      "DefaultStyles_c": "default text-style formatting"
+    }
+  },
+  "source_semantics": {
+    "command_line_source": {
+      "spelling": "-source",
+      "minimum_version": "1.2a",
+      "mode": "command-line option"
+    },
+    "interactive_source_prefix": {
+      "spelling": "SOURCE <command>",
+      "minimum_version": "1.3",
+      "mode": "interactive command qualifier/prefix",
+      "standalone_displays_current_source": false
+    },
+    "implementation_policy": "September conservative mode does not expose interactive SOURCE as established behavior. November reference mode recognizes the prefix but SOURCE alone is a no-op; the emulator does not invent unbundled remote source bytes."
+  },
+  "screen_model": {
+    "terminal_grid_candidate": "80x24 for KEK DECterm candidate",
+    "browser_width_default": "not universally 80; period command-line documentation says 78/79/80 depending on system",
+    "browser_page_length_default": 24,
+    "emulator_visible_rows": "23 content rows plus one prompt row in the fixed 24-row display model",
+    "caveat": "The relationship between browser -p24 output pagination and the physical 24-row terminal's scrolling is not claimed byte-for-byte without the exact September executable."
+  },
+  "sources": [
+    {
+      "url": "https://www.w3.org/History/1992/ENRAP/Article_9202.pdf",
+      "use": "1992-02-18 period terminal figure: prompt grammar, heading/list/reference presentation"
+    },
+    {
+      "url": "https://www.w3.org/History.html",
+      "use": "release chronology and August 1992 CVS introduction"
+    },
+    {
+      "url": "https://www.w3.org/History/19921103-hypertext/hypertext/WWW/News/9204.html",
+      "use": "April 1992 current Line Mode Browser version 1.2f"
+    },
+    {
+      "url": "https://www.w3.org/History/19921103-hypertext/hypertext/WWW/LineMode/Defaults/QuickGuide.html",
+      "use": "1992-11-03 preserved user-guide behavior"
+    },
+    {
+      "url": "https://www.w3.org/History/19921103-hypertext/hypertext/WWW/LineMode/Defaults/CommandLine.html",
+      "use": "page length, width defaults, and -source v1.2a+"
+    },
+    {
+      "url": "https://www.w3.org/History/19921103-hypertext/hypertext/WWW/LineMode/Defaults/SourceExamples.html",
+      "use": "interactive SOURCE prefix v1.3+ and standalone SOURCE semantics"
+    },
+    {
+      "url": "https://www.w3.org/History/19921103-hypertext/hypertext/WWW/LineMode/Internals.html",
+      "use": "HTBrowse/GridText/DefaultStyles responsibilities"
+    },
+    {
+      "url": "https://www.w3.org/2016/11/ftp-shutdown/info.html",
+      "use": "current W3 preservation inventory; no WWWLineMode_1* entry, versioned old/linemode source list begins at 2.11"
+    }
+  ],
+  "unavailable_destination_policy": {
+    "historical_framebuffer": "unchanged when destination bytes are unavailable",
+    "research_status": "structured pendingNavigation outside the historical framebuffer",
+    "resolver": "optional resolveDocument(target, context) supplies actual/fixture bytes",
+    "claim_boundary": "This is a reconstruction-discipline rule, not a claim about the exact 1992 network-error screen."
+  },
+  "archive_source_availability": {
+    "w3c_2016_ftp_inventory_earliest_versioned_linemode_source": "WWWLineMode_2.11.tar.Z",
+    "wwwlinemode_1x_entry_in_that_inventory": false,
+    "history_1992_index_versioned_linemode_sources": [
+      "WWWLineMode_2.11.tar.Z",
+      "WWWLineMode_2.12.tar.Z"
+    ],
+    "boundary": "Absence from these current W3 inventories does not prove that no 1.x copy survives elsewhere.",
+    "search_status_2026-10-21": "No WWWLineMode_1.x source tarball was found in the current W3 preservation inventories already audited; targeted public-web searches for versioned 1.1/1.2/1.2f/1.3 archives also did not identify an exact source archive. This is non-exhaustive and is not a claim of global loss."
+  },
+  "prompt_lineage_policy": {
+    "1992-02-18_direct_figure": "authoritative minimum for the conservative September prompt token classes",
+    "1992-11-03_preserved_docs": "later reference boundary; may inform nov1992_documented but does not automatically backfill September display text",
+    "1994_and_later_examples": "corroborating lineage only; never used to make September prompt text more specific",
+    "exact_1992-09-30_prompt": "UNRESOLVED"
+  }
+}
