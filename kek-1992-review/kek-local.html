@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>KEK 1992 — KEK側 表示候補</title>
+<link rel="stylesheet" href="style.css?v=0.45">
+</head>
+<body class="review-mode reconstruction-view-page">
+<nav class="site-nav" aria-label="共通ナビゲーション">
+  <a class="site-nav-home" href="index.html">← ご確認用トップ</a>
+  <div class="site-nav-group site-nav-models">
+    <span class="site-nav-label">表示復元</span>
+    <a href="cern-view.html">CERN側</a>
+    <a href="kek-local.html" aria-current="page">KEK側</a>
+    <a href="emulator/index.html">研究用エミュレータ</a>
+  </div>
+  <div class="site-nav-group site-nav-docs">
+    <span class="site-nav-label">資料</span>
+    <a href="review.html">ご確認フォーム</a>
+    <a href="environment-reference.html">表示環境の参考資料</a>
+    <a href="reconstruction-policy.html">復元の考え方</a>
+  </div>
+</nav>
+<main class="wrap reconstruction-view-shell">
+<header class="reference-header compact-reconstruction-header">
+  <div class="badge evidence-confirmed">KEK側 / 本体は確認済み</div>
+  <h1>KEK自身のWWWページをKEK側で表示した場合の候補</h1>
+  <p class="lead">KEK側は、CERN側と違ってコンピューター本体を候補から選ぶ段階ではありません。実機は<strong>DECstation 5000/125</strong>として固定し、その上でブラウザ表示の方法とDECtermの表示状態を比較します。</p>
+  <div class="hardware-facts" aria-label="KEK側ハードウェアの確認状況">
+    <div><strong>本体</strong><span>DECstation 5000/125 — 確認済み</span></div>
+    <div><strong>モニタ</strong><span>DEC VRT19系 / Sony GDM-1960・1961 OEMの19インチ系を有力候補として検証中</span></div>
+    <div><strong>表示解像度候補</strong><span>VRT19系なら1280×1024（5:4）</span></div>
+    <div><strong>未確認</strong><span>正確なVRT19サブモデル、PX/PXG、KEK上でWWWブラウザ表示したか、実際の配色</span></div>
+  </div>
+  <div class="reference-caution"><strong>モニタ型番:</strong> KEKに現物が残っているため、背面ラベル等を確認できればVRT19-DA/HAやSony型番まで確定できる可能性があります。現在は写真の外観と同時代DEC資料からの有力候補です。</div>
+</header>
+
+<section class="shared-reference-strip" aria-labelledby="kek-green-reference-title">
+  <figure class="reference-figure compact-reference-figure">
+    <img src="assets/morita-green-reference.png" alt="森田様の講演資料に掲載された、薄緑背景に白文字のKEK INFORMATION再現画面">
+    <figcaption>森田様の講演資料に掲載された再現画面。CERN側の記憶を表したものか、KEK側の表示を表したものか、後年の再現時に作ったものかは未確認です。</figcaption>
+  </figure>
+  <div>
+    <div class="badge evidence-question">共通の確認資料</div>
+    <h2 id="kek-green-reference-title">この配色をKEK側のDECterm候補としても比較します</h2>
+    <p>横長なのは物理モニタの比率ではなく、1280×1024のデスクトップ上に開いた端末ウィンドウだった可能性があります。そこでDECstation 5000/125上の候補にも、講演資料配色を独立した仮説として追加します。</p>
+  </div>
+</section>
+
+<section class="emulator-host candidate-comparison" aria-labelledby="kek-candidate-title" data-candidate-switcher>
+  <div class="emulator-host-head">
+    <div><div class="badge">候補を切り替えて比較</div><h2 id="kek-candidate-title">DECstation 5000/125上の表示候補</h2></div>
+    <a class="action" href="emulator/index.html?profile=kek_decterm_vrt19_candidate&amp;behavior=sep1992_conservative">詳細調整は研究用エミュレータへ</a>
+  </div>
+  <p class="emulator-instruction">本体とVRT19-classの1280×1024表示面は固定し、表示候補だけを切り替えます。画面をクリックして <kbd>1</kbd> などを入力し <kbd>Return</kbd> でリンクを選べます。</p>
+
+  <div class="candidate-tabs" role="tablist" aria-label="KEK側の表示候補">
+    <button class="candidate-tab is-active" role="tab" aria-selected="true" data-candidate
+      data-title="DECterm — 明るい文字 / 暗い背景"
+      data-note="ULTRIX 4.0のdxterm資料ではlight-on-darkが既定とされています。ただしKEK実機のユーザーresourceが保存されているわけではないため、当時の実表示は確認対象です。"
+      data-src="emulator/index.html?profile=kek_decterm_vrt19_candidate&amp;behavior=sep1992_conservative&amp;screen=light_on_dark&amp;embed=1&amp;animate=0">明文字 / 暗背景</button>
+    <button class="candidate-tab" role="tab" aria-selected="false" data-candidate
+      data-title="DECterm — 暗い文字 / 明るい背景"
+      data-note="DECtermではdark-on-lightも選択可能でした。KEK実機がこちらのresource設定だった可能性を比較する候補です。"
+      data-src="emulator/index.html?profile=kek_decterm_vrt19_candidate&amp;behavior=sep1992_conservative&amp;screen=dark_on_light&amp;embed=1&amp;animate=0">暗文字 / 明背景</button>
+    <button class="candidate-tab lecture-green-tab" role="tab" aria-selected="false" data-candidate
+      data-title="DECstation 5000/125 + DECterm — 講演資料配色候補"
+      data-note="森田様の講演資料にある薄緑背景・白文字の横長表示を、DECstation 5000/125の1280×1024デスクトップ上に開いたDECtermウィンドウだった場合の仮説として比較します。この配色が1992年実機のresourceだったことは未確認です。"
+      data-src="emulator/index.html?profile=kek_decterm_vrt19_lecture_green&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0">講演資料配色</button>
+  </div>
+
+  <div class="candidate-summary" aria-live="polite">
+    <div class="badge evidence-question">現在表示中</div>
+    <h3 data-candidate-title>DECterm — 明るい文字 / 暗い背景</h3>
+    <p data-candidate-note></p>
+    <p><a data-candidate-source hidden target="_blank" rel="noopener noreferrer"></a></p>
+  </div>
+
+  <iframe class="emulator-frame emulator-frame-kek" data-candidate-frame title="DECterm 明文字 / 暗背景 表示復元" src="emulator/index.html?profile=kek_decterm_vrt19_candidate&amp;behavior=sep1992_conservative&amp;screen=light_on_dark&amp;embed=1&amp;animate=0" loading="eager"></iframe>
+  <div class="external-candidate-panel" data-candidate-external hidden></div>
+</section>
+
+<section class="reviewer-section reconstruction-status">
+  <div class="section-heading simple-heading"><div class="badge evidence-question">森田様に伺いたいこと</div><h2>KEK側で実際にこのようにWWWページを表示していたか</h2></div>
+  <p>そもそもDECstation 5000/125上でWWWブラウザを起動して自分自身のページを確認していたか。さらに、講演資料の薄緑＋白文字の画面がKEK側の表示を意図していたものかどうかも伺います。</p>
+  <p><a href="review.html#green-reference-question">質問ページへ</a> ／ <a href="environment-reference.html#kek-side-materials">KEK側の根拠資料へ</a></p>
+</section>
+</main>
+<script src="candidate-switcher.js"></script>
+</body>
+</html>

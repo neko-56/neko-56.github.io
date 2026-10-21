@@ -1,0 +1,63 @@
+{
+  "schema": 3,
+  "historical_target": {
+    "source": "ULTRIX 4.3 RISC / UDWFONT15430 / terminal10.pcf",
+    "xlfd": "-DEC-Terminal-Medium-R-Normal--14-100-100-100-C-80-ISO8859-1",
+    "product_info": "DECterm Fonts V2.2, 11-Nov-1991",
+    "glyph_count": 195,
+    "cell": [
+      8,
+      15
+    ],
+    "ascent": 12,
+    "descent": 3,
+    "pcf_sha256": "46cdbd6f8656ddd7704df99f2103274c9ae9ffe1fc829ae57f92f6bb910d89d5",
+    "verification_bdf_sha256": "7cfc76e2e45ebfceb0e8d7fb1632e0710a550bac4dbe14e2ddf7c2bc94e84033",
+    "redistributed": false
+  },
+  "public_lineage": {
+    "source": "X Consortium DEC Terminal term14.bdf via Debian xfonts-75dpi",
+    "url": "https://sources.debian.org/src/xfonts-75dpi/1%3A1.0.3/font-bitstream-75dpi/term14.bdf/",
+    "xlfd": "-DEC-Terminal-Medium-R-Normal--14-140-75-75-C-80-ISO8859-1",
+    "product_info": "DECterm Fonts V2.2, 11-Nov-1991",
+    "glyph_count": 195,
+    "license_file": "../LICENSES/DEC-X-CONSORTIUM.txt",
+    "raw_url": "https://sources.debian.org/data/main/x/xfonts-75dpi/1%3A1.0.3/font-bitstream-75dpi/term14.bdf",
+    "published_sha256": "b93ab33ead159d11a4e503ab71c72b7b51802a35de27d5a326ab4648f448f081",
+    "published_size_bytes": 22065,
+    "published_line_count": 2952
+  },
+  "bundled_asset": {
+    "path": "../assets/fonts/dec-terminal/dec-terminal-xconsortium-verified.bdf",
+    "sha256": "b93ab33ead159d11a4e503ab71c72b7b51802a35de27d5a326ab4648f448f081",
+    "canonical_all_glyphs_sha256": "53bf93238adf6eac91e560c46815998aebc4ad40f6b5b16de4f6f22eb81ab236",
+    "canonical_ascii_sha256": "518a5600502b02de61816b2de8f8e9695a645cbe7e0bdc7adb43bd77e79d84c7",
+    "size_bytes": 22065,
+    "line_count": 2952,
+    "byte_exact_public_artifact": true
+  },
+  "equivalence": {
+    "normalization": "Normalize each ULTRIX glyph to baseline-relative ink pixels/cropped BBX, sort by ENCODING, and compare against the public DEC/X Consortium BDF; reconstructed full-file SHA-256 matches the published public artifact.",
+    "ascii": {
+      "matched": 95,
+      "total": 95
+    },
+    "all_encoded_glyphs": {
+      "matched": 195,
+      "total": 195
+    },
+    "status": "VERIFIED_RASTER_EQUIVALENT",
+    "public_file_sha256_match": true
+  },
+  "runtime_selection": {
+    "documented_xws_default_target_id": "kek_75dpi_normal",
+    "documented_xws_default_xlfd": "-DEC-Terminal-Medium-R-Normal--14-140-75-75-C-80-ISO8859-1",
+    "font_set_selection": "Little Font (default)",
+    "density_default_dpi": 75,
+    "explicit_100dpi_server_options": "-fd 100 -dpi 100",
+    "kek_runtime_selection_status": "UNKNOWN: /etc/ttys and X resources not recovered",
+    "media_confirmed_target_id": "kek_vrt19_100dpi_little",
+    "public_asset_metadata_target_id": "kek_75dpi_normal",
+    "public_asset_raster_equivalent_target_id": "kek_vrt19_100dpi_little"
+  }
+}
