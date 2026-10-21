@@ -1,0 +1,10 @@
+v0.35 — candidate switcher / evidence hierarchy
+
+- Reviewer-facing CERN page: one-click candidate switching (unknown / IBM RS6000 / Sun-4 / PRIAM VAX / NeXT WorldWideWeb).
+- NeXT candidate points to CERN's official 2019 rebuild instead of drawing a CSS imitation.
+- CERN line-mode candidates no longer invent a physical monitor aspect ratio; they render the 80x24 text display plane.
+- Reviewer-facing KEK page: DECstation 5000/125 fixed as confirmed machine; simple DECterm light-on-dark / dark-on-light comparison.
+- KEK monitor evidence updated: VRT19-class / Sony GDM-1960 or GDM-1961 OEM 19-inch family is a strong candidate; exact sub-model pending physical label check at KEK.
+- Fixed embedded framebuffer presentation scale so fit-to-width can actually shrink below 100%, eliminating unintended horizontal scrolling without changing the backing framebuffer.
+- Added screen= query parameter support for deterministic reviewer comparisons.
+- Research controls remain available only through the research emulator.
