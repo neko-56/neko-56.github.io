@@ -1,0 +1,16 @@
+const assert=require("assert");
+const fs=require("fs");
+const path=require("path");
+const base=path.resolve(__dirname,"..");
+const renderer=fs.readFileSync(path.join(base,"src","display-renderer.js"),"utf8");
+const app=fs.readFileSync(path.join(base,"src","app.js"),"utf8");
+const css=fs.readFileSync(path.join(base,"style.css"),"utf8");
+const html=fs.readFileSync(path.join(base,"index.html"),"utf8");
+assert.ok(renderer.includes("canvas backing store IS the reconstructed framebuffer"));
+assert.ok(!renderer.includes("window.devicePixelRatio"),"framebuffer must not be re-rasterized at DPR");
+assert.ok(renderer.includes("hard 1-bit logical pixels"));
+assert.ok(renderer.includes('this.canvas.style.imageRendering="pixelated"'));
+assert.ok(app.includes("Math.floor(fit*4)/4"),"auto scale must use 25% steps");
+assert.ok(css.includes("image-rendering:pixelated"));
+assert.ok(html.includes('value="kek_decterm_vrt19_candidate" selected'));
+console.log("PASS: native framebuffer / 1-bit fallback / nearest-neighbor presentation");
