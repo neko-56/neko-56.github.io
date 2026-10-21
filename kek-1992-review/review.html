@@ -5,92 +5,210 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta name="googlebot" content="noindex,nofollow,noarchive">
-<title>KEK 1992 WWW — ご確認いただきたい2点</title>
-<link rel="stylesheet" href="style.css">
+<title>KEK 1992 WWW — 森田様ご確認フォーム</title>
+<link rel="stylesheet" href="style.css?v=0.41">
 </head>
-<body class="review-mode">
+<body class="review-mode survey-page survey-pane-page">
 <nav class="site-nav review-nav" aria-label="共通ナビゲーション">
   <a class="site-nav-home" href="index.html">← ご確認用トップ</a>
   <div class="site-nav-group site-nav-docs">
-    <a href="review.html" aria-current="page">ご確認いただきたい2点</a>
-    <a href="environment-reference.html">表示環境の参考資料</a>
-    <a href="research.html">調査・復元根拠</a>
-    <a href="reconstruction-policy.html">復元の考え方</a>
+    <a href="review.html" aria-current="page">ご確認フォーム</a>
+    <a href="environment-reference.html" target="_blank" rel="noopener">表示環境の参考資料 ↗</a>
+    <a href="research.html" target="_blank" rel="noopener">これまでに調べた内容 ↗</a>
   </div>
 </nav>
-<main class="wrap review-sheet reviewer-form concise-review">
-<header>
-  <div class="badge evidence-question">ご確認のお願い</div>
-  <h1>主に二つのことを伺えればと思っています</h1>
-  <p class="lead">30年以上前のことですので、覚えていらっしゃる範囲だけで結構です。機種名やソフトウェア名が分からなくても、「文字だけだった」「ウインドウがあった」「これは違う」といった断片的な情報だけでも大変参考になります。</p>
-  <div class="reviewer-notice">
-    <strong>可能でしたら</strong>
-    <p>まず下の二つについて、現在覚えていらっしゃることをご確認ください。その後に参考資料や復元候補をご覧いただくと、資料を見る前のご記憶と、資料を見て思い出されたことを分けて残せます。</p>
-  </div>
-</header>
 
-<section class="review-step priority-step two-question-sheet" id="cern-question">
-  <div class="step-title"><span class="step-number">1</span><div><div class="badge">CERN側</div><h2>CERNでHTMLを作成したあとの表示について</h2></div></div>
-  <article class="review-question">
-    <label for="q1">CERNの端末室からKEKへログインしてHTMLを作成されたあと、そのHTMLを<strong>WWWブラウザで表示して確認</strong>されていたでしょうか。もし確認されていた場合、使用した端末やブラウザ、画面の見た目、操作など、覚えていらっしゃることがあれば教えていただけないでしょうか。</label>
-    <div class="question-hint"><strong>もし覚えていらっしゃれば、あわせて:</strong> 最初のHTMLは、Berners-Lee氏から書き方を直接教わったのでしょうか。それともCERNのWWWサイトに掲載されていたHTMLの説明、Example、既存ページなどを参考にされたのでしょうか。CERNでの作業環境を考えるうえでの補助的な確認として伺えればと思います。</div>
-    <textarea id="q1" data-label="1. CERNでのHTML作成・表示確認" rows="9" placeholder="覚えていらっしゃる範囲でご記入ください"></textarea>
-  </article>
-  <p class="candidate-link"><a href="cern-view.html">→ CERN側の現在の表示候補を見る</a></p>
-</section>
+<main class="wrap review-sheet survey-shell">
+<header class="survey-intro">
+  <div class="badge evidence-question">森田様へのご確認</div>
+  <h1>当時の二つの表示画面を再現したいと考えています</h1>
+  <p class="lead">1992年当時のKEKのWWWが、実際の端末でどのように見えていたのかに個人的に興味を持ち、公開資料や当時の技術資料をもとに調べています。</p>
+  <p>今回、当時実際に作業された森田洋平様にご確認いただけるとのことで、再現のために特に知りたいことを、回答しやすい形にまとめました。</p>
 
-<section class="review-step two-question-sheet" id="kek-question">
-  <div class="step-title"><span class="step-number">2</span><div><div class="badge">KEK側</div><h2>KEKのWWWサーバー自身でのブラウザ表示について</h2></div></div>
-  <article class="review-question">
-    <label for="q2">当時のKEKのWWWサーバーにWWWブラウザも入っていて、そのサーバー自身が発信しているWWWページを、<strong>同じ機械上で表示して確認</strong>することはあったでしょうか。もしあった場合、その画面について覚えていらっしゃることがあれば教えていただけないでしょうか。</label>
-    <p class="question-hint">ここで伺いたいのはサーバーの管理画面やコンソール表示ではなく、WWWブラウザでKEKのページを表示したときの見た目です。そもそもそのような表示をしていなかった場合は、その旨だけでも重要な情報です。</p>
-    <textarea id="q2" data-label="2. KEKのWWWサーバー自身でのブラウザ表示" rows="8" placeholder="覚えていらっしゃる範囲でご記入ください"></textarea>
-  </article>
-  <p class="candidate-link"><a href="kek-local.html">→ KEK側の現在の表示候補を見る</a></p>
-</section>
-
-<section class="review-step shared-green-question" id="green-reference-question">
-  <div class="step-title"><span class="step-number">補足</span><div><div class="badge evidence-question">二つの質問に共通する確認</div><h2>講演資料の「薄緑背景・白文字」の再現画面について</h2></div></div>
-  <div class="green-question-grid">
-    <figure class="reference-figure">
-      <img src="assets/morita-green-reference.png" alt="森田様の講演資料に掲載された薄緑背景・白文字のKEK INFORMATION再現画面">
-      <figcaption>講演資料に掲載された再現画像（画面部分を抜粋）。</figcaption>
-    </figure>
-    <article class="review-question">
-      <label for="qgreen">この再現画面は、<strong>CERNで作業されていた際の表示</strong>、<strong>KEK側で表示されていた画面</strong>、または<strong>後年に当時のページ内容を再現するために作成したもの</strong>の、どれに近いものでしょうか。また、横長の表示がモニタ全面ではなく端末ウィンドウだったかどうかなど、ご記憶があれば教えていただけないでしょうか。</label>
-      <textarea id="qgreen" data-label="補足. 講演資料の薄緑背景・白文字の再現画面について" rows="6" placeholder="例：CERNで見た画面に近い／KEK側の表示だった／後年の再現用だった／覚えていない、など"></textarea>
-      <p class="question-hint">この画面を先にCERN側・KEK側のどちらかへ帰属させず、両方の候補で比較しています。</p>
+  <div class="survey-goal-grid">
+    <article>
+      <span class="survey-goal-number">1</span>
+      <div><strong>CERN側の画面</strong><p>CERNから <code>kekux.kek.jp</code> にアクセスしてHTMLを作成されたとき、CERN側の端末で実際に見えていた画面。</p></div>
+    </article>
+    <article>
+      <span class="survey-goal-number">2</span>
+      <div><strong>KEKUX側の画面</strong><p>KEKUX自身でWWWブラウザを起動し、KEKUXが公開しているWWWページを確認していた場合、そのときKEK側のモニタに見えていた画面。</p></div>
     </article>
   </div>
-  <div class="inline-actions"><a class="action" href="cern-view.html">CERN側候補で比較</a><a class="action" href="kek-local.html">KEK側候補で比較</a></div>
+
+  <p class="survey-memory-note">30年以上前のことですので、機種名が分からなくても、「黒い機械だった」「文字だけだった」「この候補とは違う」など、どのような些細なことでも参考になります。</p>
+  <p class="survey-memory-note"><strong>選択肢に当てはまらない場合は、自由記入欄だけでも結構です。</strong></p>
+</header>
+
+<div class="survey-workspace">
+<div class="survey-main-flow">
+<form id="moritaSurvey" class="survey-form" autocomplete="off">
+
+<section class="survey-question" id="q-terminal">
+  <div class="survey-question-head"><span class="step-number">1</span><div><div class="badge">CERN側</div><h2>CERNでKEKにアクセスしてHTMLを書いた端末は？</h2></div></div>
+  <p>1992年、CERNから <code>kekux.kek.jp</code> にアクセスして最初のHTMLを作成された際、CERN側ではどの端末・コンピューターを使用されていたでしょうか。</p>
+  <p class="choice-note">写真は各機種の代表例です。実際にCERNで使用された個体・構成と同一であることを示すものではありません。写真をクリックすると右側で拡大できます。</p>
+
+  <div class="machine-choice-grid" role="radiogroup" aria-label="CERNで使用した端末の候補">
+    <div class="machine-choice-card">
+      <button type="button" class="machine-preview-button" data-viewer-kind="image" data-viewer-title="NeXT — 代表例" data-viewer-note="Berners-Lee氏がCERNで初期WWWを開発した環境としてNeXTが確認されています。森田様が実際に使われた端末であることは未確認です。" data-viewer-src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/NEXT_Cube-IMG_7148.jpg/960px-NEXT_Cube-IMG_7148.jpg">
+        <span class="machine-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/NEXT_Cube-IMG_7148.jpg/960px-NEXT_Cube-IMG_7148.jpg" alt="NeXTcubeの代表例" loading="lazy"></span><span class="preview-caption">拡大</span>
+      </button>
+      <label><input type="radio" name="cern_terminal" value="NeXT"><span class="machine-card-text"><strong>NeXT</strong><small>Berners-Lee氏がCERNで初期WWWを開発した環境として確認されています。</small></span></label>
+    </div>
+    <div class="machine-choice-card">
+      <button type="button" class="machine-preview-button" data-viewer-kind="image" data-viewer-title="IBM RS/6000 — 代表例" data-viewer-note="初期Line Mode Browserの稼働先としてCERN/W3C資料に登場する候補です。" data-viewer-src="https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/IBM_RS6000_7012-320.jpg/960px-IBM_RS6000_7012-320.jpg">
+        <span class="machine-image-wrap"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/IBM_RS6000_7012-320.jpg/960px-IBM_RS6000_7012-320.jpg" alt="IBM RS/6000 7012-320の代表例" loading="lazy"></span><span class="preview-caption">拡大</span>
+      </button>
+      <label><input type="radio" name="cern_terminal" value="IBM RS/6000"><span class="machine-card-text"><strong>IBM RS/6000</strong><small>初期Line Mode Browserの稼働先としてCERN/W3C資料に登場します。</small></span></label>
+    </div>
+    <div class="machine-choice-card">
+      <button type="button" class="machine-preview-button" data-viewer-kind="image" data-viewer-title="Sun / Sun-4系 — 代表例" data-viewer-note="初期Line Mode Browserの稼働先としてCERN/W3C資料にSun-4が登場します。" data-viewer-src="https://upload.wikimedia.org/wikipedia/commons/3/32/SPARCstation_1.jpg">
+        <span class="machine-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/3/32/SPARCstation_1.jpg" alt="Sun SPARCstation 1の代表例" loading="lazy"></span><span class="preview-caption">拡大</span>
+      </button>
+      <label><input type="radio" name="cern_terminal" value="Sun / Sun-4系"><span class="machine-card-text"><strong>Sun / Sun-4系</strong><small>初期Line Mode Browserの稼働先としてCERN/W3C資料に登場します。</small></span></label>
+    </div>
+    <div class="machine-choice-card">
+      <button type="button" class="machine-preview-button" data-viewer-kind="image" data-viewer-title="VAX / PRIAM系 — 代表例" data-viewer-note="初期Line Mode Browserの稼働先としてPRIAM VAXが記録されています。写真はVAX系の代表例です。" data-viewer-src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Digital_VaxStation_400_60_and_VT420_terminal_%281%29.jpg/800px-Digital_VaxStation_400_60_and_VT420_terminal_%281%29.jpg">
+        <span class="machine-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Digital_VaxStation_400_60_and_VT420_terminal_%281%29.jpg/800px-Digital_VaxStation_400_60_and_VT420_terminal_%281%29.jpg" alt="DEC VAXstationと端末の代表例" loading="lazy"></span><span class="preview-caption">拡大</span>
+      </button>
+      <label><input type="radio" name="cern_terminal" value="VAX / PRIAM系"><span class="machine-card-text"><strong>VAX / PRIAM系</strong><small>初期Line Mode Browserの稼働先としてPRIAM VAXが記録されています。</small></span></label>
+    </div>
+    <label class="machine-choice-card text-only-choice"><input type="radio" name="cern_terminal" value="その他"><span class="machine-card-text"><strong>その他</strong><small>別の機種・端末だった。</small></span></label>
+    <label class="machine-choice-card text-only-choice"><input type="radio" name="cern_terminal" value="覚えていない"><span class="machine-card-text"><strong>覚えていない</strong><small>機種名は思い出せない。</small></span></label>
+  </div>
+  <div class="free-answer"><label for="q_terminal_note">覚えていること・補足があればご自由にお書きください</label><textarea id="q_terminal_note" name="cern_terminal_note" rows="5" placeholder="例：黒い筐体だった気がする／画面はカラーだった／この写真とは違う、など。どのような些細なことでも参考になります。"></textarea></div>
+  <details class="image-credit-details"><summary>参考画像の出典</summary><p>NeXTcube: Rama & Musée Bolo, Wikimedia Commons (CC BY-SA 2.0 FR)。IBM RS/6000: Museo de Informática, Wikimedia Commons (CC BY-SA 2.0)。SPARCstation 1: Fourdee, Wikimedia Commons (Public Domain)。VAXstation代表例: leighklotz, Wikimedia Commons (CC BY 2.0)。</p></details>
 </section>
 
-<section class="review-step optional-memory">
-  <div class="step-title"><span class="step-number">+</span><div><div class="badge evidence-question">もし何かあれば</div><h2>そのほか、当時について</h2></div></div>
-  <article class="review-question">
-    <label for="q3">このほか、当時のWWWサイトの作成・表示・運用、CERNやKEKでの作業について、何か覚えていらっしゃることがございましたら、どのようなことでも教えていただければ幸いです。</label>
-    <textarea id="q3" data-label="3. その他、当時について" rows="7"></textarea>
-  </article>
+<section class="survey-question" id="q-html">
+  <div class="survey-question-head"><span class="step-number">2</span><div><div class="badge">CERN側</div><h2>最初のHTMLの書き方は、どのように知りましたか？</h2></div></div>
+  <p>CERNで最初のHTMLを作成された際、HTMLの書き方について覚えていらっしゃるものがあれば教えてください。</p>
+  <div class="simple-choice-list" role="radiogroup" aria-label="HTMLの書き方を知った方法">
+    <label><input type="radio" name="html_learning" value="Tim Berners-Lee氏から直接教えてもらった"><span>Tim Berners-Lee氏から直接教えてもらった</span></label>
+    <label><input type="radio" name="html_learning" value="CERNのWWWサイトに掲載されていたHTMLの説明・Exampleを参考にした"><span>CERNのWWWサイトに掲載されていたHTMLの説明・Exampleを参考にした</span></label>
+    <label><input type="radio" name="html_learning" value="既存のWWWページやHTMLを参考にした"><span>既存のWWWページやHTMLを参考にした</span></label>
+    <label><input type="radio" name="html_learning" value="その他"><span>その他</span></label>
+    <label><input type="radio" name="html_learning" value="覚えていない"><span>覚えていない</span></label>
+  </div>
+  <div class="free-answer"><label for="q_html_note">覚えていること・補足</label><textarea id="q_html_note" name="html_learning_note" rows="5" placeholder="例：昼食のときに簡単なタグを教えてもらった／既存ページをコピーして書き換えた、など。"></textarea></div>
 </section>
 
-<section class="review-step reference-after-questions">
-  <div class="step-title"><span class="step-number">資料</span><div><div class="badge">参考</div><h2>当時の表示環境に関する参考資料</h2></div></div>
-  <p>CERNによる初期WWW環境の復元、1992年前後のLine Mode Browser資料、KEK側のDECstation / ULTRIX / DECwindows資料、後年に残された「KEK INFORMATION」画面などをまとめています。</p>
-  <p><a class="action primary" href="environment-reference.html">参考資料を見る</a></p>
+<section class="survey-question" id="q-green">
+  <div class="survey-question-head"><span class="step-number">3</span><div><div class="badge evidence-question">講演資料</div><h2>薄緑の背景に白い文字の再現画像は、どの端末の画面を再現したものでしょうか？</h2></div></div>
+  <p>森田様の講演資料に掲載されている再現画像について、どの環境で見えていた画面をもとにしたものかを知りたいと考えています。</p>
+  <button type="button" class="reference-thumb-button green-reference-thumb" data-viewer-kind="image" data-viewer-title="講演資料の薄緑背景・白文字の再現画像" data-viewer-note="この表示がCERN側・KEKUX側・後年の再現作業のどれを意図したものかを確認したいと考えています。" data-viewer-src="assets/morita-green-reference.png">
+    <img src="assets/morita-green-reference.png" alt="講演資料に掲載された薄緑背景・白文字のKEK INFORMATION再現画像"><span>クリックで右側に拡大</span>
+  </button>
+  <div class="simple-choice-list" role="radiogroup" aria-label="薄緑色の再現画面の由来">
+    <label><input type="radio" name="green_origin" value="CERN側で表示していた画面"><span>CERN側で表示していた画面</span></label>
+    <label><input type="radio" name="green_origin" value="KEKUX側で表示していた画面"><span>KEKUX側で表示していた画面</span></label>
+    <label><input type="radio" name="green_origin" value="後年、説明・再現のために作成した画面"><span>後年、説明・再現のために作成した画面</span></label>
+    <label><input type="radio" name="green_origin" value="その他"><span>その他</span></label>
+    <label><input type="radio" name="green_origin" value="覚えていない"><span>覚えていない</span></label>
+  </div>
+  <div class="free-answer"><label for="q_green_note">この画面について覚えていることがあればご自由にお書きください</label><textarea id="q_green_note" name="green_origin_note" rows="6" placeholder="例：NeXTのウィンドウだった／KEKUXのDECtermだった／色は後から付けた、など。画面の大きさ・色・ウィンドウの形なども参考になります。"></textarea></div>
+
+  <div class="inline-reference-block">
+    <h3>この配色を使った比較候補</h3>
+    <p>下の縮小画面は参考です。クリックすると、右側で実際に操作できます。</p>
+    <div class="candidate-preview-grid candidate-preview-grid-two">
+      <article class="candidate-preview-card">
+        <div class="candidate-preview-viewport"><iframe src="emulator/index.html?profile=cern_next_x11_lmb_green&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;rev=0.40.1" title="CERN側 NeXT緑色候補 縮小表示" loading="lazy" tabindex="-1" aria-hidden="true"></iframe><button type="button" class="candidate-preview-hit" data-viewer-kind="emulator" data-viewer-title="CERN側 — color NeXT + X11/xterm + Line Mode Browser" data-viewer-note="講演資料の薄緑背景・白文字をCERN側のNeXT環境で再現した比較候補です。実際にこの構成だったことは未確認です。" data-viewer-src="emulator/index.html?profile=cern_next_x11_lmb_green&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;rev=0.40.1"><span class="visually-hidden">CERN側の緑色候補を右側で開く</span></button></div>
+        <strong>CERN側：NeXT + 緑色候補</strong><small>未確認の比較候補</small>
+      </article>
+      <article class="candidate-preview-card">
+        <div class="candidate-preview-viewport"><iframe src="emulator/index.html?profile=kek_decterm_vrt19_lecture_green&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;rev=0.40.1" title="KEKUX側 講演資料配色候補 縮小表示" loading="lazy" tabindex="-1" aria-hidden="true"></iframe><button type="button" class="candidate-preview-hit" data-viewer-kind="emulator" data-viewer-title="KEKUX側 — DECstation 5000/125 + DECterm 講演資料配色" data-viewer-note="講演資料の薄緑背景・白文字をKEKUX側のDECtermウィンドウとして再現した比較候補です。" data-viewer-src="emulator/index.html?profile=kek_decterm_vrt19_lecture_green&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;rev=0.40.1"><span class="visually-hidden">KEKUX側の緑色候補を右側で開く</span></button></div>
+        <strong>KEKUX側：講演資料配色候補</strong><small>DECstation 5000/125上の比較候補</small>
+      </article>
+    </div>
+  </div>
 </section>
 
-<section class="review-actions" aria-label="回答メモの操作">
-  <button type="button" id="copyAnswers">回答メモをコピー</button>
+<section class="survey-question" id="q-cern-check">
+  <div class="survey-question-head"><span class="step-number">4</span><div><div class="badge">CERN側</div><h2>CERNでHTMLを書いたあと、どのように内容を確認していましたか？</h2></div></div>
+  <p><code>kekux.kek.jp</code> にHTMLを作成されたあと、その内容をどのように確認されていたでしょうか。</p>
+  <div class="simple-choice-list" role="radiogroup" aria-label="CERNでのHTML確認方法">
+    <label><input type="radio" name="cern_check" value="WWWブラウザで表示して確認した"><span>WWWブラウザで表示して確認した</span></label>
+    <label><input type="radio" name="cern_check" value="HTMLファイルの内容を見て確認した"><span>HTMLファイルの内容を見て確認した</span></label>
+    <label><input type="radio" name="cern_check" value="別の方法で確認した"><span>別の方法で確認した</span></label>
+    <label><input type="radio" name="cern_check" value="特に確認しなかった"><span>特に確認しなかった</span></label>
+    <label><input type="radio" name="cern_check" value="覚えていない"><span>覚えていない</span></label>
+  </div>
+  <div class="free-answer"><label for="q_cern_check_note">覚えていること・補足</label><textarea id="q_cern_check_note" name="cern_check_note" rows="6" placeholder="ブラウザ名、画面の色、文字の大きさ、番号を入力してリンクを開いた、など、断片的なことでも参考になります。"></textarea></div>
+
+  <div class="inline-reference-block">
+    <h3>CERN側の表示候補</h3>
+    <p>縮小画面をクリックすると右側で拡大し、<kbd>1</kbd> → <kbd>Return</kbd> などの操作も試せます。</p>
+    <div class="candidate-preview-grid">
+      <article class="candidate-preview-card"><div class="candidate-preview-viewport"><iframe src="emulator/index.html?profile=cern_morita_unknown&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;rev=0.40.1" title="機種未確定候補 縮小表示" loading="lazy" tabindex="-1" aria-hidden="true"></iframe><button type="button" class="candidate-preview-hit" data-viewer-kind="emulator" data-viewer-title="機種未確定 — 80×24 Line Mode Browser" data-viewer-note="機種・色・実フォントを決め打ちせず、Line Mode Browserの表示と操作だけを確認する中立候補です。" data-viewer-src="emulator/index.html?profile=cern_morita_unknown&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;rev=0.40.1"><span class="visually-hidden">機種未確定候補を開く</span></button></div><strong>機種未確定</strong><small>中立表示</small></article>
+      <article class="candidate-preview-card"><div class="candidate-preview-viewport"><iframe src="emulator/index.html?profile=cern_rs6000_reference&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;rev=0.40.1" title="IBM RS/6000候補 縮小表示" loading="lazy" tabindex="-1" aria-hidden="true"></iframe><button type="button" class="candidate-preview-hit" data-viewer-kind="emulator" data-viewer-title="IBM RS/6000 / AIX — Line Mode Browser" data-viewer-note="CERN/W3C資料で初期Line Mode Browserの稼働先として確認できる機種候補です。" data-viewer-src="emulator/index.html?profile=cern_rs6000_reference&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;rev=0.40.1"><span class="visually-hidden">IBM RS/6000候補を開く</span></button></div><strong>IBM RS/6000</strong><small>CERN資料にLMB稼働記録</small></article>
+      <article class="candidate-preview-card"><div class="candidate-preview-viewport"><iframe src="emulator/index.html?profile=cern_sun4_reference&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;rev=0.40.1" title="Sun-4候補 縮小表示" loading="lazy" tabindex="-1" aria-hidden="true"></iframe><button type="button" class="candidate-preview-hit" data-viewer-kind="emulator" data-viewer-title="Sun-4 — Line Mode Browser" data-viewer-note="CERN/W3C資料で初期Line Mode Browserの稼働先として確認できる機種候補です。" data-viewer-src="emulator/index.html?profile=cern_sun4_reference&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;rev=0.40.1"><span class="visually-hidden">Sun-4候補を開く</span></button></div><strong>Sun-4</strong><small>CERN資料にLMB稼働記録</small></article>
+      <article class="candidate-preview-card"><div class="candidate-preview-viewport"><iframe src="emulator/index.html?profile=cern_priam_vax_reference&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;rev=0.40.1" title="PRIAM VAX候補 縮小表示" loading="lazy" tabindex="-1" aria-hidden="true"></iframe><button type="button" class="candidate-preview-hit" data-viewer-kind="emulator" data-viewer-title="PRIAM VAX — Line Mode Browser" data-viewer-note="W3Cの初期WWW史でLine Mode Browserの公開先としてPRIAM VAXが記録されています。" data-viewer-src="emulator/index.html?profile=cern_priam_vax_reference&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;rev=0.40.1"><span class="visually-hidden">PRIAM VAX候補を開く</span></button></div><strong>PRIAM VAX</strong><small>CERN資料にLMB稼働記録</small></article>
+      <article class="candidate-preview-card"><div class="candidate-preview-viewport"><iframe src="emulator/index.html?profile=cern_nextstep_terminal_lmb&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;rev=0.40.1" title="NeXT + LMB候補 縮小表示" loading="lazy" tabindex="-1" aria-hidden="true"></iframe><button type="button" class="candidate-preview-hit" data-viewer-kind="emulator" data-viewer-title="NeXTSTEP Terminal.app + Line Mode Browser" data-viewer-note="CERNにNeXT環境が存在した事実を踏まえた検証候補です。森田様がこの構成を使った直接証拠はまだありません。" data-viewer-src="emulator/index.html?profile=cern_nextstep_terminal_lmb&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;rev=0.40.1"><span class="visually-hidden">NeXT + LMB候補を開く</span></button></div><strong>NeXT + LMB</strong><small>未確認の検証候補</small></article>
+      <article class="candidate-preview-card"><div class="candidate-preview-viewport"><iframe src="emulator/index.html?profile=cern_next_x11_lmb_green&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;rev=0.40.1" title="NeXT緑色候補 縮小表示" loading="lazy" tabindex="-1" aria-hidden="true"></iframe><button type="button" class="candidate-preview-hit" data-viewer-kind="emulator" data-viewer-title="color NeXT + X11/xterm + Line Mode Browser — 講演資料配色候補" data-viewer-note="講演資料の薄緑背景・白文字をCERN側NeXT環境で再現した比較候補です。" data-viewer-src="emulator/index.html?profile=cern_next_x11_lmb_green&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;rev=0.40.1"><span class="visually-hidden">NeXT緑色候補を開く</span></button></div><strong>NeXT + 緑色候補</strong><small>講演資料配色</small></article>
+    </div>
+  </div>
+</section>
+
+<section class="survey-question" id="q-kek-check">
+  <div class="survey-question-head"><span class="step-number">5</span><div><div class="badge">KEKUX側</div><h2>KEKUXでは、公開しているWWWページをどのように確認していましたか？</h2></div></div>
+  <p>KEKUXから公開していたWWWページについて、当時どのように内容を確認されていたでしょうか。</p>
+  <div class="known-context-mini"><strong>現在の調査で分かっている範囲</strong><p>KEKUX本体はDECstation 5000/125。標準的にはULTRIX / DECwindows系の環境が考えられ、KEKには1992年にLine Mode Browserが導入された記録があります。ただし、KEKUX自身でどのブラウザを使ったかはまだ確認できていません。</p></div>
+  <div class="simple-choice-list" role="radiogroup" aria-label="KEKUXでのWWWページ確認方法">
+    <label><input type="radio" name="kek_check" value="KEKUX自身でWWWブラウザを起動して確認した"><span>KEKUX自身でWWWブラウザを起動して確認した</span></label>
+    <label><input type="radio" name="kek_check" value="別のコンピューターから確認した"><span>別のコンピューターから確認した</span></label>
+    <label><input type="radio" name="kek_check" value="HTMLファイルの内容を見て確認した"><span>HTMLファイルの内容を見て確認した</span></label>
+    <label><input type="radio" name="kek_check" value="その他の方法で確認した"><span>その他の方法で確認した</span></label>
+    <label><input type="radio" name="kek_check" value="覚えていない"><span>覚えていない</span></label>
+  </div>
+  <div class="free-answer"><label for="q_kek_check_note">覚えていること・補足</label><textarea id="q_kek_check_note" name="kek_check_note" rows="7" placeholder="OSのバージョン、ブラウザ名、DECwindows / DECterm、画面の色、モニタ、別の端末から見ていた、など、どのようなことでも参考になります。"></textarea></div>
+
+  <div class="inline-reference-block">
+    <h3>KEKUX側の表示候補</h3>
+    <p>本体はDECstation 5000/125として固定し、表示条件だけを比較しています。縮小画面をクリックすると右側で操作できます。</p>
+    <div class="candidate-preview-grid candidate-preview-grid-three">
+      <article class="candidate-preview-card"><div class="candidate-preview-viewport"><iframe src="emulator/index.html?profile=kek_decterm_vrt19_candidate&amp;behavior=sep1992_conservative&amp;screen=light_on_dark&amp;embed=1&amp;animate=0&amp;rev=0.40.1" title="KEKUX 明文字暗背景候補 縮小表示" loading="lazy" tabindex="-1" aria-hidden="true"></iframe><button type="button" class="candidate-preview-hit" data-viewer-kind="emulator" data-viewer-title="KEKUX — DECterm 明るい文字 / 暗い背景" data-viewer-note="ULTRIX / DECwindows上のDECtermでlight-on-dark表示だった場合の比較候補です。" data-viewer-src="emulator/index.html?profile=kek_decterm_vrt19_candidate&amp;behavior=sep1992_conservative&amp;screen=light_on_dark&amp;embed=1&amp;animate=0&amp;rev=0.40.1"><span class="visually-hidden">明文字暗背景候補を開く</span></button></div><strong>明文字 / 暗背景</strong><small>DECterm候補</small></article>
+      <article class="candidate-preview-card"><div class="candidate-preview-viewport"><iframe src="emulator/index.html?profile=kek_decterm_vrt19_candidate&amp;behavior=sep1992_conservative&amp;screen=dark_on_light&amp;embed=1&amp;animate=0&amp;rev=0.40.1" title="KEKUX 暗文字明背景候補 縮小表示" loading="lazy" tabindex="-1" aria-hidden="true"></iframe><button type="button" class="candidate-preview-hit" data-viewer-kind="emulator" data-viewer-title="KEKUX — DECterm 暗い文字 / 明るい背景" data-viewer-note="DECtermでdark-on-light表示だった場合の比較候補です。" data-viewer-src="emulator/index.html?profile=kek_decterm_vrt19_candidate&amp;behavior=sep1992_conservative&amp;screen=dark_on_light&amp;embed=1&amp;animate=0&amp;rev=0.40.1"><span class="visually-hidden">暗文字明背景候補を開く</span></button></div><strong>暗文字 / 明背景</strong><small>DECterm候補</small></article>
+      <article class="candidate-preview-card"><div class="candidate-preview-viewport"><iframe src="emulator/index.html?profile=kek_decterm_vrt19_lecture_green&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;rev=0.40.1" title="KEKUX 講演資料配色候補 縮小表示" loading="lazy" tabindex="-1" aria-hidden="true"></iframe><button type="button" class="candidate-preview-hit" data-viewer-kind="emulator" data-viewer-title="KEKUX — DECterm 講演資料配色候補" data-viewer-note="森田様の講演資料にある薄緑背景・白文字を、KEKUXのDECtermウィンドウとして再現した比較候補です。" data-viewer-src="emulator/index.html?profile=kek_decterm_vrt19_lecture_green&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;rev=0.40.1"><span class="visually-hidden">講演資料配色候補を開く</span></button></div><strong>講演資料配色</strong><small>薄緑背景・白文字</small></article>
+    </div>
+  </div>
+</section>
+
+<section class="survey-question" id="q-other">
+  <div class="survey-question-head"><span class="step-number">6</span><div><div class="badge">その他</div><h2>このほか、当時について覚えていることがあれば</h2></div></div>
+  <p>CERNでの作業、KEKUX、WWWページの作成・確認方法など、どのようなことでも結構です。</p>
+  <div class="free-answer"><label for="q_other_note">ご自由にお書きください</label><textarea id="q_other_note" name="other_note" rows="10" placeholder="些細なことでも、現在の資料からは分からない重要な手がかりになる可能性があります。"></textarea></div>
+</section>
+
+<section class="review-actions survey-actions">
+  <button type="button" id="copyAnswers">入力した回答をメール用にコピー</button>
   <button type="button" id="printPage">このページを印刷</button>
   <span id="copyStatus" role="status" aria-live="polite"></span>
 </section>
+</form>
 
 <section class="source-context">
-  <h2>調査資料について</h2>
-  <p>これまでに調べた内容は別ページにまとめています。今回、森田様に伺いたいことは、その中でも資料だけでは分からない二点を中心にしています。</p>
-  <p><a href="environment-reference.html">表示環境の参考資料</a> ／ <a href="references.html">根拠資料</a> ／ <a href="research.html">技術調査ノート</a></p>
+  <h2>詳しい資料</h2>
+  <p>この確認フォームから離れずに回答できるよう、必要な候補は上に縮小表示しています。さらに詳しい資料が必要な場合だけ、別ウインドウで開けます。</p>
+  <p><a href="environment-reference.html" target="_blank" rel="noopener">表示環境の参考資料 ↗</a> ／ <a href="references.html" target="_blank" rel="noopener">根拠資料 ↗</a> ／ <a href="research.html" target="_blank" rel="noopener">これまでに調べた内容 ↗</a></p>
 </section>
+</div>
+
+<aside id="referencePane" class="reference-pane" aria-label="参考資料の拡大表示">
+  <div class="reference-pane-head">
+    <div><span class="reference-pane-kicker">参考資料・表示候補</span><h2 id="referencePaneTitle">左の縮小画像をクリックしてください</h2></div>
+    <button type="button" id="closeReferencePane" class="reference-pane-close" aria-label="参考資料を閉じる">閉じる</button>
+  </div>
+  <p id="referencePaneNote" class="reference-pane-note">質問は左側に残ったままです。画像や表示候補だけをここで大きく確認できます。</p>
+  <div id="referencePanePlaceholder" class="reference-pane-placeholder"><strong>質問の流れから離れません</strong><p>候補写真、講演資料、再現画面をクリックすると、ここに拡大表示します。</p></div>
+  <div id="referencePaneImageWrap" class="reference-pane-media" hidden><img id="referencePaneImage" alt=""></div>
+  <div id="referencePaneEmulatorWrap" class="reference-pane-media reference-pane-emulator" hidden><iframe id="referencePaneEmulator" title="表示候補の拡大表示" src="about:blank"></iframe><p class="reference-pane-operation">画面をクリックすると操作できます。参照番号を入力して <kbd>Return</kbd> でリンクを選べます。</p></div>
+</aside>
+</div>
 </main>
-<script src="review.js"></script>
+
+<div id="referencePaneBackdrop" class="reference-pane-backdrop" hidden></div>
+<script src="review.js?v=0.41"></script>
 </body>
 </html>
