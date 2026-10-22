@@ -1,0 +1,20 @@
+Phase 6 ULTRIX media pipeline regression
+Date: 2026-10-21
+
+PASS
+- dependency-free PCF reader round-tripped a generated 100dpi Terminal PCF
+- XLFD preserved: -DEC-Terminal-Medium-R-Normal--14-100-100-100-C-80-ISO8859-1
+- generated test metrics preserved (real-media result is 8x15)
+- ASCII 0x20-0x7E complete
+- synthetic setld distribution located UDWFONT15430
+- /usr/lib/X11/fonts/decwin/100dpi Terminal file extracted
+- BDF and phase6-font-report.json generated
+- external pcf2bdf is not required at runtime
+
+Existing JavaScript regression suites also PASS:
+- core
+- display discipline
+- Phase 4
+- Phase 5
+- Phase 6
+- sharp display

@@ -1,0 +1,10 @@
+v0.37 — green-screen provenance / shared candidate comparison
+
+- Treat Morita lecture green/white reconstruction as an important provenance-unknown reference, not as KEK-only evidence.
+- Add the lecture image excerpt to the reviewer-facing top, question, and reference pages.
+- CERN candidate switcher now includes NeXTSTEP Terminal.app + LMB and color NeXT + X11/xterm + LMB using the lecture-reference palette.
+- KEK candidate switcher keeps DECstation 5000/125 fixed and adds a DECterm lecture-green palette hypothesis.
+- Replace the old CSS-built green display page with a source-reference page; historical interaction remains in the Canvas emulator.
+- Embedded emulator fit-to-width can shrink below 45% when necessary, preventing horizontal scrolling on narrow containers.
+- CRT blur/glow/scanline effects remain disabled.
+- The green palette is explicitly marked as unconfirmed for 1992 until Morita testimony establishes its provenance.

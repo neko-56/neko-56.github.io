@@ -1,0 +1,8 @@
+v0.45 — display sizing and heading alignment
+
+- Embedded terminal framebuffers now fit both width and height and may be enlarged up to 2x.
+- CERN candidate pages no longer leave a small 640x384 framebuffer in a large black iframe.
+- Review material pane is wider and has a true full-page "大きく表示" overlay mode.
+- Image labels now say "右側で表示" rather than implying that the ordinary right pane is a full enlargement.
+- KEK INFORMATION is centered across the 80-column LMB text plane, matching the Morita lecture reconstruction reference, without globally centering unrelated H1 headings.
+- Question wording and survey flow are unchanged.

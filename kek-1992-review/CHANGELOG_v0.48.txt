@@ -1,0 +1,6 @@
+v0.48
+- Reduced the unused left/right page margins on the review screen.
+- Increased the overall review workspace maximum width from 1500px to 1900px.
+- Rebalanced the two-column layout so the material/viewer pane receives more of the available width.
+- Reduced the column gap and outer horizontal padding.
+- Added intermediate responsive breakpoints so the question pane remains usable before the mobile overlay layout takes over.
