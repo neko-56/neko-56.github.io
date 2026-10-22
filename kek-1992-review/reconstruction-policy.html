@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>KEK 1992 WWW — 復元の考え方</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="review-mode">
+<nav class="site-nav" aria-label="共通ナビゲーション">
+  <a class="site-nav-home" href="index.html">← ご確認用トップ</a>
+  <div class="site-nav-group site-nav-docs">
+    <a href="review.html">ご確認フォーム</a>
+    <a href="environment-reference.html">表示環境の参考資料</a>
+    <a href="reconstruction-policy.html" aria-current="page">復元の考え方</a>
+    <a href="references.html">根拠資料</a>
+  </div>
+</nav>
+<main class="wrap environment-reference-page methodology-page">
+<header class="reference-header">
+  <div class="badge evidence-confirmed">復元の考え方</div>
+  <h1>表示候補を作るときに気をつけていること</h1>
+  <p class="lead">森田様に見ていただく候補を作る際、残っている資料、当時のソフトウェアの挙動、実機・OS資料をできるだけ分けて確認し、分からない部分を先に決めつけないようにしています。</p>
+</header>
+
+<section class="reference-section">
+  <div class="section-heading simple-heading"><div class="badge">CERNを参考にしている理由</div><h2>画面の見た目だけでなく、ブラウザの挙動も確かめる</h2></div>
+  <p>CERNの2019年WorldWideWeb Rebuildは、NeXT上の利用体験を伝えること、ブラウザ兼エディタとしての機能を示すことを原則として掲げ、古いNeXT実機、残存コード、当時の開発者への聞き取りを使って再構築しています。今回の表示候補を作る際にも、この進め方を参考にしています。</p>
+  <p><a href="https://worldwideweb.cern.ch/production/" target="_blank" rel="noopener noreferrer">CERN 2019 — Production Details ↗</a> ／ <a href="https://worldwideweb.cern.ch/" target="_blank" rel="noopener noreferrer">WorldWideWeb Rebuild ↗</a></p>
+</section>
+
+<section class="reference-section">
+  <div class="section-heading simple-heading"><div class="badge evidence-confirmed">整理のしかた</div><h2>表示候補を作るときの5つの考え方</h2></div>
+  <div class="archive-principles methodology-principles">
+    <article><strong>1. 元データ優先</strong><span>保存HTML、同時代資料、実フォント、ソースコードを優先し、現代的な見た目で補わない。</span></article>
+    <article><strong>2. 挙動を再現</strong><span>番号入力＋Return、ページ送り、promptなど、ブラウザの操作を実際に動かす。</span></article>
+    <article><strong>3. 画面はエミュレータで描画</strong><span>歴史画面をCSSの静止模型として作らず、文字セル／bitmap glyph／framebufferをエミュレーションする。</span></article>
+    <article><strong>4. 不明点を作らない</strong><span>機種、色、フォント、prompt等が未確認なら「未確認」のまま保持し、推測を確定値にしない。</span></article>
+    <article><strong>5. お話と資料を分ける</strong><span>森田様に教えていただいた内容、当時資料、後年資料、技術的な推定を混同しない。</span></article>
+  </div>
+</section>
+
+<section class="reference-section">
+  <div class="section-heading simple-heading"><div class="badge">実装境界</div><h2>説明サイトと歴史画面を分離する</h2></div>
+  <table class="method-table">
+    <tr><th>説明・ナビゲーション</th><td>通常のHTML/CSS。調査目的、根拠、確度、参考資料を表示。</td></tr>
+    <tr><th>歴史画面</th><td>JavaScriptのLine Mode Browser挙動エンジン＋Canvas framebuffer。CSSで文字画面を組まない。</td></tr>
+    <tr><th>KEK文字</th><td>検証済みDEC Terminal bitmap glyphを論理ピクセルへ直接描画。ブラウザのアンチエイリアスで代用しない。</td></tr>
+    <tr><th>CERN文字</th><td>森田様の実端末が未同定のため、機種固有フォントを断定しない。端末同定後に該当glyphへ置換。</td></tr>
+  </table>
+</section>
+
+<section class="reference-section">
+  <div class="section-heading simple-heading"><div class="badge evidence-question">現在の到達点</div><h2>「復元済み」と「まだ再現できない」を区別する</h2></div>
+  <div class="reference-item-grid">
+    <article class="reference-item"><h3>動作モデル</h3><p>保存HTMLを読み、固定幅端末用に整形し、参照番号を生成して、キーボード入力で操作するLine Mode Browserモデルを実装。</p></article>
+    <article class="reference-item"><h3>KEK表示スタック</h3><p>DECstation / ULTRIX / DECwindows / DECterm資料とULTRIX媒体のbitmap fontを照合。実行時の75dpi/100dpi分岐は未確定。</p></article>
+    <article class="reference-item"><h3>CERN実端末</h3><p>森田様が使用した端末は未同定。機種非依存表示に加え、CERN史料で確認できるRS/6000・Sun-4・PRIAM VAX、NeXT上のLMB候補を切り替えて比較する。候補は正解として固定しない。</p></article>
+  </div>
+</section>
+
+<section class="reference-section">
+  <div class="section-heading simple-heading"><div class="badge evidence-question">講演資料配色の扱い</div><h2>薄緑＋白文字をCERN側・KEK側の両方で検証する</h2></div>
+  <p>森田様の講演資料にある横長の薄緑背景・白文字画面は重要な比較資料ですが、CERN側の表示、KEK側の表示、後年の再現作業のどれを意図したものかは未確認です。したがって帰属を先に決めず、CERN側ではcolor NeXT + X11/xterm + LMB候補、KEK側ではDECstation 5000/125 + DECterm候補として同じ配色を比較します。</p>
+  <p>この配色は「1992年実機で確定した色」とは表示せず、森田様の証言で帰属や妥当性を確認した後に証拠レベルを更新します。</p>
+</section>
+
+<section class="reference-section">
+  <div class="section-heading simple-heading"><div class="badge">森田様に伺いたいこと</div><h2>資料だけでは分からない部分を教えていただく</h2></div>
+  <p>30年以上前の作業ですので、完全な型番や名称が分からなくても、「この操作だった」「この表示ではない」「KEK側では表示していない」といった情報だけでも候補を見直す大きな手がかりになります。教えていただいた内容は、既存資料と混同しないよう分けて整理し、表示候補の修正に反映したいと考えています。</p>
+  <p><a class="action primary" href="review.html">ご確認フォームを見る</a></p>
+</section>
+</main>
+</body>
+</html>
