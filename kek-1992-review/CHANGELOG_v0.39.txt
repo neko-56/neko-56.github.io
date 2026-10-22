@@ -1,8 +1,0 @@
-v0.39 — confirmation tone / charcoal palette
-
-- Reworded the front page and methodology around a personal, in-progress inquiry prepared for Mr. Morita's review, not a public-facing project.
-- Removed the user-facing sentence about scanlines/blur/glow/curvature.
-- Renamed “復元方針” to the softer “復元の考え方” in reviewer-facing navigation.
-- Reworked methodology language to avoid archive/publication assumptions.
-- Added a unified charcoal-gray confirmation theme and fixed low-contrast headings/cards.
-- Kept historical/publication terminology where it describes 1992 facts or source availability.
