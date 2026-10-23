@@ -25,15 +25,15 @@
 
 <section class="emulation-section">
   <div class="section-heading simple-heading"><div class="badge evidence-confirmed">KEK側</div><h2>DECstation 5000/125</h2></div>
-  <p>KEK側は本体をDECstation 5000/125として扱い、DECterm、コンソール表示、講演資料に残る配色を比較します。</p>
+  <p>KEK側は本体をDECstation 5000/125として扱い、DECterm、graphics console、講演資料に残る配色を比較します。</p>
   <div class="emulation-card-grid">
     <article class="emulation-card emulation-card-wide">
       <div class="emulation-card-head"><div><strong>DECstation 5000/125 + DECterm</strong><span>VRT19-class / 1280×1024候補・80×24文字。DECwindows上のウィンドウ経路</span></div><a href="kek-local.html">KEK側の比較ページ</a></div>
       <iframe title="KEK DECterm 再現" src="emulator/index.html?profile=kek_decterm_vrt19_candidate&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;preview=1" loading="eager"></iframe>
     </article>
     <article class="emulation-card">
-      <div class="emulation-card-head"><div><strong>コンソール全画面候補</strong><span>DECwindowsを使わず、物理表示面全体を文字consoleとして使う経路</span></div><a href="emulator/index.html?profile=kek_console_fullscreen_candidate&amp;behavior=sep1992_conservative">詳細</a></div>
-      <iframe title="KEK console 再現" src="emulator/index.html?profile=kek_console_fullscreen_candidate&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;preview=1" loading="lazy"></iframe>
+      <div class="emulation-card-head"><div><strong>graphics console（ウィンドウなし）候補</strong><span>DECwindowsを使わずgraphics monitorへconsole文字を直接描画する経路。文字は表示面の左上側から始まる比較モデル</span></div><a href="emulator/index.html?profile=kek_console_fullscreen_candidate&amp;behavior=sep1992_conservative">詳細</a></div>
+      <iframe title="KEK graphics console 再現" src="emulator/index.html?profile=kek_console_fullscreen_candidate&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;preview=1" loading="lazy"></iframe>
     </article>
     <article class="emulation-card">
       <div class="emulation-card-head"><div><strong>講演資料配色候補</strong><span>薄緑背景・白文字をDECterm上で比較</span></div><a href="emulator/index.html?profile=kek_decterm_vrt19_lecture_green&amp;behavior=sep1992_conservative">詳細</a></div>
@@ -44,22 +44,22 @@
 
 <section class="emulation-section">
   <div class="section-heading simple-heading"><div class="badge">CERN側</div><h2>当時のLine Mode Browser動作機種を比較</h2></div>
-  <p>W3C/CERN資料で当時のLine Mode Browserとの関係が確認できる機種・環境を分けて比較します。GUI上の端末ウィンドウと、物理端末／system consoleの全画面経路を同一視せずに並べます。</p>
+  <p>W3C/CERN資料で当時のLine Mode Browserとの関係が確認できる機種・環境を分けて比較します。GUI上の端末ウィンドウと、物理端末／system consoleのウィンドウなし経路を同一視せずに並べます。</p>
   <div class="emulation-card-grid">
     <article class="emulation-card emulation-card-wide">
       <div class="emulation-card-head"><div><strong>IBM RISC System/6000 / AIX — aixterm候補</strong><span>CERN 2013実機参照。IBM 6091 Model 19・19インチカラー・1280×1024を最有力候補として、その上に80×24 aixtermを配置</span></div><a href="cern-view.html">CERN側の比較ページ</a></div>
       <iframe title="IBM RS6000 aixterm 再現" src="emulator/index.html?profile=cern_rs6000_reference&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;preview=1" loading="eager"></iframe>
     </article>
     <article class="emulation-card">
-      <div class="emulation-card-head"><div><strong>IBM RS/6000 — AIX 全画面console候補</strong><span>同じ6091候補上でAIX graphics console / HFTのtext経路を比較。window枠なし</span></div><a href="emulator/index.html?profile=cern_rs6000_console_candidate&amp;behavior=sep1992_conservative">詳細</a></div>
-      <iframe title="IBM RS6000 full-screen console 再現" src="emulator/index.html?profile=cern_rs6000_console_candidate&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;preview=1" loading="lazy"></iframe>
+      <div class="emulation-card-head"><div><strong>IBM RS/6000 — AIX graphics console（ウィンドウなし）候補</strong><span>同じ6091候補上でAIX graphics console / HFTのtext経路を比較。window manager枠なし</span></div><a href="emulator/index.html?profile=cern_rs6000_console_candidate&amp;behavior=sep1992_conservative">詳細</a></div>
+      <iframe title="IBM RS6000 graphics console 再現" src="emulator/index.html?profile=cern_rs6000_console_candidate&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;preview=1" loading="lazy"></iframe>
     </article>
     <article class="emulation-card">
       <div class="emulation-card-head"><div><strong>Sun-4</strong><span>1991年のLMB公開先。1152×900は当時のSun公式構成候補。ここではX11端末ウィンドウ経路</span></div><a href="emulator/index.html?profile=cern_sun4_reference&amp;behavior=sep1992_conservative">詳細</a></div>
       <iframe title="Sun-4 再現" src="emulator/index.html?profile=cern_sun4_reference&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;preview=1" loading="lazy"></iframe>
     </article>
     <article class="emulation-card">
-      <div class="emulation-card-head"><div><strong>PRIAM — DEC VAX 8530 / ULTRIX</strong><span>物理端末接続ならGUI windowではなく端末CRT全画面。DMT2200 / Pericom MG200等を候補として分離</span></div><a href="emulator/index.html?profile=cern_priam_vax_reference&amp;behavior=sep1992_conservative">詳細</a></div>
+      <div class="emulation-card-head"><div><strong>PRIAM — DEC VAX 8530 / ULTRIX</strong><span>物理端末接続ならGUI windowではなく端末CRTの文字表示面。DMT2200 / Pericom MG200等を候補として分離</span></div><a href="emulator/index.html?profile=cern_priam_vax_reference&amp;behavior=sep1992_conservative">詳細</a></div>
       <iframe title="PRIAM VAX 8530 物理端末比較表示" src="emulator/index.html?profile=cern_priam_vax_reference&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;preview=1" loading="lazy"></iframe>
     </article>
     <article class="emulation-card">
@@ -71,8 +71,8 @@
       <iframe title="NeXT X11 xterm 再現" src="emulator/index.html?profile=cern_next_x11_lmb_green&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;preview=1" loading="lazy"></iframe>
     </article>
     <article class="emulation-card">
-      <div class="emulation-card-head"><div><strong>IBM 3270-class — 物理端末全画面</strong><span>後年回顧に基づく比較候補。ウィンドウではなく3270 displayの文字面そのもの</span></div><a href="emulator/index.html?profile=cern_3270_alternate&amp;behavior=sep1992_conservative">詳細</a></div>
-      <iframe title="IBM 3270 全画面端末再現" src="emulator/index.html?profile=cern_3270_alternate&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;preview=1" loading="lazy"></iframe>
+      <div class="emulation-card-head"><div><strong>IBM 3270-class — 物理端末</strong><span>後年回顧に基づく比較候補。ウィンドウではなく3270 displayの文字面そのもの</span></div><a href="emulator/index.html?profile=cern_3270_alternate&amp;behavior=sep1992_conservative">詳細</a></div>
+      <iframe title="IBM 3270 物理端末再現" src="emulator/index.html?profile=cern_3270_alternate&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;preview=1" loading="lazy"></iframe>
     </article>
   </div>
 </section>
