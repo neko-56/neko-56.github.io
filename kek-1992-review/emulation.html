@@ -59,12 +59,12 @@
       <iframe title="PRIAM VAX 8530 比較表示" src="emulator/index.html?profile=cern_priam_vax_reference&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0" loading="lazy"></iframe>
     </article>
     <article class="emulation-card">
-      <div class="emulation-card-head"><div><strong>NeXTSTEP Terminal.app</strong><span>本文未提供・ウィンドウ形状のみの比較（NeXTSTEP標準Terminal環境）</span></div><a href="emulator/index.html?profile=cern_nextstep_terminal_lmb&amp;behavior=sep1992_conservative">詳細</a></div>
-      <iframe title="NeXTSTEP Terminal 再現" src="emulator/index.html?profile=cern_nextstep_terminal_lmb&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;focus=window" loading="lazy"></iframe>
+      <div class="emulation-card-head"><div><strong>NeXTSTEP Terminal.app</strong><span>NeXTSTEP標準Terminal環境。本文は8×16セル上の近似表示</span></div><a href="emulator/index.html?profile=cern_nextstep_terminal_lmb&amp;behavior=sep1992_conservative">詳細</a></div>
+      <iframe title="NeXTSTEP Terminal 再現" src="emulator/index.html?profile=cern_nextstep_terminal_lmb&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0" loading="lazy"></iframe>
     </article>
     <article class="emulation-card">
       <div class="emulation-card-head"><div><strong>NeXT + X11 / xterm</strong><span>X11標準fixed系bitmapを使う比較経路</span></div><a href="emulator/index.html?profile=cern_next_x11_lmb_green&amp;behavior=sep1992_conservative">詳細</a></div>
-      <iframe title="NeXT X11 xterm 再現" src="emulator/index.html?profile=cern_next_x11_lmb_green&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0&amp;focus=window" loading="lazy"></iframe>
+      <iframe title="NeXT X11 xterm 再現" src="emulator/index.html?profile=cern_next_x11_lmb_green&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0" loading="lazy"></iframe>
     </article>
     <article class="emulation-card">
       <div class="emulation-card-head"><div><strong>IBM 3270-class</strong><span>後年回顧に基づく比較候補</span></div><a href="emulator/index.html?profile=cern_3270_alternate&amp;behavior=sep1992_conservative">詳細</a></div>
@@ -79,5 +79,36 @@
   <p><a class="action" href="emulator/index.html">研究用エミュレータを開く</a> <a class="action" href="reconstruction-policy.html">復元の考え方を見る</a></p>
 </section>
 </main>
+<script>
+(function(){
+  const frameCSS = `
+    .monitor-active{
+      padding:8px 10px!important;
+      background:#030303!important;
+      box-shadow:inset 0 0 0 2px #111,0 0 0 1px #32373a!important;
+    }
+    .monitor-shell[data-shell="dec-vrt19"] .monitor-active{padding:12px 14px!important}
+    .monitor-shell[data-shell="sun-19"] .monitor-active{padding:10px 12px!important}
+    .monitor-shell[data-shell="next-megapixel"] .monitor-active{padding:11px 13px!important}
+    .monitor-shell[data-shell="ibm-reference"] .monitor-active{padding:10px 12px!important}
+    .monitor-shell[data-shell="neutral-plane"] .monitor-active{padding:7px 9px!important}
+  `;
+  document.querySelectorAll('.emulation-card iframe').forEach(function(frame){
+    frame.addEventListener('load',function(){
+      try{
+        const doc=frame.contentDocument;
+        if(!doc||!doc.head)return;
+        if(!doc.querySelector('style[data-review-monitor-margin]')){
+          const style=doc.createElement('style');
+          style.setAttribute('data-review-monitor-margin','1');
+          style.textContent=frameCSS;
+          doc.head.appendChild(style);
+        }
+        frame.contentWindow.dispatchEvent(new Event('resize'));
+      }catch(e){}
+    });
+  });
+})();
+</script>
 </body>
 </html>
