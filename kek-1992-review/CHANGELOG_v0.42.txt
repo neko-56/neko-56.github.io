@@ -1,7 +1,0 @@
-v0.42 — survey choice visibility fix
-- Radio choices are now visibly and explicitly selectable.
-- Added "この表示に近い" radio choices under every CERN display candidate.
-- Added "この表示に近い" radio choices under every KEKUX display candidate.
-- Added "どの候補とも違う" and "覚えていない" options.
-- Selected display candidates are included in the email-copy summary.
-- Kept the single-page survey flow and right-side reference pane.
