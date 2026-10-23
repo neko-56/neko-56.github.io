@@ -25,30 +25,50 @@
     ]);
   }
 
-  // AIX had a real system-console path distinct from an AIXwindows/aixterm
-  // window. IBM documentation describes /dev/console and high-function/graphics
-  // displays as console candidates, and a graphics console can operate in text
-  // (ASCII) mode as well as a graphical environment.
+  // AIX Version 3 / RS/6000 console comparison.
+  //
+  // Period AIX V3 terminfo identifies the native HFT as 80 columns x 25 lines.
+  // The AIX V3 font table documents Rom14.500 as a 9x20 bitmap, and aixterm's
+  // HFT emulation uses Rom14.500 by default on a large display.  That is a much
+  // better period geometry anchor for the 19-inch / 1280x1024 6091 candidate
+  // than reusing the CERN-2013 Meyrin 9x14 / 80x24 browser-window raster.
+  //
+  // Exact raw-HFT console glyph bytes and the CERN 2013 session route remain
+  // unresolved, so the renderer uses a hard 1-bit monospace stand-in at the
+  // documented 9x20 cell geometry rather than claiming Meyrin is the HFT font.
   const base=profiles.cern_rs6000_reference;
   if(base){
     const p=Object.assign({},base);
     p.id="cern_rs6000_console_candidate";
-    p.label="CERN IBM RS/6000 — AIX graphics-console / HFT windowless candidate";
-    p.evidenceLevel="ATTESTED AIX CONSOLE PATH / EXACT CERN 2013 SESSION MODE UNRESOLVED";
+    p.label="CERN IBM RS/6000 — AIX V3 HFT graphics-console candidate";
+    p.evidenceLevel="PERIOD AIX V3 HFT 80×25 ATTESTED / EXACT CERN 2013 SESSION MODE UNRESOLVED";
+    p.cols=80;
+    p.rows=25;
     p.windowChrome=null;
     p.desktop="#000000";
     p.terminalRect={x:0,y:0,w:1280,h:1024};
-    p.physicalResolutionStatus="WINDOWLESS GRAPHICS-CONSOLE COMPARISON — IBM 6091 Model 19 candidate, 19-inch color / 1280×1024; exact CERN 2013 session mode unresolved";
-    p.pixelAspectStatus="1280×1024 physical-display candidate; 80×24 Meyrin 9×14 grid is displayed without glyph stretching";
+    p.cell={w:9,h:20};
+    p.fontPx=18;
+    p.baseline=17;
+    p.fontFamily='"Courier New", Courier, monospace';
+    p.fallbackRasterThreshold=92;
+    delete p.publicFontAssetId;
+    delete p.bundledFontAssetId;
+    delete p.comparisonFontAssetId;
+    p.fontCandidate="AIX V3 HFT large-display geometry candidate — Rom14.500 9×20; exact raw-console glyph raster not bundled";
+    p.fontEvidence="Period AIX V3 HFT terminfo specifies 80×25. AIX V3 font tables record Rom14.500 as 9×20, and aixterm HFT emulation selects Rom14.500 for a large display. This anchors cell geometry only; it does not prove the exact CERN 2013 console glyph raster.";
+    p.physicalResolutionStatus="WINDOWLESS AIX V3 HFT COMPARISON — IBM 6091 Model 19 candidate, 19-inch color / 1280×1024; exact CERN 2013 session route unresolved";
+    p.pixelAspectStatus="1280×1024 display candidate; period HFT logical screen is 80×25, using a 9×20 large-display cell candidate without stretching glyphs to fill the monitor";
     p.monitorFrame=base.monitorFrame?Object.assign({},base.monitorFrame,{
-      label:"IBM 6091 Model 19 candidate — AIX windowless graphics-console path",
-      status:"TECHNICALLY VALID AIX CONSOLE ROUTE / NOT IDENTIFIED AS THE CERN 2013 SESSION"
+      label:"IBM 6091 Model 19 candidate — AIX V3 HFT console path",
+      status:"PERIOD HFT 80×25 GEOMETRY / NOT IDENTIFIED AS THE CERN 2013 SESSION"
     }):null;
     p.notes=(base.notes||[]).concat([
-      "DISPLAY ROUTE: AIXのsystem consoleはAIXwindows/aixtermとは別経路。graphics/high-function displayをtext consoleとして使用できる。",
-      "WINDOWLESS MODEL: window manager decorationを描かず、1280×1024 display全体をterminal backgroundとして扱い、80×24のMeyrin文字グリッドを置く。",
-      "GLYPH DISCIPLINE: Meyrin 9×14 glyphは引き伸ばさない。windowless consoleとは『背景面がモニタ全体』という意味で、80×24文字を1280×1024いっぱいに変形する意味ではない。",
-      "UNCERTAINTY: 2013 CERN実機でLine Mode Browserを動かした際にAIXwindows/aixtermだったかgraphics-console/HFTだったかは、このprofileでは確定していない。"
+      "PERIOD HFT: 1991–92 AIX V3のHigh Function Terminalはterminfo上80 columns × 25 lines。80×24ではない。",
+      "PERIOD FONT GEOMETRY: AIX V3のXfonts表ではRom14.500=9×20、Rom10.500=8×14。aixterm HFT emulationはlarge displayでRom14.500を既定とする。",
+      "CONSOLE MODEL: 6091 Model 19候補の1280×1024表示面上に80×25・9×20のHFT logical screenを置く。文字bitmapを1280×1024へ引き伸ばさない。",
+      "FONT DISCIPLINE: CERN 2013のMeyrin 9×14は参照実機のterminal字形復元であり、raw HFT console fontとは同一視しない。このconsole候補ではMeyrinを使用しない。",
+      "UNCERTAINTY: 2013 CERN実機でLine Mode Browserを動かしたセッションがAIXwindows/aixtermだったかnative HFT consoleだったか、またraw HFTの正確なfont bytes・foreground色・screen placementは未確定。"
     ]);
     profiles[p.id]=p;
   }
@@ -70,7 +90,7 @@
   const kekOption=document.querySelector('#profile option[value="kek_console_fullscreen_candidate"]');
   if(kekOption)kekOption.textContent="KEK — DECstation 5000/125 / graphics console（ウィンドウなし）";
   const aixOption=document.querySelector('#profile option[value="cern_rs6000_console_candidate"]');
-  if(aixOption)aixOption.textContent="CERN candidate — IBM RS/6000 / AIX graphics console（ウィンドウなし）";
+  if(aixOption)aixOption.textContent="CERN candidate — IBM RS/6000 / AIX V3 HFT console（ウィンドウなし・80×25）";
 
   // app.js historically keeps standalone auto display at >=100% for pixel-level
   // inspection. In browser Fullscreen that can crop a 1280x1024 framebuffer plus
