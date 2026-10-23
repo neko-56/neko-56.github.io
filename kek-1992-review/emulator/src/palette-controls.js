@@ -10,33 +10,14 @@
     xterm:new Set(["cern_sun4_reference","cern_next_x11_lmb_green"])
   };
 
+  // Geometry (80x24 grid, xterm internalBorder, KEK-image client padding) is
+  // defined separately in profile-geometry-overrides.js. Palette switching must
+  // never resize the terminal, otherwise a color comparison also changes layout.
   const original={};
   Object.keys(profiles).forEach(id=>{
     const p=profiles[id];
-    original[id]={
-      foreground:p.foreground,
-      background:p.background,
-      terminalRect:p.terminalRect?Object.assign({},p.terminalRect):null
-    };
+    original[id]={foreground:p.foreground,background:p.background};
   });
-
-  function expandClient(id,pad){
-    const p=profiles[id];
-    if(!p||!p.terminalRect||p.__clientPaddingApplied)return;
-    const r=p.terminalRect;
-    p.terminalRect={x:r.x-pad,y:r.y-pad,w:r.w+pad*2,h:r.h+pad*2};
-    p.__clientPaddingApplied=pad;
-  }
-
-  // xterm documents internalBorder=2px by default. Keep the 80x24 glyph grid
-  // unchanged and add the border outside it.
-  expandClient("cern_sun4_reference",2);
-  expandClient("cern_next_x11_lmb_green",2);
-
-  // The KEK lecture image visibly has a small green margin outside the glyph
-  // grid. 4px is an image-matching comparison value, not an asserted DECterm
-  // factory/default resource.
-  expandClient("kek_decterm_vrt19_lecture_green",4);
 
   function activeId(){
     const s=document.getElementById("profile");
@@ -51,9 +32,9 @@
 
   function standardPalette(kind,id){
     if(kind==="xterm")return {foreground:"#000000",background:"#ffffff"};
-    // DECterm's documented default screenMode is light-on-dark. Exact site
-    // resource colors vary, so use the existing historically constrained profile
-    // colors rather than inventing a universal RGB default.
+    // ULTRIX dxterm documents light-on-dark as the default screen mode. Exact
+    // site-specific RGB resources are not recovered, so retain the constrained
+    // base DECterm profile values instead of inventing a universal RGB pair.
     const base=original.kek_decterm_vrt19_candidate||original[id];
     return {foreground:base.foreground,background:base.background};
   }
@@ -78,21 +59,8 @@
     p.foreground=palette.foreground;
     p.background=palette.background;
 
-    // KEK lecture comparison: preserve the image-derived green client margin.
-    // Other DECterm profiles retain their normal client geometry.
-    if(id==="kek_decterm_vrt19_lecture_green"){
-      const r0=original[id].terminalRect;
-      p.terminalRect=mode==="kek"||mode==="profile"
-        ?{x:r0.x-4,y:r0.y-4,w:r0.w+8,h:r0.h+8}
-        :Object.assign({},r0);
-    }
-
-    // xterm internalBorder=2 is independent of foreground/background.
-    if(kind==="xterm"){
-      const r0=original[id].terminalRect;
-      p.terminalRect={x:r0.x-2,y:r0.y-2,w:r0.w+4,h:r0.h+4};
-    }
-
+    // Reset DECterm's light/dark selector to profile so the explicit foreground
+    // and background above are what the renderer actually uses.
     const screen=document.getElementById("screenMode");
     if(screen){
       screen.value="profile";
@@ -102,11 +70,18 @@
   }
 
   function settingText(kind,mode){
-    const fg=mode==="kek"?KEK_FG:(kind==="xterm"?"black":"<profile foreground>");
-    const bg=mode==="kek"?KEK_BG:(kind==="xterm"?"white":"<profile background>");
+    const isKEK=mode==="kek";
+    const fg=isKEK?KEK_FG:(kind==="xterm"?"black":"<profile foreground>");
+    const bg=isKEK?KEK_BG:(kind==="xterm"?"white":"<profile background>");
+    const provenance=isKEK
+      ?"※ #69bd5b / #f7f7ef はKEK掲載画像に合わせた比較用近似値。1992年の保存resource値そのものは未確認。"
+      :"";
+
     if(kind==="xterm"){
       return [
-        "xterm command line:",
+        "xterm — 実機での設定例",
+        "",
+        "command line:",
         `  xterm -fg '${fg}' -bg '${bg}' -b 2 &`,
         "",
         "X resources (.Xdefaults / xrdb):",
@@ -114,23 +89,31 @@
         `  XTerm*background: ${bg}`,
         "  XTerm*internalBorder: 2",
         "",
-        "-b / internalBorder は文字グリッドとクライアント端の距離。xtermの既定は2px。"
-      ].join("\n");
+        "-fg / foreground = 文字色",
+        "-bg / background = 端末クライアント領域の背景色",
+        "-b / internalBorder = 文字グリッドと端末端の内側余白（xterm既定2px）",
+        provenance
+      ].filter(Boolean).join("\n");
     }
+
     return [
-      "DECterm (dxterm) command line:",
+      "DECterm (dxterm) — 実機での設定例",
+      "",
+      "command line:",
       `  dxterm -fg '${fg}' -bg '${bg}' &`,
       "",
       "X resources (.Xdefaults / xrdb):",
       `  DXterm*foreground: ${fg}`,
       `  DXterm*background: ${bg}`,
       "",
+      "-fg / foreground = 文字色",
+      "-bg / background = DECterm端末クライアント領域の背景色",
       "DECtermの既定screenModeは light-on-dark。foreground/background はX resourceで変更可能。",
-      "KEK配色のRGBは掲載画像との比較用近似値で、1992年の保存resource値とは未確認。"
-    ].join("\n");
+      provenance
+    ].filter(Boolean).join("\n");
   }
 
-  let select,howto,details;
+  let select,howto,details,note;
   function updateHowTo(mode){
     if(!select||!howto)return;
     const id=activeId();
@@ -138,11 +121,17 @@
     const supported=!!kind;
     select.disabled=!supported;
     if(details)details.hidden=!supported;
+    if(note)note.hidden=!supported;
     if(!supported){
       howto.textContent="この候補では当時の前景色・背景色の実機設定方法を確定していません。";
       return;
     }
     howto.textContent=settingText(kind,mode||select.value);
+    if(note){
+      note.textContent=(mode||select.value)==="kek"
+        ?"KEK資料配色：掲載画像との比較用。RGB値は画像合わせで、保存された1992年設定値ではありません。"
+        :"配色だけを切り替えます。文字数・フォント・ウィンドウ寸法・余白は変えません。";
+    }
   }
 
   function syncForProfile(){
@@ -154,8 +143,7 @@
       updateHowTo("profile");
       return;
     }
-    // The dedicated lecture-green and NeXT+xterm-green profiles already start
-    // in the KEK-reference palette; label that state explicitly in the switcher.
+    // Dedicated green profiles start in the KEK comparison palette.
     if(id==="kek_decterm_vrt19_lecture_green"||id==="cern_next_x11_lmb_green"){
       select.value="kek";
       applyPalette("kek");
@@ -171,11 +159,12 @@
 
     const style=document.createElement("style");
     style.textContent=`
-      .palette-switch{display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-size:12px}
+      .palette-switch{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px}
       .palette-switch label{display:flex;align-items:center;gap:6px;white-space:nowrap}
+      .palette-note{flex-basis:100%;color:#9ea9b0;font-size:11px;line-height:1.4}
       .palette-howto{font-size:11px;color:#aeb8be}
       .palette-howto summary{cursor:pointer;color:#c5d7ff;white-space:nowrap}
-      .palette-howto pre{white-space:pre-wrap;max-width:640px;margin:7px 0 0;padding:8px;background:#080b0d;border:1px solid #2e3940;border-radius:5px;color:#cdd5da;font:11px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace}
+      .palette-howto pre{white-space:pre-wrap;max-width:680px;margin:7px 0 0;padding:8px;background:#080b0d;border:1px solid #2e3940;border-radius:5px;color:#cdd5da;font:11px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}
       body.embed-mode .palette-howto pre{max-width:420px}
     `;
     document.head.appendChild(style);
@@ -190,7 +179,8 @@
           <option value="kek">KEK資料配色（薄緑＋白）</option>
         </select>
       </label>
-      <details class="palette-howto" id="paletteHowTo"><summary>実機での設定方法</summary><pre id="paletteHowToText"></pre></details>
+      <details class="palette-howto" id="paletteHowTo"><summary>実機での色指定方法</summary><pre id="paletteHowToText"></pre></details>
+      <div class="palette-note" id="paletteNote"></div>
     `;
 
     const actions=bar.querySelector(".model-operation-actions");
@@ -200,6 +190,7 @@
     select=box.querySelector("#paletteMode");
     details=box.querySelector("#paletteHowTo");
     howto=box.querySelector("#paletteHowToText");
+    note=box.querySelector("#paletteNote");
     select.addEventListener("change",()=>applyPalette(select.value));
 
     const profileSelect=document.getElementById("profile");
