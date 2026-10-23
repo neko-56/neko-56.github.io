@@ -24,18 +24,43 @@
     document.head.appendChild(style);
   }
 
-  // CERN 2013 IBM RS/6000 reference.
-  // Meyrin's 9x14 grid is a glyph/text-plane reference, not evidence for the
-  // physical CRT aspect ratio. Do not surround the 720x336 text plane with a
-  // monitor-shaped shell until the actual display hardware is identified.
+  // CERN 2013 IBM RS/6000 reference — inferred physical display candidate.
+  //
+  // The 2013 team explicitly used an early-1990s IBM RISC System/6000 with AIX
+  // and photographed its green-on-black terminal font. Period IBM RS/6000
+  // documentation lists the 6091 Model 19 color display as a supported 19-inch,
+  // 1280x1024 configuration. That makes it a substantially better physical
+  // candidate than treating Meyrin's 80x24 / 9x14 glyph plane (720x336) as the
+  // monitor itself. The exact CERN monitor model is still not read from a label,
+  // so this remains an inferred candidate rather than an identification.
   const rs6000=profiles.cern_rs6000_reference;
   if(rs6000){
-    rs6000.monitorFrame=null;
-    rs6000.physicalResolutionStatus="80×24 Meyrin text plane only (720×336 from 9×14 glyph cells); physical RS/6000 monitor geometry not asserted";
-    rs6000.pixelAspectStatus="text-plane raster reference only; 720×336 must not be interpreted as the physical CRT aspect ratio";
+    rs6000.framebufferWidth=1280;
+    rs6000.framebufferHeight=1024;
+    rs6000.desktop="#747a76";
+    rs6000.terminalRect={x:280,y:354,w:720,h:336};
+    rs6000.windowChrome={
+      kind:"xterm",
+      candidate:"AIXwindows / aixterm 80×24 placement candidate",
+      rect:{x:266,y:323,w:748,h:374},
+      title:"aixterm",
+      titleBarHeight:22,
+      colors:{frame:"#b8b8b2",title:"#969992",titleText:"#101010",border:"#111111"}
+    };
+    rs6000.physicalResolutionStatus="INFERRED CANDIDATE — IBM 6091 Model 19, 19-inch color, 1280×1024; exact CERN display label not confirmed";
+    rs6000.pixelAspectStatus="1280×1024 RS/6000 display-mode candidate; Meyrin 9×14 remains the terminal glyph raster, not the physical monitor geometry";
+    rs6000.monitorFrame={
+      kind:"crt",
+      shell:"ibm-reference",
+      label:"IBM 6091 Model 19 candidate — 19-inch color / 1280×1024",
+      status:"INFERRED FROM PERIOD RS/6000 DISPLAY OPTIONS + 2013 COLOR TERMINAL EVIDENCE; EXACT CERN MONITOR UNCONFIRMED"
+    };
     rs6000.notes=(rs6000.notes||[]).concat([
-      "PHYSICAL DISPLAY DISCIPLINE: 720×336はMeyrin 9×14 glyphを80×24へ並べた文字面であり、IBM RS/6000の物理CRT比率ではない。",
-      "MONITOR STATUS: CERN 2013再現ではIBM System/6000実機を参照したことは確認できるが、このprofileではモニタ型番・有効表示面寸法を同定していないため、物理モニタ枠を表示しない。"
+      "INFERRED MONITOR: 2013再現チームはearly-1990s IBM RISC System/6000 / AIX実機でoriginal Line Mode Browserを動かし、緑色CRT表示のfontを撮影した。",
+      "PERIOD IBM CONFIGURATION: 1990–1993のRS/6000資料では6091 Model 19 color displayが19-inch / 1280×1024の純正対応候補として確認できるため、このprofileでは最有力の物理モニタ候補として採用する。",
+      "GEOMETRY: Meyrin 9×14×80×24 = 720×336は端末文字面。これを1280×1024の物理display modeの中央付近に80×24 aixterm候補として配置し、モニタ全面には引き伸ばさない。",
+      "AIXTERM STATUS: aixtermはAIXのEnhanced X Window terminal emulatorとして実在し、geometry/font/colorを指定できる。2013 CERN実機での正確なwindow位置・window manager decorationは未確認のため、配置とchromeは比較候補。",
+      "IMPORTANT: 6091 Model 19は有力推定であり、2013 CERN実機の背面ラベル等から型番を直接確認したものではない。"
     ]);
   }
 
