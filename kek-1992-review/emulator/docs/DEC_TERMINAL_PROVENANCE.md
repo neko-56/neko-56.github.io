@@ -1,4 +1,17 @@
-# DEC Terminal glyph provenance — v0.50
+# DEC Terminal glyph provenance — v0.50 record, current asset note added 2026-10-23
+
+## Current runtime asset (v0.54 onward)
+
+The runtime loads package-local `assets/fonts/dec/term14.bdf`, not the remote
+URL described in the earlier v0.50 record below. The current file has 22,131
+bytes and SHA-256 `d9daba2437558c3a75bfba33b8fb21a78063e4f42bede5d61a53c9a4d5887ae7`.
+Its public source is recorded in `LICENSES/DEC-X-CONSORTIUM.txt` (Debian
+xfonts-75dpi 1:1.0.0-4). The `b93ab...` hash below identifies the earlier
+22,065-byte comparison artifact, not the currently bundled byte stream.
+Whole-file identity and normalized glyph equivalence are separate checks.
+The original media extraction was not repeated in this source audit.
+
+## Earlier v0.50 record
 
 ## Purpose
 

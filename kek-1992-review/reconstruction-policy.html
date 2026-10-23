@@ -36,7 +36,7 @@
 <section class="reference-section">
   <div class="section-heading simple-heading"><div class="badge evidence-confirmed">整理のしかた</div><h2>表示候補を作るときの5つの考え方</h2></div>
   <div class="archive-principles methodology-principles">
-    <article><strong>1. 元データ優先</strong><span>保存HTML、同時代資料、実フォント、ソースコードを優先し、現代的な見た目で補わない。</span></article>
+    <article><strong>1. 元データ優先</strong><span>来歴を明示したHTML、同時代資料、実フォント、ソースコードを優先し、現代的な見た目で補わない。</span></article>
     <article><strong>2. 挙動を再現</strong><span>番号入力＋Return、ページ送り、promptなど、ブラウザの操作を実際に動かす。</span></article>
     <article><strong>3. 画面はエミュレータで描画</strong><span>歴史画面をCSSの静止模型として作らず、文字セル／bitmap glyph／framebufferをエミュレーションする。</span></article>
     <article><strong>4. 標準仕様を基準にする</strong><span>当時の機種・OS・端末の標準仕様が確認できる部分はそれに合わせる。個別設定まで分からない場合だけ、その範囲を資料側で区別する。</span></article>
@@ -57,7 +57,7 @@
 <section class="reference-section">
   <div class="section-heading simple-heading"><div class="badge evidence-question">現在の到達点</div><h2>「復元済み」と「まだ再現できない」を区別する</h2></div>
   <div class="reference-item-grid">
-    <article class="reference-item"><h3>動作モデル</h3><p>保存HTMLを読み、固定幅端末用に整形し、参照番号を生成して、キーボード入力で操作するLine Mode Browserモデルを実装。</p></article>
+    <article class="reference-item"><h3>動作モデル</h3><p>現存する復元ページ等に基づくHTMLを読み、固定幅端末用に整形し、参照番号を生成して、キーボード入力で操作するLine Mode Browserモデルを実装。</p></article>
     <article class="reference-item"><h3>KEK表示スタック</h3><p>DECstation / ULTRIX / DECwindows / DECterm資料とULTRIX媒体のbitmap fontを照合。実行時の75dpi/100dpi分岐は未確定。</p></article>
     <article class="reference-item"><h3>CERN実端末</h3><p>森田様が使用した端末は未同定。機種非依存表示に加え、CERN史料で確認できるRS/6000・Sun-4・PRIAM VAX、NeXT上のLMB候補を切り替えて比較する。候補は正解として固定しない。</p></article>
   </div>
@@ -65,7 +65,7 @@
 
 <section class="reference-section">
   <div class="section-heading simple-heading"><div class="badge evidence-question">講演資料配色の扱い</div><h2>薄緑＋白文字をCERN側・KEK側の両方で検証する</h2></div>
-  <p>森田様の講演資料にある横長の薄緑背景・白文字画面は重要な比較資料ですが、CERN側の表示、KEK側の表示、後年の再現作業のどれを意図したものかは未確認です。したがって帰属を先に決めず、CERN側ではcolor NeXT + X11/xterm + LMB候補、KEK側ではDECstation 5000/125 + DECterm候補として同じ配色を比較します。</p>
+  <p>森田様の講演資料にある横長の薄緑背景・白文字画面は重要な比較資料ですが、作成された時期・環境と、表そうとした場面はそれぞれ未確認です。横長比率には切り抜きや加工も影響し得るため、ウィンドウの形状とは断定しません。したがって帰属を先に決めず、CERN側ではcolor NeXT + X11/xterm + LMB候補、KEK側ではDECstation 5000/125 + DECterm候補として同じ配色を比較します。</p>
   <p>この配色は「1992年実機で確定した色」とは表示せず、森田様の証言で帰属や妥当性を確認した後に証拠レベルを更新します。</p>
 </section>
 

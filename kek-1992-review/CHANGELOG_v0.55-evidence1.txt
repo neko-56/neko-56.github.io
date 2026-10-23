@@ -1,0 +1,14 @@
+v0.55-evidence1 — 2026-10-23
+
+- Distinguish Morita's documented workflow from unconfirmed browser/terminal use.
+- Retain display hypotheses while separating period platforms, later reference
+  machines, technical possibilities and personal settings.
+- Separate lecture-image production, represented scene, and possible cropping.
+- Add Morita's own retrospective and clarify W3C archive dating limits.
+- Cite NeXT's period Ohlfs 10pt preferences example with its edition and page.
+- Identify reconstructed HTML and unverified video testimony explicitly.
+- Distinguish the old DEC BDF comparison hash from the current bundled asset.
+- Preserve questionnaire answers, display geometry and font bytes.
+
+Validation: 5 relevant existing tests passed; git diff --check passed.
+The prior 26-script run comprised 24 PASS and 2 SKIP, not 26 executed passes.

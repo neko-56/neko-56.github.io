@@ -21,3 +21,13 @@ button{border:0;padding:0;margin:0;background:transparent;font:inherit;cursor:po
 .current,.value{color:var(--strong)}
 @keyframes blink{0%,47%{opacity:1}48%,100%{opacity:0}}
 @media(prefers-reduced-motion:reduce){.cursor{animation:none}}
+
+/* Keep the fixed terminal columns reachable on small screens. */
+.terminal:focus-visible{outline:2px solid var(--strong);outline-offset:-3px}
+@media(max-width:640px){
+ body{overflow:auto}
+ .screen{height:auto;max-height:none}
+ .terminal{position:relative;overflow:auto}
+ pre{width:max-content;min-width:100%}
+ .prompt{position:static;margin-top:2.5em}
+}

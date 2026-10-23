@@ -1,6 +1,17 @@
-KEK 1992 WWW — review reconstruction v0.54
+KEK 1992 WWW — review reconstruction v0.55
 
-CURRENT STRUCTURE (v0.54)
+QUESTIONNAIRE UPDATE (v0.55)
+---------------------------
+The reviewer page begins with three open-ended questions: CERN workflow and
+display, KEK-side display, and the origin of the green presentation image.
+Supplementary questions and comparison references are optional and collapsed.
+Answers can be reviewed with 入力内容を確認, edited by returning to the form,
+and copied for an email reply. Nothing is automatically submitted.
+Multiple methods and comparison impressions are preserved as multiple answers.
+Earlier stored responses are migrated, with obsolete questions retained as
+clearly labelled previous answers. MAIL_DRAFT.md contains an unsent email draft.
+
+CURRENT STRUCTURE (v0.55)
 -------------------------
 Top-level reviewer navigation is intentionally limited to three pillars:
 1. review.html     — 森田様への質問
@@ -18,7 +29,7 @@ Current machine/font mapping:
 - KEK DECterm: verified DEC Terminal V2.2 8x15 raster; 195/195 normalized glyph match to the ULTRIX 4.3 target.
 - IBM RISC System/6000 reference: Meyrin CERN reconstruction, OFL-1.1; loaded as the anchored profile source.
 - Sun-4 / NeXT X11: standard X11 fixed 6x13 bitmap.
-- NeXTSTEP Terminal.app: Ohlfs 10pt is the documented native Terminal screen font. Original Ohlfs bytes are not redistributed. A separate reconstruction track is maintained; a third-party recreated font is not silently bundled without explicit redistribution provenance.
+- NeXTSTEP Terminal.app: Ohlfs 10pt is a period Terminal preferences example (NeXT Development Tools, Dec 1990, p. 2-8); exact CERN settings are unknown. Original Ohlfs bytes are not redistributed. A separate reconstruction track is maintained; a third-party recreated font is not silently bundled without explicit redistribution provenance.
 - IBM 3270-class: the package includes emulator/assets/fonts/ibm3270/3270.bdf, the complete x3270 4.1ga10 14pt 3270.bdf with all 431 glyphs. The local asset is 9x14 / 3270cg, is SHA-256 pinned and validated before use, and ASCII LMB text is mapped by STARTCHAR glyph names because the source BDF uses 3270 character-generator order rather than ASCII code-point order. No network fetch or Courier/system-font fallback is used for this profile.
 - PRIAM: CERN documentation identifies the host as DEC VAX 8530 / ULTRIX. CERN's 1986 terminal recommendations include DMT2200 and Pericom MG200, but the exact terminal attached for Morita's 1992 work is unresolved; no fabricated “VAX font” is assigned.
 

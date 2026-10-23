@@ -21,10 +21,10 @@ unrelated fallback to be the exact historical raster.
 | CERN 2013 IBM RISC System/6000 reference | Meyrin reconstruction made from the IBM System/6000 display; 9×14 glyph design | package-local `assets/fonts/meyrin/Meyrin.woff`, SHA verified and rasterized to the emulated cell grid | **anchored reconstruction** |
 | Sun-4 / X11 comparison | X11 sample implementation standard `fixed` bitmap family | package-local `assets/fonts/x11/6x13.bdf`; SHA verified; direct bitmap Canvas rendering | **standard environment** |
 | NeXT + X11/xterm | X11 `fixed` family is the standard X11 baseline | same package-local X11 6×13 BDF | **standard environment** |
-| NeXTSTEP Terminal.app | NeXT documentation records Ohlfs 10pt as the Terminal default | profile records Ohlfs 10pt; no unrelated font is labelled as exact Ohlfs | **standard setting known; exact redistributable raster not pinned** |
+| NeXTSTEP Terminal.app | NeXT Development Tools (Dec 1990), p. 2-8, shows an Ohlfs 10pt Terminal preferences example | profile records Ohlfs 10pt; no unrelated font is labelled as exact Ohlfs | **period settings example; exact redistributable raster not pinned** |
 | IBM 3270-class comparison | x3270 includes its own 14pt 3270 bitmap for close IBM 3278/3279 display representation | complete local x3270 4.1ga10 `3270.bdf`; 431 glyphs, 9×14 / `3270cg`; SHA-256 + structure validated; STARTCHAR-name mapping; direct bitmap Canvas rendering | **anchored comparison source** |
 | PRIAM VAX host | VAX host identity alone does not specify the attached terminal or its glyph generator | no fabricated “VAX font” | **terminal-dependent** |
-| Morita 1992 terminal — hardware not identified | Line Mode Browser/browser class known; exact terminal hardware not established | neutral comparison surface only | **identity not asserted** |
+| Morita 1992 terminal — hardware not identified | LMB is a comparison model; Morita's actual browser and terminal are not established | neutral comparison surface only | **identity not asserted** |
 
 ## DEC / KEK
 
@@ -59,8 +59,10 @@ Sun-4/X11 and NeXT/X11 comparison paths.
 
 The project decision is to use a **separate reconstructed Ohlfs-like raster**, not the original NeXT font bytes. CERN's 2019 recreation documents pixel tracing from a real NeXT display, while NEXTSPACE documents its independently created fixed-width `Keith.nfont` as similar to Ohlfs. Neither third-party reconstructed font is bundled here without a redistribution grant that can be attached unambiguously to that font asset. Therefore v0.54 does **not** label Courier, X11 fixed, or any browser font as Ohlfs. This is the one native-NeXT glyph asset still awaiting a project-owned or clearly redistributable reconstruction.
 
-The native NeXTSTEP Terminal path uses the documented standard setting
-**Ohlfs 10pt** as its historical specification. The project does not claim that
+The native NeXTSTEP Terminal path uses **Ohlfs 10pt** as a comparison setting,
+based on NeXT Development Tools (Dec 1990), p. 2-8:
+https://www.bitsavers.org/pdf/next/Release_1_Dec90/Development_Tools_Dec90.pdf
+The exact CERN version and user settings are not established. The project does not claim that
 Courier is the historical Ohlfs raster. Until a redistributable/pinnable Ohlfs
 raster with sufficiently clear provenance is identified, the exact glyph raster
 remains separate from the documented standard font selection.

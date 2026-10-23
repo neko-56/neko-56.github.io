@@ -1,6 +1,6 @@
 # KEK Web Display Emulator — Evidence Matrix (through Phase 6.5)
 
-Updated: 2026-10-21
+Updated: 2026-10-23
 
 ## 1. Line Mode Browser rendering and interaction
 
@@ -34,9 +34,9 @@ Updated: 2026-10-21
 
 **Confirmed:** Morita's retrospective says that after lunch with Tim Berners-Lee he went to a CERN terminal room and logged into KEK.
 
-**Still unknown:** manufacturer/model, physical display resolution, phosphor, terminal emulator, exact glyph set.
+**Still unknown:** whether/how Morita checked the page with a browser during that session, browser identity, manufacturer/model, physical display resolution, phosphor, terminal emulator, exact glyph set.
 
-The safest CERN profile therefore remains **hardware unknown + 80×24 Line Mode Browser**.
+The **80×24 Line Mode Browser profile is a comparison model**, not a confirmed browser class for Morita's session. A remote login and HTML creation do not establish that he used LMB, or viewed the result on that terminal.
 
 ### IBM RISC System/6000 reference machine
 
@@ -51,7 +51,7 @@ A separate CERN staff retrospective mentions early Line Mode Browser use on a fi
 ## 3. KEK side
 
 - **Confirmed machine:** DECstation 5000/125 (surviving/exhibited KEK hardware).
-- **Confirmed chronology:** Line Mode Browser installed at KEK on 1992-04-14.
+- **Later chronology:** the 1999 compiled history gives 1992-04-14 for KEK's Line Mode Browser installation. The original installation log has not been independently checked.
 - **Contemporary DECwindows documentation:** DECterm default terminal size 24 rows × 80 columns; normal 80-column font; block cursor.
 - **Phase 6.1 correction of the earlier color claim:** the `dxterm` resource documentation states that `screenMode` can be dark-on-light or light-on-dark and that the documented default is **light-on-dark**. Contemporary ULTRIX `.Xdefaults` examples also show that users/session startup could override `screenMode`, so the KEK machine's actual polarity remains **UNKNOWN**.
 - **Font metrics (Phase 6):** the ULTRIX 4.3 media target `UDWFONT15430/terminal10.pcf` is verified as DEC Terminal V2.2, 8×15, ascent 12/descent 3, with XLFD `-DEC-Terminal-Medium-R-Normal--14-100-100-100-C-80-ISO8859-1`.
@@ -64,6 +64,13 @@ A separate CERN staff retrospective mentions early Line Mode Browser use on a fi
 The ZIP does **not** embed the proprietary ULTRIX-extracted target font. For the KEK profile, v0.20 embeds a separately licensed X Consortium DEC Terminal V2.2 bitmap raster whose 195 encoded glyphs were normalized and verified against the ULTRIX 4.3 target. CERN profiles retain their separate Meyrin/fallback behavior.
 
 This avoids presenting a fallback as historically exact. Phase 6 establishes glyph-raster equivalence; Phase 6.1 keeps the surrounding DECwindows chrome separate; Phase 6.2 establishes server-specific density behavior; Phase 6.3 prevents those server facts from being misread as a KEK-machine-wide default before the graphics/X-server branch is identified. Phase 6.4 similarly bounds browser-visible behavior to period evidence and removes modern offline-status prose from the historical framebuffer. Phase 6.5 tightens the September prompt further by omitting later/unattested Back, Up, and Find prompt tokens.
+
+## Source dating and inference limits (2026-10-23 audit)
+
+- Morita's own retrospective supports the CERN-to-KEK workflow and FTP publication. It does not name his browser or terminal. KEK retrospective articles are corroborating accounts, not automatically independent contemporary records.
+- W3C's `19921103-hypertext` directory is an archive reference, not a per-file guarantee of unmodified September 1992 bytes. Its MarkUp listing includes later modification dates.
+- The lecture image is an image in a later presentation. Its production date, source environment and represented scene are separate unknowns. Cropping/resizing may explain its aspect ratio; neither palette nor aspect ratio identifies NeXT or DECterm.
+- A matching font raster establishes glyph equivalence, not the original KEK display, installed resources, or browser behavior.
 
 ## Primary sources / references
 

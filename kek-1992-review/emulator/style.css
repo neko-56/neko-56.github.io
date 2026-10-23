@@ -227,4 +227,4 @@ body.focus-window-mode .monitor-shell .monitor-active{border:1px solid #30363a!i
 
 /* A historical-raster-required profile must not look like a mysteriously blank screen.
    The notice sits outside the reconstructed framebuffer and is therefore not historical content. */
-body.historical-raster-blocked .monitor-caption{display:block!important;color:#8a2c21;font-weight:700;max-width:900px;margin:8px auto 0}
+body.historical-raster-blocked .monitor-caption{display:block!important;color:#ffe0aa;background:#30291e;border:1px solid #756247;border-radius:5px;padding:10px 12px;font-size:14px;font-weight:700;max-width:900px;margin:8px auto 0}

@@ -3,8 +3,8 @@
   root.TerminalProfiles = {
     cern_morita_unknown: {
       id: "cern_morita_unknown",
-      label: "CERN 1992 — standard 80×24 LMB comparison (machine unspecified)",
-      evidenceLevel: "CONFIRMED BROWSER CLASS / UNKNOWN HARDWARE",
+      label: "CERN 1992 — 80×24 LMB comparison (machine unspecified)",
+      evidenceLevel: "COMPARISON MODEL / MORITA BROWSER AND HARDWARE UNKNOWN",
       cols: 80, rows: 24,
       // Physical monitor geometry is unknown. For reviewer-facing CERN candidates,
       // reconstruct only the 80x24 text display plane rather than inventing a monitor.
@@ -29,7 +29,7 @@
       notes: [
         "CONFIRMED: 森田洋平氏は昼食後にCERNの『端末室』へ行き、ネットワーク経由でKEKへログインした。",
         "CONFIRMED: Line Mode Browserは文字端末向けで、CERNの2013年公式再現は80×24文字を基準としている。",
-        "UNKNOWN: 1992-09-30に森田氏が使った端末のメーカー、型番、物理解像度、実フォント。",
+        "UNKNOWN: 森田氏が1992-09-30の表示確認に使ったブラウザ、端末のメーカー、型番、物理解像度、実フォント。",
         "このプロファイルは機種名・文字色・実フォントを推定せず、80×24のLMB表示内容と操作を確認するための中立表示。",
         "表示色とX11 fixed glyphは比較用の中立表現であり、1992年CERN実機の外観・字形を示す証拠ではない。",
         "DISPLAY RULE: 実画面内には史料で確認できない説明ラベル・機種名・研究注記を描画しない。"
@@ -158,8 +158,8 @@
       fontFamily: 'Ohlfs',
       requiresHistoricalRaster: true,
       historicalRasterStatus: "RECONSTRUCTION ASSET NOT YET PINNED — DO NOT FALL BACK",
-      fontCandidate: "Ohlfs 10pt — NeXTSTEP Terminal standard default",
-      fontEvidence: "NeXT documentation records Ohlfs 10pt as the Terminal default. The original Ohlfs font bytes do not have a verified redistribution grant in this project, so this profile records the standard setting without silently substituting a claimed exact raster.",
+      fontCandidate: "Ohlfs 10pt — period Terminal settings example",
+      fontEvidence: "NeXT Development Tools (Dec 1990), p. 2-8, shows Ohlfs 10pt in the Terminal preferences example; this does not establish the settings used at CERN in September 1992. The original Ohlfs font bytes do not have a verified redistribution grant in this project, so this profile records a period settings example without silently substituting a claimed exact raster.",
       fallbackRasterThreshold: 92,
       fontPx: 14, baseline: 13,
       cursor: "block", cursorBlink: true,
@@ -170,7 +170,7 @@
       pixelAspectStatus: "CERN 2019 reconstruction documents pixels wider than tall on the physical NeXT CRT; exact numeric pixel aspect ratio not recovered, so no unquantified stretch is applied.",
       notes: [
         "CERN DOCUMENTED: Line Mode Browser was designed as a cross-platform browser and could run on many Unix systems.",
-        "NeXTSTEP DOCUMENTED: Terminal.app supplied conventional VT100-style terminal windows; its documented default font is Ohlfs 10pt.",
+        "NeXT PERIOD MANUAL: Development Tools (Dec 1990), chapter 2, describes VT100-style Terminal windows and shows an Ohlfs 10pt preferences example on p. 2-8.",
         "UNKNOWN: 森田氏が1992-09-30にNeXT機上でLine Mode Browserを実行した直接証拠はない。",
         "COLOR DISCIPLINE: 1992年のNeXTSTEP 2.1/3.0 native Terminal.appで任意の前景・背景色設定ができたとは現時点で確認できないため、この候補では薄緑背景を採用しない。",
         "DISPLAY RULE: NeXTのGUI候補を示すためのwindow chromeであり、森田氏の実画面配置を断定しない。"
@@ -352,7 +352,7 @@
       monitorFrame: { kind:"crt", shell:"dec-vrt19", label:"DEC VRT19-class — 20-inch / 1280×1024", status:"STRONG HARDWARE FAMILY MATCH / EXACT KEK SUB-MODEL PENDING" },
       notes: [
         "CONFIRMED: KEK実機はDECstation 5000/125。",
-        "CONFIRMED: KEKへのLine Mode Browser導入記録は1992-04-14。",
+        "LATER CHRONOLOGY: 1999年の整理資料は、KEKへのLine Mode Browser導入日を1992-04-14とする。当日の導入ログ原本は未確認。",
         "CONTEMPORARY DEC DOC: DECtermの標準端末サイズは24行×80桁、標準カーソルはブロック。",
         "CONTEMPORARY DXTERM DOC: ULTRIX 4.0 dxterm(1X) はscreenMode既定を light-on-dark と明記。dark-on-lightも選択可能で、KEK実機の保存resourceは未確認。",
         "CONTEMPORARY DXTERM DOC: DECterm Little Fontが既定。75dpiでは14pt、100dpiでは10ptを選択する。",
@@ -398,9 +398,9 @@
       screenModeEvidence:"The green/white palette comes from Morita lecture reconstruction imagery; it is not yet verified as a saved 1992 DECterm resource.",
       windowChrome:chrome,
       notes:(base.notes||[]).concat([
-        "LECTURE REFERENCE: 森田氏の講演資料には薄緑背景・白文字の横長『KEK INFORMATION』再現画面が掲載されている。",
+        "LECTURE REFERENCE: 森田氏の講演資料には薄緑背景・白文字の横長『KEK INFORMATION』掲載画像が掲載されている。",
         "PROVENANCE UNKNOWN: その再現画面がCERN側の表示、KEK側の表示、または後年の再現作業用表示のどれを意図したかは未確認。",
-        "WINDOW HYPOTHESIS: 横長比率は物理モニタ全面ではなく、1280×1024デスクトップ上に開いたDECtermウィンドウとして検証する。",
+        "WINDOW HYPOTHESIS: 1280×1024上のDECtermは比較仮説。元画像の切り抜き・加工も考えられ、掲載比率からウィンドウやモニタの形状は確定できない。",
         "PALETTE DISCIPLINE: 薄緑＋白は講演資料由来の比較仮説であり、1992年KEK実機resourceとして確定した色ではない。"
       ])
     });

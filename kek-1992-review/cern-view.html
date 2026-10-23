@@ -42,13 +42,13 @@
 
 <section class="shared-reference-strip" aria-labelledby="cern-green-reference-title">
   <figure class="reference-figure compact-reference-figure">
-    <img src="assets/morita-green-reference.png" alt="森田様の講演資料に掲載された、薄緑背景に白文字のKEK INFORMATION再現画面">
-    <figcaption>森田様の講演資料に掲載された「KEK INFORMATION」の再現画面（画面部分を抜粋）。この表示がCERN側・KEK側・後年の再現作業のどれを意図したものかは、現在未確認です。</figcaption>
+    <img src="assets/morita-green-reference.png" alt="森田様の講演資料に掲載された、薄緑背景に白文字のKEK INFORMATION掲載画像">
+    <figcaption>森田様の講演資料に掲載された「KEK INFORMATION」の画像（画面部分を抜粋）。作成時期・使用環境・表している場面は、それぞれ未確認です。</figcaption>
   </figure>
   <div>
     <div class="badge evidence-question">共通の参考資料</div>
     <h2 id="cern-green-reference-title">この薄緑＋白文字の横長画面は、CERN側だった可能性も検証します</h2>
-    <p>物理モニタ全面として見ると横長ですが、GUIデスクトップ上のターミナル・ウィンドウとして見ると不自然ではありません。そこでCERN側では、NeXT上でLine Mode Browserを動かした候補も比較できるようにしています。</p>
+    <p>端末ウィンドウを写した可能性はありますが、切り抜きやスライド上の加工も考えられます。横長比率や配色からNeXTを特定することはできません。NeXT上の表示は、比較用の仮説の一つです。</p>
   </div>
 </section>
 
@@ -61,9 +61,9 @@
 
   <div class="candidate-tabs" role="tablist" aria-label="CERN側の表示候補">
     <button class="candidate-tab is-active" role="tab" aria-selected="true" data-candidate
-      data-title="標準80×24 Line Mode Browser — 機種指定なし"
-      data-note="機種・色・実フォントを決め打ちせず、80×24のLine Mode Browser表示と操作だけを確認する中立候補です。"
-      data-src="emulator/index.html?profile=cern_morita_unknown&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0">標準80×24</button>
+      data-title="比較用80×24 Line Mode Browser — 機種指定なし"
+      data-note="80×24のLine Mode Browser表示と操作を比較するためのモデルです。森田様が表示確認にLMBを使ったかどうかも、公開資料だけでは特定できていません。"
+      data-src="emulator/index.html?profile=cern_morita_unknown&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0">比較用80×24</button>
     <button class="candidate-tab" role="tab" aria-selected="false" data-candidate
       data-title="IBM RISC System/6000 / AIX — Line Mode Browser"
       data-note="W3C史料では1991年3月のLine Mode Browser公開先にRS/6000が含まれ、CERNの2013年復元でもIBM RS/6000実機が参照されています。森田様の端末だったことは未確認です。"
@@ -81,23 +81,23 @@
       data-src="emulator/index.html?profile=cern_priam_vax_reference&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0">PRIAM VAX 8530</button>
     <button class="candidate-tab" role="tab" aria-selected="false" data-candidate
       data-title="NeXTSTEP Terminal.app + Line Mode Browser"
-      data-note="Berners-Lee氏がCERNでNeXT上に最初のWorldWideWeb環境を構築していたことはCERN/W3C資料に記載されています。この候補は、そのNeXT上のターミナル・ウィンドウでLine Mode Browserを実行した場合を比較します。この構成が森田様の実際の作業環境だったかは、今回お伺いしたい点です。"
+      data-note="本文未提供・ウィンドウ形状のみの比較です。Berners-Lee氏がCERNでNeXT上に最初のWorldWideWeb環境を構築していたことはCERN/W3C資料に記載されています。この候補は、そのNeXT上のターミナル・ウィンドウでLine Mode Browserを実行した場合を比較します。この構成が森田様の実際の作業環境だったかは、今回お伺いしたい点です。"
       data-source-url="https://www.w3.org/People/Berners-Lee/WorldWideWeb.html" data-source-label="W3C: 最初のWorldWideWebとNeXT ↗"
       data-src="emulator/index.html?profile=cern_nextstep_terminal_lmb&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0">NeXT + LMB</button>
     <button class="candidate-tab lecture-green-tab" role="tab" aria-selected="false" data-candidate
       data-title="color NeXT + X11/xterm + Line Mode Browser — 講演資料配色候補"
-      data-note="森田様の講演資料にある薄緑背景・白文字の横長ウィンドウを、color NeXT上のX11/xtermでLMBを動かした場合の検証候補として再現します。1992年当時この構成・配色を実際に使用したことは未確認です。"
+      data-note="森田様の講演資料にある薄緑背景・白文字の画像を、color NeXT上のX11/xtermでLMBを動かした場合の検証候補として再現します。1992年当時この構成・配色を実際に使用したことは未確認です。"
       data-src="emulator/index.html?profile=cern_next_x11_lmb_green&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0">NeXT + 緑色候補</button>
   </div>
 
   <div class="candidate-summary" aria-live="polite">
     <div class="badge evidence-question">現在表示中</div>
-    <h3 data-candidate-title>標準80×24 Line Mode Browser — 機種指定なし</h3>
+    <h3 data-candidate-title>比較用80×24 Line Mode Browser — 機種指定なし</h3>
     <p data-candidate-note></p>
     <p><a data-candidate-source hidden target="_blank" rel="noopener noreferrer"></a></p>
   </div>
 
-  <iframe class="emulator-frame cern-candidate-frame" data-candidate-frame title="標準80×24 LMB表示（機種指定なし）" src="emulator/index.html?profile=cern_morita_unknown&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0" loading="eager"></iframe>
+  <iframe class="emulator-frame cern-candidate-frame" data-candidate-frame title="比較用80×24 LMB表示（機種指定なし）" src="emulator/index.html?profile=cern_morita_unknown&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0" loading="eager"></iframe>
   <div class="external-candidate-panel" data-candidate-external hidden></div>
 </section>
 

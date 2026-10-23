@@ -98,37 +98,6 @@
     buffer="";
   }
 
-  function detectedSystemFont(){
-    if(!document.fonts||!document.fonts.check)return "font detection unavailable";
-    if(profile.id.startsWith("kek_")){
-      const dec=document.fonts.check('14px "DEC Terminal"')||
-        document.fonts.check("14px Terminal");
-      return dec
-        ?"DEC/Terminal family available as installed system font"
-        :"DEC Terminal family not installed — diagnostic fallback only";
-    }
-    if(profile.id==="cern_rs6000_reference"){
-      const meyrin=document.fonts.check("16px Meyrin")||
-        document.fonts.check("16px MeyrinRegular");
-      return meyrin
-        ?"Meyrin available as installed system font"
-        :"Meyrin not installed — profile asset should be loaded instead";
-    }
-    if(profile.id==="cern_nextstep_terminal_lmb"){
-      const ohlfs=document.fonts.check("14px Ohlfs");
-      return ohlfs
-        ?"Ohlfs available locally — exact provenance still shown separately"
-        :"Ohlfs not available locally — diagnostic fallback only";
-    }
-    if(profile.id==="cern_3270_alternate")
-      return "x3270 14-point 3270 BDF profile asset should be loaded";
-    if(profile.id==="cern_priam_vax_reference")
-      return "terminal model not identified, so no VAX-specific historical font is asserted";
-    if(profile.id==="cern_morita_unknown")
-      return "machine-specific historical font is intentionally not asserted";
-    return "profile fallback — diagnostic only";
-  }
-
   function profileAsset(){
     const id=profile.publicFontAssetId||profile.bundledFontAssetId||profile.comparisonFontAssetId;
     if(!id)return null;
@@ -150,7 +119,11 @@
       return `RESEARCH VECTOR OVERRIDE: ${s.source}`;
     }
     if(fontLoadError)return `PROFILE FONT LOAD FAILED: ${fontLoadError}`;
-    return detectedSystemFont()+" — diagnostic fallback";
+    if(profile.requiresHistoricalRaster){
+      return "HISTORICAL FONT NOT CONNECTED — Ohlfs再構成font未接続・本文描画を停止";
+    }
+    if(profileAsset())return "PROFILE FONT NOT ACTIVE — 指定font資産は未検証です";
+    return "HISTORICAL FONT UNVERIFIED — 実際の端末fontは未特定です";
   }
 
   function exactTargetBDFActive(summary,target){
@@ -190,6 +163,9 @@
 
     // Non-DEC profiles can still have a historically anchored public font source.
     if(!profile.targetFontId){
+      if(profile.requiresHistoricalRaster&&!fontBackend){
+        return '<p class="verify-warn">本文未提供・ウィンドウ形状のみの比較です。Ohlfs再構成fontが未接続のため、本文描画を停止しています。</p>';
+      }
       if(!asset){
         return "<p>この表示では、ホスト機種だけから端末字形を一意に決められません。標準仕様または実機由来のfont sourceが確認できた場合のみ固定します。</p>";
       }
@@ -346,7 +322,7 @@
     document.body.classList.toggle("historical-raster-blocked",rasterBlocked);
     const caption=mf?`${mf.label}${mf.status?" · "+mf.status:""}`:"";
     monitorCaption.textContent=rasterBlocked
-      ?`${caption}${caption?" · ":""}Ohlfs再構成font未接続 — 本文描画を停止`
+      ?`${caption}${caption?" · ":""}本文未提供・ウィンドウ形状のみ（Ohlfs再構成font未接続）`
       :caption;
   }
 
@@ -602,7 +578,8 @@
     buildEngine();
     await activateProfileFont();
     update(true);
-    setTimeout(()=>canvas.focus(),50);
+    // A reference thumbnail must not take focus from the respondent's answers.
+    if(params.get('preview')!=='1')setTimeout(()=>canvas.focus(),50);
   }
 
   initialize().catch(err=>{

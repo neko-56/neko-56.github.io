@@ -1,0 +1,16 @@
+v0.55 — 2026-10-23
+
+- Introduce the personal research context and the opportunity through KEK PR.
+- Put three open-ended questions first: CERN workflow/display, KEK display,
+  and the origin of the green image in Morita's presentation.
+- Make supplementary questions, photographs and comparison displays optional.
+- Keep host identity separate from the terminal seen by the respondent.
+- Separate image creation time, environment, depicted scene and appearance.
+- Support multiple methods without combining them with "do not remember".
+- Export visual comparisons as impressions, not as hardware identification.
+- Preserve and migrate saved responses from the earlier questionnaire.
+- Load reference thumbnails on request and prevent them from taking focus.
+- Provide a draft email with the main questions and the direct page URL.
+- Add an answer review dialog with return-to-form and copy actions before reply.
+
+Historical framebuffer/font assets and emulator behavior are unchanged.

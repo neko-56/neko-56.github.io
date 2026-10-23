@@ -1,0 +1,15 @@
+v0.54-fixes1 — 2026-10-23
+
+- Fix terminal-choice card grids so machine names and notes retain readable widths.
+- Restore the IBM RS/6000 name in question 1.
+- Use a native dialog for mobile and expanded material views, with Escape,
+  focus restoration, and Tab cycling including the embedded emulator.
+- Label the NeXTSTEP native candidate as window-shape-only while its Ohlfs
+  reconstruction asset is unavailable; make the outside-frame notice readable.
+- Report only explicitly loaded font assets as active. Do not infer installed
+  fonts from document.fonts.check().
+- Refresh cache keys for the changed stylesheets and scripts.
+
+The repository's NEKO56 top/help/status pages also permit horizontal terminal
+scrolling on narrow screens. Historical glyph assets and framebuffer content
+are unchanged. Existing JavaScript/Python checks: 25 PASS, 0 FAIL.

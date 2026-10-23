@@ -56,7 +56,9 @@
     "all_glyphs": "195/195",
     "ascii": "95/95",
     "mismatches": 0,
-    "public_sha256": "b93ab33ead159d11a4e503ab71c72b7b51802a35de27d5a326ab4648f448f081"
+    "public_sha256": "b93ab33ead159d11a4e503ab71c72b7b51802a35de27d5a326ab4648f448f081",
+    "public_sha256_scope": "Earlier comparison artifact; not the current bundled file hash.",
+    "current_bundled_sha256": "d9daba2437558c3a75bfba33b8fb21a78063e4f42bede5d61a53c9a4d5887ae7"
   },
   "identification": {
     "console_examples": {
