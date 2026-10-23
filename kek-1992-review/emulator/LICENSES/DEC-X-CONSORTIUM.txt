@@ -1,0 +1,28 @@
+DEC Terminal bitmap font license / X Consortium distribution grant
+
+Copyright (c) 1987, 1994 Digital Equipment Corporation
+
+The X Consortium, and any party obtaining a copy of these files from
+the X Consortium, directly or indirectly, is granted, free of charge, a
+full and unrestricted irrevocable, world-wide, paid up, royalty-free,
+nonexclusive right and license to deal in this software and
+documentation files (the "Software"), including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons who receive
+copies from any such party to do so.  This license includes without
+limitation a license to do the foregoing actions under any patents of
+the party supplying this software to the X Consortium.
+
+Digital Equipment Corporation make no representations about the
+suitability of this software for any purpose.  It is provided "as
+is" without express or implied warranty.
+
+Public provenance source used for this project:
+https://sources.debian.org/src/xfonts-75dpi/1%3A1.0.0-4/font-bitstream-75dpi-X11R7.0-1.0.0/term14.bdf/
+
+Notes for this repository:
+- The runtime-pinned DEC BDF is byte-for-byte identified by the published SHA-256 of the public Debian/X Consortium term14.bdf artifact.
+- Pinned SHA-256: d9daba2437558c3a75bfba33b8fb21a78063e4f42bede5d61a53c9a4d5887ae7
+- The historical KEK target itself was independently extracted from the
+  user's ULTRIX 4.3 RISC installation medium for verification only.
+- The proprietary ULTRIX PCF/BDF extraction is not bundled here.

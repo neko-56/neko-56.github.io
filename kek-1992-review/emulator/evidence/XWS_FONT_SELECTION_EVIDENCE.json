@@ -1,0 +1,43 @@
+{
+  "phase": "6.2",
+  "status": "DOCUMENTED XWS DEFAULT IDENTIFIED; PHASE 6.2 KEK-RUNTIME RANKING SUPERSEDED BY PHASE 6.3",
+  "observed_at": "2026-10-21",
+  "runtime_default": {
+    "x_server": "Xws",
+    "font_density_dpi": 75,
+    "decterm_font_set": "Little Font",
+    "point_size": 14,
+    "xlfd": "-DEC-Terminal-Medium-R-Normal--14-140-75-75-C-80-ISO8859-1",
+    "subset": "UDWFONT430",
+    "subset_role": "Required for Worksystems",
+    "scope": "Xws SERVER DEFAULT ONLY; NOT A KEK-MACHINE DEFAULT"
+  },
+  "explicit_100dpi_path": {
+    "server_options": "-fd 100 -dpi 100",
+    "decterm_little_font_point_size": 10,
+    "xlfd": "-DEC-Terminal-Medium-R-Normal--14-100-100-100-C-80-ISO8859-1",
+    "subset": "UDWFONT15430",
+    "media_artifact_confirmed": true
+  },
+  "public_rendering_asset": {
+    "metadata_matches_runtime_default_75dpi": true,
+    "raster_matches_media_confirmed_100dpi": true,
+    "all_glyphs": "195/195",
+    "ascii": "95/95",
+    "sha256": "b93ab33ead159d11a4e503ab71c72b7b51802a35de27d5a326ab4648f448f081"
+  },
+  "unknowns": [
+    "KEK /etc/ttys Xws command line",
+    "KEK .Xdefaults/session resources",
+    "whether DECterm hosted the local LMB session"
+  ],
+  "sources": [
+    "https://www.typewritten.org/Manual/DEC/Digital_UNIX/3.2c/man1x/dxterm.html",
+    "https://www.unix.com/man-page/ultrix/8x/xws",
+    "https://manuals.plus/m/ddc95817cc32b6836e87c0454e45f48b6679df4a2874f74b63df7ab13eb0b40a",
+    "https://manuals.plus/m/a9064b2728e398a36d08dd6d2866d7d95b15dd19abd5479e356876678260d085"
+  ],
+  "superseded_by": "6.3 GRAPHICS_SERVER_FONT_BRANCH_EVIDENCE.json",
+  "superseded_claim": "75dpi/14pt as the KEK runtime-first candidate",
+  "superseded_reason": "DECstation 5000/125 + VRT19 existed in both PX 2D and PXG 3D configurations; the KEK graphics option/X server is not identified."
+}

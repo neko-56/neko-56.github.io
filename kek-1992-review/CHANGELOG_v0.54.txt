@@ -1,0 +1,15 @@
+v0.54
+
+- Bundled DEC `term14.bdf`, X11 `6x13.bdf`, Meyrin WOFF/TTF + OFL, and retained the complete x3270 4.1ga10 `3270.bdf` locally.
+- Removed runtime font-network dependency for DEC, X11, Meyrin, and 3270 profiles; pinned local hashes are validated.
+- Kept anchored-font profiles fail-closed rather than silently substituting Courier/system fonts.
+- Added physical monitor framing outside the Canvas framebuffer so full-screen console candidates no longer appear as an unexplained black rectangle.
+- Separated monitor/framebuffer/window/text-grid geometry.
+- KEK VRT19-class candidate uses 1280×1024; DECterm text plane remains 640×360 (80×24 × 8×15).
+- Sun-4 candidate now uses a documented period 1152×900 Sun configuration with a separate 480×312 xterm plane; exact CERN monitor remains unconfirmed.
+- CERN PRIAM is identified as DEC VAX 8530 / ULTRIX. DMT2200 and Pericom MG200 are recorded as CERN period terminal candidates without claiming either as Morita's actual terminal.
+- IBM 3270 remains a display/protocol comparison; no specific IBM CRT shell is invented.
+- NeXT MegaPixel profiles use 1120×832 and explicitly separate the unresolved physical pixel-aspect issue.
+- Review thumbnails no longer use a fixed 1000×650 CSS-scaled iframe.
+- NeXTSTEP native Terminal keeps Ohlfs as the documented target; original Ohlfs bytes and ambiguously licensed third-party recreated font bytes are not silently redistributed.
+- Removed the remaining native-NeXT Courier/system diagnostic fallback from historical rendering: until a reconstruction asset is pinned, that profile fails closed and shows an out-of-frame status notice instead of drawing false glyphs.
