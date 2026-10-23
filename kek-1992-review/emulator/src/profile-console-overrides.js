@@ -47,6 +47,9 @@
     p.windowChrome=null;
     p.desktop="#000000";
     p.terminalRect={x:0,y:0,w:1280,h:1024};
+    p.terminalAlign="top-left";
+    p.terminalPaddingX=0;
+    p.terminalPaddingY=0;
     p.cell={w:9,h:20};
     p.fontPx=18;
     p.baseline=17;
@@ -67,6 +70,7 @@
       "PERIOD HFT: 1991–92 AIX V3のHigh Function Terminalはterminfo上80 columns × 25 lines。80×24ではない。",
       "PERIOD FONT GEOMETRY: AIX V3のXfonts表ではRom14.500=9×20、Rom10.500=8×14。aixterm HFT emulationはlarge displayでRom14.500を既定とする。",
       "CONSOLE MODEL: 6091 Model 19候補の1280×1024表示面上に80×25・9×20のHFT logical screenを置く。文字bitmapを1280×1024へ引き伸ばさない。",
+      "SCREEN ORIGIN: HFT console比較ではterminal windowのような中央配置を行わず、文字グリッドをdisplay origin（左上）から配置する。正確なCRT内inset値は未確認のため人工的な余白値は加えない。",
       "FONT DISCIPLINE: CERN 2013のMeyrin 9×14は参照実機のterminal字形復元であり、raw HFT console fontとは同一視しない。このconsole候補ではMeyrinを使用しない。",
       "UNCERTAINTY: 2013 CERN実機でLine Mode Browserを動かしたセッションがAIXwindows/aixtermだったかnative HFT consoleだったか、またraw HFTの正確なfont bytes・foreground色・screen placementは未確定。"
     ]);
