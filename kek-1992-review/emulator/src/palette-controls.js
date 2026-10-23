@@ -4,6 +4,7 @@
   const KEK_FG="#f7f7ef";
   const KEK_BG="#69bd5b";
   const profiles=window.TerminalProfiles||{};
+  const embedded=new URLSearchParams(location.search).get("embed")==="1";
 
   const ids={
     decterm:new Set(["kek_decterm_vrt19_candidate","kek_decterm_vrt19_lecture_green"]),
@@ -44,6 +45,32 @@
     return o?{foreground:o.foreground,background:o.background}:null;
   }
 
+  function dispatchScreenModeChangeWithoutFocus(screen){
+    if(!embedded){
+      screen.dispatchEvent(new Event("change",{bubbles:true}));
+      return;
+    }
+
+    // app.js normally focuses the canvas after a screen-mode change. In an
+    // embedded comparison card that focus scrolls the parent page to the iframe.
+    // Suppress only that synthetic initialization focus; a real canvas click
+    // still focuses normally.
+    const canvas=document.getElementById("display");
+    if(!canvas){
+      screen.dispatchEvent(new Event("change",{bubbles:true}));
+      return;
+    }
+    const hadOwn=Object.prototype.hasOwnProperty.call(canvas,"focus");
+    const previous=canvas.focus;
+    canvas.focus=function(){};
+    try{
+      screen.dispatchEvent(new Event("change",{bubbles:true}));
+    }finally{
+      if(hadOwn)canvas.focus=previous;
+      else delete canvas.focus;
+    }
+  }
+
   function applyPalette(mode){
     const id=activeId();
     const kind=terminalKind(id);
@@ -64,7 +91,7 @@
     const screen=document.getElementById("screenMode");
     if(screen){
       screen.value="profile";
-      screen.dispatchEvent(new Event("change",{bubbles:true}));
+      dispatchScreenModeChangeWithoutFocus(screen);
     }
     updateHowTo(mode);
   }
