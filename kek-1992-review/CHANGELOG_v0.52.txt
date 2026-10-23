@@ -1,9 +1,0 @@
-v0.52
-=====
-- IBM 3270 font is now bundled locally as emulator/assets/fonts/ibm3270/3270.bdf.
-- The bundled file is the complete x3270 4.1ga10 x3270/3270.bdf: 431 glyphs, 9x14, 3270cg / 1a.
-- 3270 runtime font loading no longer depends on GitHub or any external URL.
-- IBM 3270 profile fails visibly if the validated local asset cannot be loaded; it does not silently substitute Courier/system monospace.
-- Emulator UI version updated to v0.52.
-- Bundled 3270 asset is SHA-256 pinned: 3d71ea77ade51a7d2d6de326bd98fd14724b0e0086ecc0bd2d5083483d34838b.
-- Current README, environment reference and font reconstruction matrix now describe the complete local 431-glyph runtime asset accurately.

@@ -1,6 +1,0 @@
-v0.44
-- Candidate machine image URLs switched to Wikimedia Commons Special:Redirect/file links.
-- Added visible source/author/license attribution below each candidate image.
-- Added explicit source attribution for Morita lecture green-screen excerpt.
-- Removed leading "black machine" wording from memory prompts.
-- Added image-load fallback text.
