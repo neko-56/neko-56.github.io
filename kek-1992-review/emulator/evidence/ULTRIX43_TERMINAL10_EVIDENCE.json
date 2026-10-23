@@ -1,0 +1,27 @@
+{
+  "phase": 6,
+  "status": "ULTRIX 4.3 FONT ARTIFACT CONFIRMED",
+  "observed_at": "2026-10-21",
+  "media_sha256": "5b9df38d8babad0976cc84624aa78e4d4aa5f840b5f779c1e82176b87c6d7532",
+  "media_access": "direct classic UFS1 reader",
+  "subset_path": "/RISC/BASE/UDWFONT15430",
+  "subset_source_sha256": "44ba4eb18798df2538cf53ab063804920d9aaf183d5f6b60a5dd851b8e31f7df",
+  "font_source_file": "terminal10.pcf",
+  "font_xlfd": "-DEC-Terminal-Medium-R-Normal--14-100-100-100-C-80-ISO8859-1",
+  "pcf_sha256": "46cdbd6f8656ddd7704df99f2103274c9ae9ffe1fc829ae57f92f6bb910d89d5",
+  "reconstructed_bdf_sha256": "7cfc76e2e45ebfceb0e8d7fb1632e0710a550bac4dbe14e2ddf7c2bc94e84033",
+  "font_bounding_box": [
+    8,
+    15,
+    0,
+    -3
+  ],
+  "font_ascent": 12,
+  "font_descent": 3,
+  "cell_metrics": [
+    8,
+    15
+  ],
+  "ascii_complete": true,
+  "redistribution_note": "The ULTRIX-extracted target payload is not bundled. GitHub Pages serves a separately licensed X Consortium DEC Terminal V2.2 raster verified 195/195 equivalent; see DEC_TERMINAL_GLYPH_EQUIVALENCE.json."
+}

@@ -1,0 +1,8 @@
+v0.34 — responsive / clear reviewer display
+
+- Reviewer-facing embedded emulator now fits to available width; no horizontal scrollbar is required.
+- Native framebuffer dimensions remain unchanged; standalone research emulator retains >=100% pixel inspection.
+- CERN Morita-hardware-unknown profile no longer implies a green terminal or Meyrin glyph identity.
+- Unknown CERN profile uses a neutral high-contrast presentation and a stronger fallback raster threshold for readability.
+- CERN 2013 RS/6000 reference remains a separate profile.
+- No CRT blur, glow, scanline or curvature effects added.

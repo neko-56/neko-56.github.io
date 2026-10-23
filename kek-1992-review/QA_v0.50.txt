@@ -1,0 +1,76 @@
+KEK 1992 WWW review reconstruction — v0.50 QA
+Date: 2026-10-22
+
+RELEASE STATUS
+--------------
+Candidate is structurally ready for reviewer-side deployment after upload to the intended web host.
+
+AUTOMATED REGRESSION
+--------------------
+JavaScript:
+- test-core.js: PASS
+- test-display-discipline.js: PASS
+- test-font-assets-v050.js: PASS
+- test-font-backend.js: PASS
+- test-phase4.js: PASS
+- test-phase5.js: PASS
+- test-phase6-1-chrome.js: PASS
+- test-phase6-2-font-selection.js: PASS
+- test-phase6-3-graphics-server-branch.js: PASS
+- test-phase6-4-lmb-behavior.js: PASS
+- test-phase6-5-prompt-evidence.js: PASS
+- test-phase6-licensed-raster.js: PASS
+- test-phase6.js: PASS
+- test-sharp-display.js: PASS
+
+Python:
+- test-iso9660-reader.py: PASS
+- test-phase6-2-density-pair.py: SKIP when runtime DEC BDF is not locally cached (expected)
+- test-phase6-media-evidence.py: PASS
+- test-phase6-media-pipeline.py: PASS
+- test-site-navigation.py: PASS
+- test-ufs-reader.py: PASS
+- test-ui-v027-model-layout.py: PASS
+
+FONT ACCEPTANCE
+---------------
+DEC:
+- pinned public DEC/X Consortium term14.bdf source
+- expected SHA-256: b93ab33ead159d11a4e503ab71c72b7b51802a35de27d5a326ab4648f448f081
+- 8x15 cell
+- 195/195 normalized glyph match to verified ULTRIX target comparison
+- ASCII 95/95
+- license/provenance documentation retained
+
+IBM RS/6000:
+- Meyrin profile source explicitly mapped
+- CERN Hackday reconstruction provenance recorded
+- OFL-1.1 project license recorded
+- vector source is rasterized into the emulator's cell/framebuffer discipline rather than displayed as smooth browser text
+
+X11:
+- standard fixed-family 6x13 BDF explicitly mapped for X11 candidates
+- bitmap source rendered through emulator raster path
+
+NeXTSTEP:
+- Ohlfs historical standard recorded
+- no false claim that Courier/system monospace is exact Ohlfs
+- no unverified original Ohlfs binary included
+
+IBM 3270:
+- historical lineage and public-project license metadata documented
+- no arbitrary third-party direct font mirror is auto-loaded as canonical in v0.50
+
+VAX:
+- no host-name-derived fictional font assignment
+
+PACKAGE SAFETY / CONTENT
+------------------------
+- no .bdf, .pcf, .ttf, .otf, .woff/.woff2, .fon or .dfont font binaries are included in the review ZIP
+- public assets that are used automatically are referenced by pinned/explicit public URLs in source code
+
+BROWSER QA LIMITATION OF THIS BUILD ENVIRONMENT
+-----------------------------------------------
+The container used for this release blocks direct local-page browser navigation and does not provide a reliable live external-font fetch path. Static page layout was rendered separately and the JavaScript/font-source wiring is covered by regression tests, but final network loading of the pinned public font URLs should be observed once on the deployed GitHub Pages site.
+
+This limitation is about the QA environment, not a known failure in the site code.

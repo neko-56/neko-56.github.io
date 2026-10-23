@@ -1,0 +1,74 @@
+KEK 1992 WWW review reconstruction — v0.50
+Date: 2026-10-22
+
+PURPOSE
+-------
+v0.50 is a reviewer-facing structural and emulation-quality revision. It reorganizes the site around the review task for Morita-san and restores the rule that historical display candidates must be driven by period machine/OS/terminal/browser evidence rather than by generic retro-looking CSS or arbitrary monospace substitutions.
+
+1. REVIEWER INFORMATION ARCHITECTURE
+------------------------------------
+The top-level site is now limited to three pillars:
+- 森田様への質問 (review.html)
+- 各種機種での再現エミュレート (emulation.html)
+- 各種資料 (research.html)
+
+A new emulation.html page groups the machine/environment candidates in one place. Supporting research, provenance, reconstruction policy and link-status material are kept under 各種資料 instead of competing with the reviewer questions.
+
+2. FONT / GLYPH POLICY CORRECTION
+---------------------------------
+The v0.49 regression that treated the verified DEC/X Consortium Terminal raster as if it must not be distributed/used has been withdrawn. The surviving DEC/X Consortium license grant permits use, copy, modification, publication and distribution. v0.50 uses the pinned public source at runtime and keeps the provenance/hash acceptance gate.
+
+No historical font binary is bundled in the v0.50 review ZIP. Where a public source can be anchored cleanly, the emulator loads that source at runtime and rasterizes it into the reconstructed framebuffer.
+
+3. MACHINE-SPECIFIC FONT MAPPING
+--------------------------------
+- KEK DECstation / DECterm:
+  verified DEC Terminal V2.2 term14 8x15 BDF source; exact SHA-256 is pinned and the normalized target comparison remains 195/195 glyphs, ASCII 95/95.
+- KEK full-screen console comparison:
+  uses the same DEC 8x15 raster only as an explicitly labelled common comparison grid; this is not presented as proof of the exact console glyph set.
+- IBM RISC System/6000 reference:
+  Meyrin, reconstructed at the CERN Hackday from IBM System/6000 keyboard/screen captures; project license metadata is OFL-1.1.
+- Sun-4 and NeXT + X11/xterm:
+  X11 standard fixed-family 6x13 bitmap source.
+- NeXTSTEP Terminal.app:
+  Ohlfs 10pt is recorded as the standard historical setting supported by surviving documentation. No modern Courier fallback is represented as exact Ohlfs, and no unverified original Ohlfs file is bundled.
+- IBM 3270-class:
+  x3270 -> Georgia Tech 3270tool -> hand-copied 3270-terminal lineage is recorded. The current public project exposes web-font builds and reports OFL-1.1 project licensing, but v0.50 does not auto-pin an arbitrary third-party single-file mirror.
+- PRIAM VAX:
+  no fabricated “VAX font” is assigned because the host identity by itself does not identify the attached terminal and glyph ROM/font.
+
+4. EMULATOR IMPLEMENTATION
+--------------------------
+- Added generic public-font asset loading to emulator/src/font-backend.js.
+- Added machine/profile-specific automatic source selection.
+- Public vector sources are rasterized into logical character cells and thresholded to hard pixel glyphs before framebuffer drawing.
+- BDF glyphs continue to map directly to the logical framebuffer without smoothing.
+- Fixed profile/source diagnostic text so unrelated machines no longer report Meyrin checks.
+- Fixed the full-screen console profile so its implementation matches its stated DEC comparison-grid source.
+- Removed duplicated / misleading font-source presentation in the emulator detail panel.
+- Kept framebuffer-native sizing, nearest-neighbor presentation and image smoothing disabled.
+
+5. REVIEWER WORDING
+-------------------
+Reviewer-facing wording now emphasizes that displays are reconstructed from period standard specifications and surviving evidence. It does not repeatedly label ordinary standard-spec reconstructions as guesses. At the same time, individual 1992 user settings that cannot be established are not invented.
+
+6. DOCUMENTATION
+----------------
+Updated/added:
+- emulator/docs/DEC_TERMINAL_PROVENANCE.md
+- emulator/docs/FONT_RECONSTRUCTION.md
+- emulator/docs/FONT_MATRIX_v0.50.md
+- environment-reference.html font-source section
+- README.txt current v0.50 structure/policy header
+- QA_v0.50.txt
+
+7. REGRESSION TESTS / SITE AUDIT
+--------------------------------
+Added test-font-assets-v050.js and updated old tests that had encoded the v0.49 non-distribution regression.
+
+Final v0.50 test run:
+- JavaScript test files: all PASS
+- Python test files: all runnable tests PASS
+- test-phase6-2-density-pair.py: intentional SKIP when the runtime DEC BDF is not cached as a local fixture
+
+A final static site audit checks local href/src targets, anchors and duplicate HTML IDs.
