@@ -41,8 +41,6 @@
       label: "CERN reference — IBM RISC System/6000 / AIX (2013 evidence)",
       evidenceLevel: "CONFIRMED 2013 REFERENCE MACHINE; NOT MORITA IDENTIFICATION",
       cols: 80, rows: 24,
-      // 2013 reference captures the Line Mode Browser experience, but the
-      // physical monitor geometry used by Morita in 1992 is not inferred here.
       framebufferWidth: 720, framebufferHeight: 336,
       terminalRect: { x: 0, y: 0, w: 720, h: 336 },
       cell: { w: 9.0, h: 14.0 },
@@ -71,9 +69,6 @@
       label: "CERN documented platform — Sun-4 / 1152×900 official monitor configuration candidate",
       evidenceLevel: "DOCUMENTED 1991 LMB PLATFORM / PERIOD SUN DISPLAY CONFIGURATION CANDIDATE",
       cols: 80, rows: 24,
-      // Sun's Dec-1988 price list offered several displays for Sun-4. 1152×900
-      // was a documented 19-inch monochrome/color configuration. The exact CERN
-      // desk monitor is not identified, so this remains a configuration candidate.
       framebufferWidth: 1152, framebufferHeight: 900,
       terminalRect: { x: 336, y: 294, w: 480, h: 312 },
       cell: { w: 6.0, h: 13.0 },
@@ -135,8 +130,6 @@
         "DISPLAY DISCIPLINE: VAXホスト名から架空のVAXフォントやモニター形状を作らない。具体端末が同定されるまで物理筐体は断定しない。"
       ]
     },
-
-
 
     cern_nextstep_terminal_lmb: {
       id: "cern_nextstep_terminal_lmb",
@@ -248,8 +241,6 @@
       evidenceLevel: "CONFIRMED MACHINE / NO-WINDOW DISPLAY PATH HYPOTHESIS",
       cols: 80, rows: 24,
       framebufferWidth: 1280, framebufferHeight: 1024,
-      // Comparison model for a no-window text session on the workstation display.
-      // Exact ULTRIX console rows, glyphs and margins on the KEK machine are not recovered.
       terminalRect: { x: 0, y: 0, w: 1280, h: 1024 },
       terminalAlign: "top-left",
       terminalPaddingX: 28, terminalPaddingY: 24,
@@ -285,8 +276,6 @@
       evidenceLevel: "CONFIRMED MACHINE / STRONG MONITOR FAMILY CANDIDATE / DISPLAY PATH UNCONFIRMED",
       cols: 80, rows: 24,
       framebufferWidth: 1280, framebufferHeight: 1024,
-      // The terminal glyph plane is fixed at the verified 80×24 × 8×15 raster.
-      // Window-manager/client chrome is reconstructed around it; it never scales the glyph plane.
       terminalRect: { x: 320, y: 270, w: 640, h: 360 },
       cell: { w: 8.0, h: 15.0 },
       foreground: "#e2e2d8", background: "#171917", desktop: "#819797", titlebar: "#d2d3cb",
@@ -321,26 +310,8 @@
       runtimeSelectionStatus: "UNRESOLVED — KEK graphics option / X server not identified",
       graphicsOptionStatus: "UNKNOWN — DECstation 5000/125 + VRT19 was sold in both PX 2D and PXG 3D configurations",
       runtimeFontBranches: [
-        {
-          id: "xws_75dpi",
-          label: "Xws branch — 75dpi Little Font",
-          when: "If the KEK session used Xws (ordinary 2D DECstation graphics path)",
-          xServer: "Xws",
-          defaultDensity: 75,
-          fontId: "kek_75dpi_normal",
-          dectermLittlePointSize: 14,
-          evidence: "ULTRIX/UWS 4.3 documents Xws as 75dpi by default; Xws can be changed explicitly with -fd/-dpi options."
-        },
-        {
-          id: "xwst3d_100dpi",
-          label: "Xwst3d branch — 100dpi Little Font",
-          when: "If the KEK session used Xwst3d (a 100dpi-default 3D server); exact PXG server binary on the KEK 5000/125 is unresolved",
-          xServer: "Xwst3d",
-          defaultDensity: 100,
-          fontId: "kek_vrt19_100dpi_little",
-          dectermLittlePointSize: 10,
-          evidence: "ULTRIX/UWS 4.3 documents Xwst3d as 100dpi by default and ships an X11R4 PXG 3D graphics server subset. The exact KEK 5000/125 server command remains unobserved."
-        }
+        { id:"xws_75dpi", label:"Xws branch — 75dpi Little Font", when:"If the KEK session used Xws (ordinary 2D DECstation graphics path)", xServer:"Xws", defaultDensity:75, fontId:"kek_75dpi_normal", dectermLittlePointSize:14, evidence:"ULTRIX/UWS 4.3 documents Xws as 75dpi by default; Xws can be changed explicitly with -fd/-dpi options." },
+        { id:"xwst3d_100dpi", label:"Xwst3d branch — 100dpi Little Font", when:"If the KEK session used Xwst3d (a 100dpi-default 3D server); exact PXG server binary on the KEK 5000/125 is unresolved", xServer:"Xwst3d", defaultDensity:100, fontId:"kek_vrt19_100dpi_little", dectermLittlePointSize:10, evidence:"ULTRIX/UWS 4.3 documents Xwst3d as 100dpi by default and ships an X11R4 PXG 3D graphics server subset. The exact KEK 5000/125 server command remains unobserved." }
       ],
       targetXLFD: "-DEC-Terminal-Medium-R-Normal--14-100-100-100-C-80-ISO8859-1",
       fontEvidence: "Glyph identity and runtime selection are separate evidence domains. ULTRIX 4.3 media directly confirms the 100dpi/10pt terminal10 raster; the public 75dpi term14 metadata matches the Xws/75dpi branch and its normalized 8x15 raster matches the media target 195/195. DEC's 1991 price list shows DECstation 5000/125 + VRT19 packages with both PX 2D and PXG 3D graphics. Therefore neither 75dpi nor 100dpi is promoted as the KEK runtime default until the graphics option or actual X server command is recovered.",
@@ -361,47 +332,39 @@
         "HARDWARE BRANCH EVIDENCE: 1991年12月30日のDEC価格表には、DECstation 5000/125 + VRT19としてPX 8-plane 2D構成 (PM322-KN) とPXG 8-plane 3D構成 (PM323-KN) の両方が存在する。展示機のgraphics optionは未同定。",
         "INSTALLATION EVIDENCE: ULTRIX 4.3のUDWFONT430は75dpi font subset、UDWFONT15430は100dpi font subset、UDWWSTSER430はX11R4 PXG 3D graphics server subset。graphics/server未同定の現状では75dpi/100dpiを一意に順位付けしない。",
         "ULTRIX 4.3 MEDIA CONFIRMED: UDWFONT15430 の terminal10.pcf は -DEC-Terminal-Medium-R-Normal--14-100-100-100-C-80-ISO8859-1 と完全一致。",
-        "MEDIA EVIDENCE: ULTRIX 4.3 RISC ISO SHA-256 5b9df38d8babad0976cc84624aa78e4d4aa5f840b5f779c1e82176b87c6d7532 から /RISC/BASE/UDWFONT15430 を直接抽出。",
         "FONT METRICS CONFIRMED: terminal10.pcf は FONTBOUNDINGBOX 8×15、ascent 12 / descent 3、DWIDTH 8。rendererは80×24を640×360pxとして1:1描画し、window chrome追加後もglyph planeを変更しない。",
-        "CONTEMPORARY DECWINDOWS DOC: dxwm bannerは左からshrink-to-icon、title bar、push-to-back、resize。DECterm menu barはFile/Edit/Commands/Options/Print/Help。v0.21ではこの構造だけを候補chromeとして再現。",
+        "CONTEMPORARY DECWINDOWS DOC: dxwm bannerは左からshrink-to-icon、title bar、push-to-back、resize。DECterm menu barはFile/Edit/Commands/Options/Print/Help。",
         "SCROLLBAR DISCIPLINE: dxtermのscrollVertical既定はOff。一方で同時代.Xdefaults例はOnにできるため、KEK既定表示ではOFFとし、実機状態は未確定扱い。",
-        "PUBLIC RASTER VERIFIED: X Consortium系 term14.bdf (DECterm Fonts V2.2) は、8×15セルへ正規化するとULTRIX targetと195/195 glyphs・ASCII 95/95で一致。GitHub Pagesではこの公開許諾系統を自動読込する。",
-        "LICENSE DISCIPLINE: 公開75dpi metadataを100dpi targetへ書き換えて同一ファイルと称さない。historical targetとrendered glyph sourceをUI/資料で分離する。",
-        "RUNTIME BRANCH A: Xwsを使用していた場合、既定は75dpiでDECterm Little Fontは14pt。公開term14はこのmetadataと一致する。",
-        "RUNTIME BRANCH B: Xwst3d/PXG 3D server系を使用していた場合、資料上100dpi既定。ULTRIX媒体のterminal10はこの100dpi/10pt glyph targetを直接確認済み。",
-        "OPEN RUNTIME ITEM: KEK実機のgraphics option、/etc/ttysのX server command、起動中server名のいずれかを確認するまでruntime branchは未確定。",
-        "OPEN EVIDENCE ITEM: ULTRIX 4.3媒体のUDWFONT430/terminal14.pcfを直接抽出し、公開term14およびterminal10と3者比較すれば媒体側75dpi証拠も閉じられる。",
-        "STRONG MONITOR FAMILY CANDIDATE: VRT19-DA/HA系はSony GDM-1960/1961 OEMとして知られる19-inch Trinitron系で、DEC資料系統では1280×1024。KEK展示モニタの正確な背面型番は現物確認待ち。",
-        "UNKNOWN: KEKで実際にLMBをDECterm上で動かしたか、コンソール等だったか。",
-        "DISPLAY RULE: 研究用ラベルは画面内へ描画しない。DECtermタイトル・window geometryは同時代資料に基づく候補であり、KEK実機固有値とは区別する。"
+        "UNKNOWN: KEKで実際にLMBをDECterm上で動かしたか、コンソール等だったか。"
       ]
     }
   };
 
   // Lecture-reference palette candidate for the confirmed KEK DECstation 5000/125.
-  // This is intentionally a separate profile so the later reconstruction palette
-  // cannot silently become the default historical DECterm resource.
+  // Keep the base 80x24 DECterm geometry.  The lecture palette changes only the
+  // terminal foreground/background; it does not enlarge the DECterm client area
+  // or turn the DECwindows desktop itself green.
   (function(){
     const base=root.TerminalProfiles.kek_decterm_vrt19_candidate;
-    const chrome=Object.assign({}, base.windowChrome, {
-      rect:{ x:248, y:214, w:784, h:470 },
-      title:"DECterm"
-    });
     root.TerminalProfiles.kek_decterm_vrt19_lecture_green=Object.assign({}, base,{
       id:"kek_decterm_vrt19_lecture_green",
       label:"KEK candidate — DECstation 5000/125 + DECterm / lecture green palette",
       evidenceLevel:"CONFIRMED MACHINE / LECTURE-IMAGE PALETTE HYPOTHESIS",
-      terminalRect:{ x:320, y:276, w:640, h:360 },
       foreground:"#f7f7ef",
       background:"#69bd5b",
       alternateTerminalPalette:null,
       screenModeDefault:"lecture_reference_green",
       screenModeEvidence:"The green/white palette comes from Morita lecture reconstruction imagery; it is not yet verified as a saved 1992 DECterm resource.",
-      windowChrome:chrome,
+      // Use the normal DECterm window/client geometry: 674x424 outer window around
+      // the verified 640x360 (80x24 x 8x15) text plane.  This removes the artificial
+      // gray gutters that were introduced by the previous 784x470 lecture override.
+      windowChrome:Object.assign({}, base.windowChrome),
+      terminalRect:Object.assign({}, base.terminalRect),
       notes:(base.notes||[]).concat([
         "LECTURE REFERENCE: 森田氏の講演資料には薄緑背景・白文字の横長『KEK INFORMATION』掲載画像が掲載されている。",
         "PROVENANCE UNKNOWN: その再現画面がCERN側の表示、KEK側の表示、または後年の再現作業用表示のどれを意図したかは未確認。",
-        "WINDOW HYPOTHESIS: 1280×1024上のDECtermは比較仮説。元画像の切り抜き・加工も考えられ、掲載比率からウィンドウやモニタの形状は確定できない。",
+        "WINDOW GEOMETRY: 講演資料配色候補でも通常DECterm候補と同じ80×24・640×360文字面を使用し、外枠は674×424の比較形状を維持する。",
+        "PALETTE SCOPE: 薄緑＋白はDECterm文字表示面にだけ適用する。DECwindowsデスクトップ全体を緑にする根拠はない。",
         "PALETTE DISCIPLINE: 薄緑＋白は講演資料由来の比較仮説であり、1992年KEK実機resourceとして確定した色ではない。"
       ])
     });
