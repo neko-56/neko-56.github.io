@@ -52,6 +52,95 @@
     ]);
   }
 
+  // IBM 3278 Model 2 physical-geometry reference.
+  //
+  // The x3270 BDF is useful as a 3270 glyph-shape reference, but its 9x14
+  // bitmap cell is NOT a physical monitor-pixel specification. IBM's 3278
+  // maintenance procedure specifies an active horizontal trace of 10.5 inches
+  // and a total vertical height of 8 inches for Model 2 and the other non-Model-1
+  // displays. Model 2 carries 24 x 80 data characters, with an operator
+  // information area outside the data area at the bottom of the screen.
+  //
+  // Use a 724x552 normalized square-coordinate plane (724/552 = 1.3116,
+  // essentially 10.5/8 = 1.3125). The glyph itself remains the packaged 9x14
+  // x3270 raster. A 22-unit row pitch separates glyph rows so the 24-line data
+  // area occupies 528 units, leaving a small lower band for the unmodelled
+  // operator-information area. These are presentation coordinates, not an IBM
+  // hardware framebuffer-resolution claim.
+  const ibm3278=profiles.cern_3270_alternate;
+  if(ibm3278){
+    ibm3278.framebufferWidth=724;
+    ibm3278.framebufferHeight=552;
+    ibm3278.terminalRect={x:0,y:0,w:724,h:528};
+    ibm3278.physicalResolutionStatus="IBM 3278 Model 2 physical-geometry reference: active trace 10.5 × 8 in; 724×552 is a normalized presentation coordinate plane, NOT a hardware pixel resolution";
+    ibm3278.pixelAspectStatus="physical active-trace geometry normalized to square presentation coordinates; x3270 9×14 is retained only as a glyph raster reference";
+    ibm3278.monitorFrame={
+      kind:"crt",
+      shell:"ibm-reference",
+      label:"IBM 3278 Model 2 geometry reference — 10.5 × 8 in active trace",
+      status:"PHYSICAL-GEOMETRY REFERENCE ONLY / MORITA TERMINAL UNCONFIRMED"
+    };
+    ibm3278.notes=(ibm3278.notes||[]).concat([
+      "PHYSICAL GEOMETRY: IBM 3278 maintenance information specifies a 10.5-inch horizontal trace and 8-inch vertical display height for Model 2; the visible CRT is therefore about 1.31:1, not the 2.14:1 ratio of an 80×24 grid made from square 9×14 bitmap cells.",
+      "ROW PITCH MODEL: x3270の9×14 bitmapは字形参照として維持し、物理CRT上の行間を表すため22-unit pitchで24行を配置する。9×14を物理画面pixel解像度とは扱わない。",
+      "3278 STRUCTURE: Model 2 is 24×80. IBM documentation places an Operator Information Area at the bottom outside the data area; this comparison leaves a small lower band but does not fabricate its status symbols.",
+      "IMPORTANT: IBM 3278 Model 2 is used here only to correct the physical-geometry reference for the 3270-class comparison. It is not evidence that Morita used a 3278 at CERN."
+    ]);
+  }
+
+  // The renderer obtains row spacing from a loaded BDF's cellHeight. For the
+  // 3278 physical-geometry comparison only, return a light wrapper around the
+  // exact same x3270 font: glyph drawing and font verification remain 9x14,
+  // while layout cellHeight becomes 22 to model the CRT row pitch. drawChar is
+  // bound to the original font object, so no glyph pixels are stretched.
+  function installIBM3278FontLayout(fontAPI){
+    if(!fontAPI||fontAPI.__ibm3278LayoutInstalled||typeof fontAPI.loadPublicAsset!=="function")return fontAPI;
+    const originalLoad=fontAPI.loadPublicAsset.bind(fontAPI);
+    fontAPI.loadPublicAsset=async function(asset){
+      const loaded=await originalLoad(asset);
+      if(!asset||asset.id!=="x3270_3270_14"||!loaded)return loaded;
+      const view=Object.create(loaded);
+      Object.defineProperty(view,"cellHeight",{value:22,enumerable:true,configurable:false});
+      if(typeof loaded.drawChar==="function")view.drawChar=loaded.drawChar.bind(loaded);
+      if(typeof loaded.glyphForChar==="function")view.glyphForChar=loaded.glyphForChar.bind(loaded);
+      if(typeof loaded.summary==="function"){
+        const originalSummary=loaded.summary.bind(loaded);
+        view.summary=function(){
+          const s=originalSummary();
+          return Object.assign({},s,{
+            physicalLayoutRowPitch:22,
+            physicalLayoutNote:"IBM 3278 Model 2 geometry reference; glyph raster remains 9×14"
+          });
+        };
+      }
+      return view;
+    };
+    fontAPI.__ibm3278LayoutInstalled=true;
+    return fontAPI;
+  }
+
+  // profile-geometry-overrides.js is parsed immediately before font-backend.js.
+  // Intercept the one-time global assignment so the wrapper is installed before
+  // app.js first loads the x3270 asset, without introducing a later re-layout.
+  if(root.HistoricalFonts){
+    installIBM3278FontLayout(root.HistoricalFonts);
+  }else{
+    let assigned;
+    try{
+      Object.defineProperty(root,"HistoricalFonts",{
+        configurable:true,
+        enumerable:true,
+        get:function(){return assigned;},
+        set:function(v){
+          assigned=installIBM3278FontLayout(v);
+          Object.defineProperty(root,"HistoricalFonts",{
+            value:assigned,writable:true,configurable:true,enumerable:true
+          });
+        }
+      });
+    }catch(e){}
+  }
+
   // palette-controls.js needs the emulator's normal app.js listeners to exist
   // first. Loading it at DOMContentLoaded keeps geometry initialization separate
   // while enabling the real foreground/background switcher in both full and
