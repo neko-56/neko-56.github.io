@@ -1,5 +1,11 @@
 (function(){
   'use strict';
+  const goat=document.createElement('script');
+  goat.dataset.goatcounter='https://neko56.goatcounter.com/count';
+  goat.async=true;
+  goat.src='https://gc.zgo.at/count.js';
+  document.head.appendChild(goat);
+
   const form=document.getElementById('moritaSurvey');
   const pane=document.getElementById('materialPane');
   const title=document.getElementById('viewerTitle');
