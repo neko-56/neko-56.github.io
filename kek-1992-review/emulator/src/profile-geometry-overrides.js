@@ -29,4 +29,17 @@
       "IMPORTANT: この4pxはDECterm既定resourceとして確認した値ではなく、掲載画像との比較用のimage-derived geometry。80×24×8×15の文字グリッド自体は640×360のまま変更しない。"
     ]);
   }
+
+  // palette-controls.js needs the emulator's normal app.js listeners to exist
+  // first. Loading it at DOMContentLoaded keeps geometry initialization separate
+  // while enabling the real foreground/background switcher in both full and
+  // embedded views without editing the historical framebuffer renderer.
+  root.addEventListener("DOMContentLoaded",function(){
+    if(document.querySelector('script[data-palette-controls]'))return;
+    const s=document.createElement("script");
+    s.src="src/palette-controls.js?v=0.57";
+    s.async=false;
+    s.setAttribute("data-palette-controls","1");
+    document.body.appendChild(s);
+  });
 })(typeof self!=="undefined"?self:this);
