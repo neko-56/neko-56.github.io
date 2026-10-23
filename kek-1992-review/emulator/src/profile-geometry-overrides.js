@@ -188,7 +188,7 @@
   root.addEventListener("DOMContentLoaded",function(){
     if(document.querySelector('script[data-palette-controls]'))return;
     const s=document.createElement("script");
-    s.src="src/palette-controls.js?v=0.58";
+    s.src="src/palette-controls.js?v=0.59";
     s.async=false;
     s.setAttribute("data-palette-controls","1");
     document.body.appendChild(s);
