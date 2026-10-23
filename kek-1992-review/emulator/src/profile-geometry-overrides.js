@@ -24,6 +24,21 @@
     document.head.appendChild(style);
   }
 
+  // CERN 2013 IBM RS/6000 reference.
+  // Meyrin's 9x14 grid is a glyph/text-plane reference, not evidence for the
+  // physical CRT aspect ratio. Do not surround the 720x336 text plane with a
+  // monitor-shaped shell until the actual display hardware is identified.
+  const rs6000=profiles.cern_rs6000_reference;
+  if(rs6000){
+    rs6000.monitorFrame=null;
+    rs6000.physicalResolutionStatus="80×24 Meyrin text plane only (720×336 from 9×14 glyph cells); physical RS/6000 monitor geometry not asserted";
+    rs6000.pixelAspectStatus="text-plane raster reference only; 720×336 must not be interpreted as the physical CRT aspect ratio";
+    rs6000.notes=(rs6000.notes||[]).concat([
+      "PHYSICAL DISPLAY DISCIPLINE: 720×336はMeyrin 9×14 glyphを80×24へ並べた文字面であり、IBM RS/6000の物理CRT比率ではない。",
+      "MONITOR STATUS: CERN 2013再現ではIBM System/6000実機を参照したことは確認できるが、このprofileではモニタ型番・有効表示面寸法を同定していないため、物理モニタ枠を表示しない。"
+    ]);
+  }
+
   // X11 xterm: the VT100 widget has an internalBorder between the character
   // grid and the client edge. Use the documented/default 2px value while
   // preserving the existing 80x24 glyph-grid coordinates.
