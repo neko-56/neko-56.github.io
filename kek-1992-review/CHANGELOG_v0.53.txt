@@ -1,0 +1,8 @@
+v0.53
+=====
+- Revised CERN-side question 4 to ask whether HTML was created while checking the rendered page in a browser, without presuming a specific terminal/browser workflow.
+- Added a separate memory question asking whether the HTML editing screen and WWW display-check screen were the same machine/screen or different.
+- Reworded the display-candidate step to ask which reconstruction is closest to the reviewer's memory, rather than implying any candidate is the actual historical environment.
+- Updated copied-answer labels for the new question structure.
+- No emulator/font implementation changes from v0.52.
+- Display candidate labels in question 4 are shown as A-F so the machine names do not prime the reviewer before visual comparison; the stored answer values still retain the internal candidate mapping.

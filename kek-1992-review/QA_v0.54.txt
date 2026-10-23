@@ -1,0 +1,66 @@
+KEK 1992 WWW review reconstruction — v0.54 final QA
+
+SCOPE
+- Package-local DEC, X11 fixed, Meyrin, and x3270 font assets.
+- No runtime network font URL for those anchored profiles.
+- Monitor shell / framebuffer / terminal-window / character-grid geometry separated.
+- CERN PRIAM host identified as DEC VAX 8530 / ULTRIX; attached terminal remains separate.
+- CERN period DMT2200 / Pericom MG200 terminal candidates recorded without asserting Morita used either.
+- Sun-4 period 1152x900 configuration candidate separated from 480x312 xterm text plane.
+- DEC VRT19-class 1280x1024 display separated from 640x360 DECterm 80x24 text plane.
+- NeXT 1120x832 MegaPixel display family represented; physical non-square pixel issue is documented but not numerically stretched without a recovered ratio.
+- IBM 3270 remains a display/protocol comparison, not a fabricated IBM 3278/3279 physical terminal claim.
+
+FONT ASSETS VERIFIED
+DEC term14.bdf
+  size: 22,131 bytes
+  SHA-256: d9daba2437558c3a75bfba33b8fb21a78063e4f42bede5d61a53c9a4d5887ae7
+  CHARS 195; 8x15 reconstruction cell.
+  Normalized 195/195 glyph raster and ASCII 95/95 match the pinned ULTRIX target evidence.
+
+X11 6x13.bdf
+  size: 512,125 bytes
+  SHA-256: c68c55ca8effcdc2714fffa9c8e07df290411867b00b547eeae952f7473efc9b
+  FONTBOUNDINGBOX 6 13; package-local.
+
+Meyrin.woff
+  size: 26,556 bytes
+  SHA-256: a669b20af5d7c00eac496012cda61150b39a5b7fb6cb16f0c6a8383504d94cc1
+Meyrin.ttf
+  size: 44,948 bytes
+  SHA-256: fddf38d0cf25b9e0fd2c2dce2db81a0dd8ccd80067ed191b43517a5e31be5780
+  SIL Open Font License 1.1 included.
+
+x3270 3270.bdf
+  size: 69,094 bytes
+  SHA-256: 3d71ea77ade51a7d2d6de326bd98fd14724b0e0086ecc0bd2d5083483d34838b
+  complete 431-glyph x3270 4.1ga10 source; 9x14; 3270cg / 1a.
+
+NE(X)T NATIVE TERMINAL EXCEPTION
+- Historical target remains Ohlfs 10pt.
+- Original Ohlfs bytes are not bundled.
+- The project decision remains to use a separate reconstruction rather than relabel Courier/X11 fixed as Ohlfs.
+- CERN 2019 documents pixel-traced reconstruction from a real NeXT display; NEXTSPACE documents an independently created Keith.nfont similar to Ohlfs.
+- v0.54 does not silently redistribute third-party reconstructed font bytes without an unambiguous per-font redistribution grant.
+- Therefore the native NeXT exact/reconstructed glyph asset is the one remaining font item not certified/pinned in this package.
+- The native NeXT profile is fail-closed: no Courier/system fallback is drawn as historical content; an out-of-frame status notice explains why the text plane is intentionally not rendered.
+
+AUTOMATED TESTS BEFORE PACKAGING
+- JavaScript tests: 17 PASS / 0 FAIL.
+- Python tests/tools: 9 PASS / 0 FAIL / 0 SKIP.
+- HTML pages: 13.
+- href/src references: 214 total; 159 local relative references.
+- Missing local references: 0.
+- Broken local anchors: 0.
+- Pages with duplicate IDs: 0.
+- Runtime external font URLs in emulator/src asset url fields: 0.
+- x3270 external raw/sourceforge runtime references: 0.
+- Old emulator/assets/3270.bdf path: absent.
+
+BROWSER RENDER CHECK
+- Automated Chromium screenshot execution was attempted against both file:// and a local HTTP server.
+- Chromium in this execution environment did not complete headless navigation (DBus/environment harness failure) and no screenshot was produced.
+- This is NOT recorded as a visual-browser PASS. Static/runtime unit tests, font parsers, hashes, path locality, and geometry assertions are the verified checks.
+
+FINAL-PACKAGE RULE
+The completed ZIP must be re-extracted into a separate directory and the same asset/hash, URL-locality, link/anchor/ID, JS and Python audits rerun on the re-extracted package before delivery.

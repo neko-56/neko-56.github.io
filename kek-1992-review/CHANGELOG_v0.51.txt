@@ -1,0 +1,27 @@
+KEK 1992 WWW review reconstruction — v0.51
+Date: 2026-10-22
+
+IBM 3270 FONT COMPLETION
+------------------------
+- IBM 3270-class candidate now uses x3270 4.1ga10's own 14-point 3270.bdf at runtime.
+- The pinned BDF is validated as 431 glyphs, 9x14 cell, CHARSET_REGISTRY 3270cg, CHARSET_ENCODING 1a, and complete ASCII display coverage before activation.
+- x3270's nonstandard 3270 character-generator order is handled explicitly: ASCII LMB characters resolve by STARTCHAR glyph names first, not by numeric ENCODING values.
+- The 3270 profile therefore no longer falls through to Courier/system monospace. If the historical asset cannot be loaded or validated, the historical framebuffer fails closed instead of silently substituting a modern font.
+- Added emulator/LICENSES/X3270-3270-BDF.txt with provenance/license record and authoritative upstream source pointers.
+- Added test-x3270-bdf-mapping.js and updated the machine/font asset matrix test for v0.51.
+- Updated reviewer-facing font documentation to describe the actual x3270 bitmap implementation.
+
+NO CHANGE TO THE THREE-PILLAR SITE STRUCTURE
+--------------------------------------------
+1. 森田様への質問
+2. 各種機種での再現エミュレート
+3. 各種資料
+
+CACHE BUSTING
+-------------
+- Updated HTML asset query strings from v0.50 to v0.51 so deployed browsers do not retain the old font-backend/profile JavaScript after upload.
+
+RUNTIME ASSET NOTE
+------------------
+- The x3270 BDF is not physically embedded in this ZIP. The deployed page fetches the pinned official x3270 4.1ga10 BDF at runtime.
+- This is the actual historical bitmap source used by the 3270 renderer, not a system-font substitution. If retrieval or structural validation fails, the emulator fails closed instead of rendering Courier/monospace.

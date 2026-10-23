@@ -1,0 +1,26 @@
+HISTORICAL TEST RESULT — superseded by v0.50 runtime pinned-source policy.
+
+KEK Web Display Emulator — Phase 6.4 regression result
+Date: 2026-10-21
+
+JavaScript tests: 12/12 PASS
+Python tests:      5/5 PASS
+Total:            17/17 PASS
+
+Phase 6.4-specific checks:
+- 1992 period prompt form: PASS
+- H1 uppercase + one-column indent: PASS
+- unordered-list ` o ` marker: PASS
+- command-line -source / interactive SOURCE distinction: PASS
+- bare SOURCE does not expose current HTML: PASS
+- unavailable link/GO target does not create a synthetic modern page: PASS
+- unresolved request is retained as structured pendingNavigation outside framebuffer: PASS
+- public DEC Terminal BDF exact SHA-256: PASS
+- relative HTML/CSS/JS references: 46 checked, 0 missing
+
+Historical v0.20 bundled public DEC Terminal raster (superseded in v0.50):
+- bytes: 22065
+- lines: 2952
+- SHA-256: b93ab33ead159d11a4e503ab71c72b7b51802a35de27d5a326ab4648f448f081
+
+Historical note: no ULTRIX-extracted terminal10/terminal14 PCF/BDF artifact was included; that older package bundled the separately licensed public X Consortium/DEC artifact. v0.50 instead loads the pinned public source at runtime and ships no font binary.

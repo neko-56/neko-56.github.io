@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>KEK 1992 — CERN側 表示候補</title>
+<link rel="stylesheet" href="style.css?v=0.52">
+</head>
+<body class="review-mode reconstruction-view-page">
+<nav class="site-nav" aria-label="共通ナビゲーション">
+  <a class="site-nav-home" href="review.html">森田様への質問</a>
+  <div class="site-nav-group site-nav-models">
+    <span class="site-nav-label">再現</span>
+    <a href="emulation.html">各種機種での再現エミュレート</a>
+    <a href="cern-view.html" aria-current="page">CERN側</a>
+    <a href="kek-local.html">KEK側</a>
+  </div>
+  <div class="site-nav-group site-nav-docs">
+    <span class="site-nav-label">資料</span>
+    <a href="research.html">各種資料</a>
+  </div>
+</nav>
+<main class="wrap reconstruction-view-shell">
+<header class="reference-header compact-reconstruction-header">
+  <div class="badge evidence-question">CERN側 / 比較候補</div>
+  <h1>CERNでKEKのHTMLを確認したときの表示候補</h1>
+  <p class="lead">森田様がCERNの端末室からKEKへログインしてHTMLを作成したあと、WWWブラウザで表示確認していた場合の環境を比較します。</p>
+  <div class="reference-caution"><strong>候補の扱い:</strong> 1992年9月30日に森田様が使った端末は未特定です。CERNの史料でLine Mode Browserが動作していた機種、当時CERNに存在したNeXT環境、そして森田様の講演資料に残る配色を、証拠の強さを分けたうえで比較します。どれかを正解として先に固定するものではありません。</div>
+</header>
+
+<section class="reviewer-section workflow-evidence" aria-labelledby="cern-workflow-title">
+  <div class="section-heading simple-heading"><div class="badge evidence-confirmed">資料に記載されていることと未確認点を分ける</div><h2 id="cern-workflow-title">CERNでの作業の流れ</h2></div>
+  <div class="archive-principles">
+    <article><strong>CERN/W3C資料</strong><span>Berners-Lee氏はNeXT上で最初のWorldWideWebブラウザ／エディタとサーバーを開発しました。</span></article>
+    <article><strong>W3C保存資料</strong><span>最初のWWWサーバーにはHTML仕様が公開され、1992年保存版にはTagsやFinding Examplesなどの説明が残っています。</span></article>
+    <article><strong>KEK公式記事</strong><span>森田様はCERNの端末室からKEKへログインしてHTMLファイルを作成したと説明されています。</span></article>
+    <article><strong>未確認</strong><span>その端末がNeXTだったか、HTMLを何を参考に書いたか、作成後にどのブラウザで確認したかは未特定です。</span></article>
+  </div>
+  <p class="source-caution">したがって「NeXTを使った可能性」は検証候補として残しますが、Berners-Lee氏がNeXTを使っていた事実だけから森田様の端末をNeXTと断定しません。</p>
+</section>
+
+<section class="shared-reference-strip" aria-labelledby="cern-green-reference-title">
+  <figure class="reference-figure compact-reference-figure">
+    <img src="assets/morita-green-reference.png" alt="森田様の講演資料に掲載された、薄緑背景に白文字のKEK INFORMATION再現画面">
+    <figcaption>森田様の講演資料に掲載された「KEK INFORMATION」の再現画面（画面部分を抜粋）。この表示がCERN側・KEK側・後年の再現作業のどれを意図したものかは、現在未確認です。</figcaption>
+  </figure>
+  <div>
+    <div class="badge evidence-question">共通の参考資料</div>
+    <h2 id="cern-green-reference-title">この薄緑＋白文字の横長画面は、CERN側だった可能性も検証します</h2>
+    <p>物理モニタ全面として見ると横長ですが、GUIデスクトップ上のターミナル・ウィンドウとして見ると不自然ではありません。そこでCERN側では、NeXT上でLine Mode Browserを動かした候補も比較できるようにしています。</p>
+  </div>
+</section>
+
+<section class="emulator-host candidate-comparison" aria-labelledby="cern-candidate-title" data-candidate-switcher>
+  <div class="emulator-host-head">
+    <div><div class="badge">候補を切り替えて比較</div><h2 id="cern-candidate-title">CERN側</h2></div>
+    <a class="action" href="emulator/index.html">詳細調整は研究用エミュレータへ</a>
+  </div>
+  <p class="emulator-instruction">下のボタンを押すだけで候補を切り替えられます。画面をクリックして <kbd>1</kbd> などの参照番号を入力し <kbd>Return</kbd> でリンクを選べます。</p>
+
+  <div class="candidate-tabs" role="tablist" aria-label="CERN側の表示候補">
+    <button class="candidate-tab is-active" role="tab" aria-selected="true" data-candidate
+      data-title="標準80×24 Line Mode Browser — 機種指定なし"
+      data-note="機種・色・実フォントを決め打ちせず、80×24のLine Mode Browser表示と操作だけを確認する中立候補です。"
+      data-src="emulator/index.html?profile=cern_morita_unknown&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0">標準80×24</button>
+    <button class="candidate-tab" role="tab" aria-selected="false" data-candidate
+      data-title="IBM RISC System/6000 / AIX — Line Mode Browser"
+      data-note="W3C史料では1991年3月のLine Mode Browser公開先にRS/6000が含まれ、CERNの2013年復元でもIBM RS/6000実機が参照されています。森田様の端末だったことは未確認です。"
+      data-source-url="https://home.cern/why-bring-back-line-mode-browser/" data-source-label="CERN 2013復元の解説 ↗"
+      data-src="emulator/index.html?profile=cern_rs6000_reference&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0">IBM RS/6000</button>
+    <button class="candidate-tab" role="tab" aria-selected="false" data-candidate
+      data-title="Sun-4 — 1152×900公式構成候補 + Line Mode Browser"
+      data-note="W3Cの初期WWW史で1991年3月のLMB公開先としてSun-4が確認できます。表示は当時Sunが正式に提供した19-inch 1152×900構成を候補として使い、その中へ80×24のxterm文字面を置きます。CERNで使われた正確なSun機種・モニタ型番はまだ断定しません。"
+      data-source-url="https://www.w3.org/People/Berners-Lee/History.html" data-source-label="W3C 初期WWW史 ↗"
+      data-src="emulator/index.html?profile=cern_sun4_reference&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0">Sun-4</button>
+    <button class="candidate-tab" role="tab" aria-selected="false" data-candidate
+      data-title="PRIAM — DEC VAX 8530 / ULTRIX + Line Mode Browser"
+      data-note="CERN資料でPRIAMはDEC VAX 8530 / ULTRIXまで確認できます。1986年CERN標準端末候補にはDMT2200（主に80桁）とPericom MG200 Monterey（80/132桁・graphics）がありますが、1992年に森田様が接続した端末は未特定のため、物理筐体や専用フォントは断定しません。"
+      data-source-url="https://www.w3.org/People/Berners-Lee/History.html" data-source-label="W3C 初期WWW史 ↗"
+      data-src="emulator/index.html?profile=cern_priam_vax_reference&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0">PRIAM VAX 8530</button>
+    <button class="candidate-tab" role="tab" aria-selected="false" data-candidate
+      data-title="NeXTSTEP Terminal.app + Line Mode Browser"
+      data-note="Berners-Lee氏がCERNでNeXT上に最初のWorldWideWeb環境を構築していたことはCERN/W3C資料に記載されています。この候補は、そのNeXT上のターミナル・ウィンドウでLine Mode Browserを実行した場合を比較します。この構成が森田様の実際の作業環境だったかは、今回お伺いしたい点です。"
+      data-source-url="https://www.w3.org/People/Berners-Lee/WorldWideWeb.html" data-source-label="W3C: 最初のWorldWideWebとNeXT ↗"
+      data-src="emulator/index.html?profile=cern_nextstep_terminal_lmb&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0">NeXT + LMB</button>
+    <button class="candidate-tab lecture-green-tab" role="tab" aria-selected="false" data-candidate
+      data-title="color NeXT + X11/xterm + Line Mode Browser — 講演資料配色候補"
+      data-note="森田様の講演資料にある薄緑背景・白文字の横長ウィンドウを、color NeXT上のX11/xtermでLMBを動かした場合の検証候補として再現します。1992年当時この構成・配色を実際に使用したことは未確認です。"
+      data-src="emulator/index.html?profile=cern_next_x11_lmb_green&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0">NeXT + 緑色候補</button>
+  </div>
+
+  <div class="candidate-summary" aria-live="polite">
+    <div class="badge evidence-question">現在表示中</div>
+    <h3 data-candidate-title>標準80×24 Line Mode Browser — 機種指定なし</h3>
+    <p data-candidate-note></p>
+    <p><a data-candidate-source hidden target="_blank" rel="noopener noreferrer"></a></p>
+  </div>
+
+  <iframe class="emulator-frame cern-candidate-frame" data-candidate-frame title="標準80×24 LMB表示（機種指定なし）" src="emulator/index.html?profile=cern_morita_unknown&amp;behavior=sep1992_conservative&amp;embed=1&amp;animate=0" loading="eager"></iframe>
+  <div class="external-candidate-panel" data-candidate-external hidden></div>
+</section>
+
+<section class="reviewer-section reconstruction-status">
+  <div class="section-heading simple-heading"><div class="badge evidence-question">森田様に伺いたいこと</div><h2>どの候補に近いか、またはどれとも違うか</h2></div>
+  <p>特に、講演資料の薄緑＋白文字の画面がCERNで見ていたものに近いのか、それともKEK側の表示なのか、あるいは後年の再現時に作った表示なのかをご記憶の範囲で伺いたいと考えています。</p>
+  <p><a href="review.html#q-green">質問ページへ</a> ／ <a href="environment-reference.html#cern-side-materials">CERN側の根拠資料へ</a></p>
+</section>
+</main>
+<script src="candidate-switcher.js?v=0.52"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+X11 fixed 6x13 bitmap font — redistribution note
+
+Bundled file:
+  emulator/assets/fonts/x11/6x13.bdf
+
+The BDF itself declares:
+  COPYRIGHT "Public domain font.  Share and enjoy."
+
+Bundled SHA-256:
+  c68c55ca8effcdc2714fffa9c8e07df290411867b00b547eeae952f7473efc9b
+
+Source used for this project:
+  Debian Sources, xfonts-base 1:1.0.5, font-misc-misc/6x13.bdf
+
+The BDF header and COPYRIGHT property are retained unchanged.
