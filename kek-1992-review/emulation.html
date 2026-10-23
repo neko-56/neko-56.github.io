@@ -82,7 +82,7 @@
 <script>
 (function(){
   const frameCSS = `
-    .monitor-active{
+    .monitor-wrap.has-monitor-frame .monitor-active{
       padding:8px 10px!important;
       background:#030303!important;
       box-shadow:inset 0 0 0 2px #111,0 0 0 1px #32373a!important;
@@ -93,20 +93,24 @@
     .monitor-shell[data-shell="ibm-reference"] .monitor-active{padding:10px 12px!important}
     .monitor-shell[data-shell="neutral-plane"] .monitor-active{padding:7px 9px!important}
   `;
-  document.querySelectorAll('.emulation-card iframe').forEach(function(frame){
-    frame.addEventListener('load',function(){
-      try{
-        const doc=frame.contentDocument;
-        if(!doc||!doc.head)return;
-        if(!doc.querySelector('style[data-review-monitor-margin]')){
-          const style=doc.createElement('style');
-          style.setAttribute('data-review-monitor-margin','1');
-          style.textContent=frameCSS;
-          doc.head.appendChild(style);
-        }
+  function applyFrame(frame){
+    try{
+      const doc=frame.contentDocument;
+      if(!doc||doc.readyState==='loading'||!doc.head)return;
+      if(!doc.querySelector('style[data-review-monitor-margin]')){
+        const style=doc.createElement('style');
+        style.setAttribute('data-review-monitor-margin','1');
+        style.textContent=frameCSS;
+        doc.head.appendChild(style);
+      }
+      requestAnimationFrame(function(){
         frame.contentWindow.dispatchEvent(new Event('resize'));
-      }catch(e){}
-    });
+      });
+    }catch(e){}
+  }
+  document.querySelectorAll('.emulation-card iframe').forEach(function(frame){
+    frame.addEventListener('load',function(){applyFrame(frame)});
+    applyFrame(frame);
   });
 })();
 </script>
