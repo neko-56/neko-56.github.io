@@ -156,11 +156,10 @@
         bottomBarHeight: 16,
         colors: { frame: "#a9a9a5", keyTitle: "#050505", titleText: "#f4f4f0", border: "#191919", body: "#f4f4f0" }
       },
-      fontFamily: 'Ohlfs',
-      requiresHistoricalRaster: true,
-      historicalRasterStatus: "RECONSTRUCTION ASSET NOT YET PINNED — DO NOT FALL BACK",
-      fontCandidate: "Ohlfs 10pt — period Terminal settings example",
-      fontEvidence: "NeXT Development Tools (Dec 1990), p. 2-8, shows Ohlfs 10pt in the Terminal preferences example; this does not establish the settings used at CERN in September 1992. The original Ohlfs font bytes do not have a verified redistribution grant in this project, so this profile records a period settings example without silently substituting a claimed exact raster.",
+      fontFamily: '"Courier New", Courier, monospace',
+      historicalRasterStatus: "APPROXIMATE DISPLAY — period Ohlfs 10pt setting is documented, exact glyph raster is not asserted",
+      fontCandidate: "Ohlfs 10pt period Terminal settings reference; displayed with a monospace approximation for reviewer visibility",
+      fontEvidence: "NeXT Development Tools (Dec 1990), p. 2-8, shows Ohlfs 10pt in the Terminal preferences example; this does not establish the settings used at CERN in September 1992. This comparison keeps the documented 8×16 terminal cell geometry and displays the Line Mode Browser text with an explicit monospace approximation rather than suppressing the body.",
       fallbackRasterThreshold: 92,
       fontPx: 14, baseline: 13,
       cursor: "block", cursorBlink: true,
@@ -172,6 +171,7 @@
       notes: [
         "CERN DOCUMENTED: Line Mode Browser was designed as a cross-platform browser and could run on many Unix systems.",
         "NeXT PERIOD MANUAL: Development Tools (Dec 1990), chapter 2, describes VT100-style Terminal windows and shows an Ohlfs 10pt preferences example on p. 2-8.",
+        "DISPLAY APPROXIMATION: Ohlfsの正確な字形を断定せず、本文確認のため8×16セル上にモノスペース近似で表示する。",
         "UNKNOWN: 森田氏が1992-09-30にNeXT機上でLine Mode Browserを実行した直接証拠はない。",
         "COLOR DISCIPLINE: 1992年のNeXTSTEP 2.1/3.0 native Terminal.appで任意の前景・背景色設定ができたとは現時点で確認できないため、この候補では薄緑背景を採用しない。",
         "DISPLAY RULE: NeXTのGUI候補を示すためのwindow chromeであり、森田氏の実画面配置を断定しない。"
