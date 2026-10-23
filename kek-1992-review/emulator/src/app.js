@@ -330,7 +330,19 @@
     const v=sizeSelect.value;
     if(v!=="auto")return Number(v);
 
-    const available=Math.max(1,displayScroll.clientWidth-8);
+    // Fit the entire comparison/monitor frame, not just the canvas. Otherwise
+    // fixed CSS bezel widths push the outer shell beyond a narrow iframe.
+    const scrollStyle=getComputedStyle(displayScroll);
+    const shellStyle=getComputedStyle(monitorShell);
+    const activeStyle=getComputedStyle(document.getElementById("monitorActive"));
+    const px=(style,key)=>parseFloat(style[key])||0;
+    const extra=(style,axis)=>axis==="x"
+      ?px(style,"paddingLeft")+px(style,"paddingRight")+px(style,"borderLeftWidth")+px(style,"borderRightWidth")
+      :px(style,"paddingTop")+px(style,"paddingBottom")+px(style,"borderTopWidth")+px(style,"borderBottomWidth");
+    const frameW=extra(shellStyle,"x")+extra(activeStyle,"x");
+    const frameH=extra(shellStyle,"y")+extra(activeStyle,"y");
+    const available=Math.max(1,Math.floor(displayScroll.clientWidth
+      -px(scrollStyle,"paddingLeft")-px(scrollStyle,"paddingRight")-frameW));
     const fitW=available/profile.framebufferWidth;
 
     // Reviewer-facing embedded pages should use the available space instead of
@@ -339,7 +351,7 @@
     // size changes.  Fit both width and the iframe viewport height, and permit
     // enlargement up to 2x for the 640px-wide text-plane profiles.
     if(embedded){
-      const availableH=Math.max(1,window.innerHeight-118);
+      const availableH=Math.max(1,Math.floor(window.innerHeight-118-frameH));
       const fitH=availableH/profile.framebufferHeight;
       return Math.max(0.1,Math.min(2,fitW,fitH));
     }

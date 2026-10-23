@@ -56,12 +56,13 @@
       phosphorGlow: false, scanlineAlpha: 0, crtVignette: false,
       revealCellsPerSecond: 2500,
       physicalResolutionStatus: "not asserted here — 80×24 text display plane only",
-      monitorFrame: { kind:"reference", shell:"ibm-reference", label:"IBM RISC System/6000 reference display — 2013 CERN reconstruction", status:"2013 REFERENCE; 1992 MORITA DISPLAY NOT IDENTIFIED" },
+      monitorFrame: { kind:"comparison", shell:"neutral-plane", label:"80×24 text plane / Meyrin reference — physical monitor shape and margins unconfirmed", status:"TEXT PLANE ONLY; 2013 FONT REFERENCE" },
       notes: [
         "CONFIRMED: 2013再現チームは、初期Line Mode Browserが動く古いIBM RISC System/6000 AIX機を実際に参照した。",
         "CONFIRMED: 端末字形はCourierではなく、画面を接写してglyphを再構成した。Meyrinはその成果。",
         "CONFIRMED: 2013再現は文字を1文字ずつ描く見え方も再現した。",
-        "IMPORTANT: このRS/6000は2013年の参照実機であり、森田氏が1992年に使った端末だとは確認されていない。"
+        "IMPORTANT: このRS/6000は2013年の参照実機であり、森田氏が1992年に使った端末だとは確認されていない。",
+        "GEOMETRY: 720×336は80桁×24行を9×14セルで描いた文字領域の寸法。物理モニターの縦横比・有効表示面・余白は未確認。外枠は比較UI。"
       ]
     },
 

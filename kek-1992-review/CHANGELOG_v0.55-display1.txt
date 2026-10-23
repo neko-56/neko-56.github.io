@@ -1,0 +1,8 @@
+v0.55-display1 — 2026-10-23
+
+- Fit embedded monitor/comparison shells including CSS padding and borders.
+  The previous canvas-only calculation clipped the bezel at both sides.
+- Show candidate B as a text-plane reference without an invented IBM monitor.
+- Explain that 720x336 is 80x24 cells at 9x14, not a physical monitor aspect ratio.
+- Mark A/B/D as text-plane comparisons; actual monitor margins remain unknown.
+- Preserve text grids, font assets and historical framebuffer pixels.

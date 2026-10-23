@@ -44,6 +44,15 @@ physical monitor resolution.
 - CERN's 2019 reconstruction reports that the physical CRT pixels were wider than tall, but does not give a numeric pixel-aspect ratio suitable for this package.
 - v0.54 therefore preserves 1120×832 square framebuffer pixels and records the non-square physical-pixel issue instead of inventing a stretch factor.
 
+## Candidate B / RS/6000 text-plane reference (v0.55-display1)
+
+The 720×336 framebuffer is 80×24 cells at 9×14 logical pixels. It describes
+only the character plane, not the physical monitor aspect ratio or its active
+raster. The IBM-like shell used previously is removed; the neutral outer frame
+is comparison UI. Actual monitor shape, pixel aspect and margins are unconfirmed.
+Embedded fitting now subtracts the shell and active-border CSS extents before
+sizing the canvas, preventing left/right clipping without changing glyph pixels.
+
 ## Presentation previews
 
 Review-page thumbnails no longer render a hard-coded 1000×650 iframe and then

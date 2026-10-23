@@ -106,14 +106,14 @@
         </div>
           <p class="hint">PRIAM / VAX 8530は接続先ホストの情報であり、手元の表示端末とは別に扱っています。ホスト名や端末の記憶があれば、質問1の補足欄へお書きください。</p>
           <h3>CERN側の見え方の比較</h3>
-          <p>文字面、モニター全体、ウィンドウの形など、比較できる範囲が候補ごとに異なります。近い点・違う点があればお教えください。複数選択できます。</p>
+          <p>文字面、モニター全体、ウィンドウの形など、比較できる範囲が候補ごとに異なります。A・B・Dは文字領域のみの比較で、外枠は実物のモニターを表していません。実機の余白や画面の縦横比は未確認です。近い点・違う点があればお教えください。複数選択できます。</p>
           <div class="display-choice-grid" role="group" aria-label="CERN側の見え方の比較（複数選択可）">
           <article class="display-choice">
             <button type="button" class="emulator-thumb" data-viewer="emulator" data-title="表示候補A" data-src="emulator/index.html?profile=cern_morita_unknown&amp;embed=1"><iframe data-preview-src="emulator/index.html?profile=cern_morita_unknown&amp;embed=1" title="表示候補Aの縮小プレビュー" tabindex="-1" inert aria-hidden="true" loading="lazy"></iframe><span>右側で操作</span></button>
             <label><input type="checkbox" name="cern_display_candidate" value="表示候補Aの見え方が近い"><strong>表示候補A</strong></label>
           </article>
           <article class="display-choice">
-            <button type="button" class="emulator-thumb" data-viewer="emulator" data-title="表示候補B" data-src="emulator/index.html?profile=cern_rs6000_reference&amp;embed=1"><iframe data-preview-src="emulator/index.html?profile=cern_rs6000_reference&amp;embed=1" title="表示候補Bの縮小プレビュー" tabindex="-1" inert aria-hidden="true" loading="lazy"></iframe><span>右側で操作</span></button>
+            <button type="button" class="emulator-thumb" data-viewer="emulator" data-title="表示候補B（文字領域のみ）" data-note="80桁×24行を9×14の文字セルで描いた表示です。横長比率は文字領域の比率で、実物のモニターの形状や余白を再現したものではありません。" data-src="emulator/index.html?profile=cern_rs6000_reference&amp;embed=1"><iframe data-preview-src="emulator/index.html?profile=cern_rs6000_reference&amp;embed=1" title="表示候補Bの縮小プレビュー" tabindex="-1" inert aria-hidden="true" loading="lazy"></iframe><span>右側で操作</span></button>
             <label><input type="checkbox" name="cern_display_candidate" value="表示候補Bの見え方が近い"><strong>表示候補B</strong></label>
           </article>
           <article class="display-choice">
