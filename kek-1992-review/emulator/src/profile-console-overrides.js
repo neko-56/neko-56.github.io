@@ -7,7 +7,7 @@
   // DECstation firmware can route the system console to the workstation graphics
   // monitor (setenv console *), and ULTRIX Worksystem Software documents a dumb
   // terminal display driver which writes /dev/console text directly to the
-  // workstation screen when it is not redirected through /dev/xcons.  That is a
+  // workstation screen when it is not redirected through /dev/xcons. That is a
   // real windowless display route: it does NOT mean that an 80x24 character grid
   // is scaled up to fill every framebuffer pixel.
   const kekConsole=profiles.kek_console_fullscreen_candidate;
@@ -29,10 +29,6 @@
   // window. IBM documentation describes /dev/console and high-function/graphics
   // displays as console candidates, and a graphics console can operate in text
   // (ASCII) mode as well as a graphical environment.
-  //
-  // This profile deliberately does NOT claim that the CERN 2013 session used
-  // this path. It exists so the reviewer can compare the two technically valid
-  // display routes on the same inferred IBM 6091 Model 19 / 1280x1024 display.
   const base=profiles.cern_rs6000_reference;
   if(base){
     const p=Object.assign({},base);
@@ -41,10 +37,6 @@
     p.evidenceLevel="ATTESTED AIX CONSOLE PATH / EXACT CERN 2013 SESSION MODE UNRESOLVED";
     p.windowChrome=null;
     p.desktop="#000000";
-    // The physical display remains the 1280x1024 6091 candidate. With no
-    // windowChrome, the renderer paints the whole framebuffer in terminal
-    // background and centers the 80x24 Meyrin grid. The 9x14 glyph pixels are
-    // not stretched to fill the monitor.
     p.terminalRect={x:0,y:0,w:1280,h:1024};
     p.physicalResolutionStatus="WINDOWLESS GRAPHICS-CONSOLE COMPARISON — IBM 6091 Model 19 candidate, 19-inch color / 1280×1024; exact CERN 2013 session mode unresolved";
     p.pixelAspectStatus="1280×1024 physical-display candidate; 80×24 Meyrin 9×14 grid is displayed without glyph stretching";
@@ -61,8 +53,6 @@
     profiles[p.id]=p;
   }
 
-  // Make the already full-screen terminal candidates explicit in their
-  // evidence text. These are not GUI terminal windows.
   const priam=profiles.cern_priam_vax_reference;
   if(priam){
     priam.notes=(priam.notes||[]).concat([
@@ -75,4 +65,22 @@
       "DISPLAY ROUTE: IBM 3270-class候補はwindowed terminal emulatorではなく、物理3270 displayの文字面として扱う。"
     ]);
   }
+
+  // Update reviewer-facing wording without changing the historical profile ids.
+  const kekOption=document.querySelector('#profile option[value="kek_console_fullscreen_candidate"]');
+  if(kekOption)kekOption.textContent="KEK — DECstation 5000/125 / graphics console（ウィンドウなし）";
+  const aixOption=document.querySelector('#profile option[value="cern_rs6000_console_candidate"]');
+  if(aixOption)aixOption.textContent="CERN candidate — IBM RS/6000 / AIX graphics console（ウィンドウなし）";
+
+  // app.js historically keeps standalone auto display at >=100% for pixel-level
+  // inspection. In browser Fullscreen that can crop a 1280x1024 framebuffer plus
+  // its physical bezel. Load a presentation-only fitter after app.js has installed
+  // its own fullscreen redraw listener; backing framebuffer pixels stay unchanged.
+  root.addEventListener("DOMContentLoaded",function(){
+    if(document.querySelector('script[data-fullscreen-fit]'))return;
+    const s=document.createElement("script");
+    s.src="src/fullscreen-fit.js?v=0.62";
+    s.setAttribute("data-fullscreen-fit","1");
+    document.body.appendChild(s);
+  });
 })(typeof self!=="undefined"?self:this);
